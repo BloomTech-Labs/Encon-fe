@@ -1,26 +1,38 @@
 import React from "react";
-
+import "../components/Calculator.scss";
 export const Calculator = () => {
   return (
     <div>
-      <form>
-        <label>TV</label>
-        <input type="radio" value="TV" />
+      <form className="calculator">
+        <h3>Device</h3>
+        <label>
+          TV
+          <input className="radio" type="radio" value="TV" />
+        </label>
 
-        <label>Phone</label>
-        <input type="radio" value="Phone" />
+        <label>
+          Location/Zip Code
+          <input type="text" />
+        </label>
 
-        <label>Washer/Dryer</label>
-        <input type="radio" value="Washer/Dryer" />
+        <div>
+          <h2>Daily Use</h2>
 
-        <label>Mircowave</label>
-        <input type="radio" value="Microwave" />
+          <label>
+            Hours
+            <input type="integer" />
+          </label>
 
-        <label>Fridge/Freezer</label>
-        <input type="radio" value="Fridge/Freezer" />
+          <label>
+            <input type="integer" />
+            Minutes
+          </label>
+        </div>
 
-        <label>AC Unit</label>
-        <input type="radio" value="AC Unit" />
+        <label>
+          Days Per Week
+          <input type="integer" />
+        </label>
       </form>
     </div>
   );
