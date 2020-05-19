@@ -4,4 +4,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+
+  .radioButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .radio {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-evenly;
+    }
+  }
 }
