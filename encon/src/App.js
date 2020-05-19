@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.scss";
-
+import Login from './components/LogIn.js'
 function App() {
   return (
     <div className="App">
-      <p>encon wow</p>
+      <Login/>
     </div>
   );
 }
