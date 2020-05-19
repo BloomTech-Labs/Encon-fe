@@ -1,0 +1,31 @@
+
+.login-container {
+ margin-left:  2rem;
+ margin-right: 2rem;
+
+ .label{
+     display:flex;
+     font-weight: bolder;
+ }
+
+ input {
+     display: flex;
+     width:98%;
+     margin-left: .03rem;
+     border-radius: .25rem;
+     border: .5px solid grey;
+     line-height: 1.75rem;
+     
+     
+ }
+ button {
+     width:100%;
+     background-color:#044FBD;
+     padding-top: .7rem;
+     padding-bottom: .7rem;
+     color: white;
+     border-radius: .7rem;
+     border: #044FBD solid;
+     margin-top: 3rem;
+ }
+}
