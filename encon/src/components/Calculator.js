@@ -22,6 +22,16 @@ export const Calculator = () => {
         <label>AC Unit</label>
         <input type="radio" value="AC Unit" />
       </form>
+
+      <div className="calc-output">
+        {/*use expression interpolation `${}` to insert output data once we connect to DS BE using axios*/}
+        <h3>Total Daily Cost</h3>
+        <p>$1test</p>
+        <h3>Average Monthly Cost based on daily rate</h3>
+        <p>$30test</p>
+        <h3>Annual Average</h3>
+        <p>$365test</p>
+      </div>
     </div>
   );
 };
