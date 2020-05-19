@@ -1,12 +1,15 @@
-import React from "react";
-import "./App.scss";
+import React from 'react';
+import './App.scss';
+import { Nav } from './components/Nav.js';
+import { Header } from './components/Header.js';
 
-function App() {
-  return (
-    <div className="App">
-      <p>encon wow</p>
-    </div>
-  );
-}
 
-export default App;
+export const App = () => {
+	return (
+		<div className='App'>
+      <Nav />
+      <Header />
+			<p>encon wow</p>
+		</div>
+	);
+};
