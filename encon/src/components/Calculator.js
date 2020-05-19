@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/Calculator.scss";
+import "../styles/Calculator.scss";
 export const Calculator = () => {
   return (
     <div>
