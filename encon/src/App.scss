@@ -1,55 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 * {
-	box-sizing: border-box;
-	@media only screen and (min-width: 37.5rem) {
-	}
+  box-sizing: border-box;
+  @media only screen and (min-width: 37.5rem) {
+  }
 }
 
 body {
-	font-size: 62.5%;
-	margin: 0;
-	font-family: 'Rubik', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	background: #e5e5e5;
+  font-size: 62.5%;
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #e5e5e5;
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-		monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .App {
-	text-align: center;
+  text-align: center;
 }
 
 .nav-header {
-	background-color: #4f4f4f;
-	padding: 2rem;
+  background-color: #4f4f4f;
+  padding: 2rem;
 }
 
 .nav-logo {
-	display: flex;
+  display: flex;
 }
 
 .main-header {
-	font-size: 3rem;
-	line-height: 3.6rem;
-	font-weight: 500;
+  font-size: 3rem;
+  line-height: 3.6rem;
+  font-weight: 500;
 }
 
 .main-title {
-	font-size: 2rem;
-	line-height: 2.4rem;
-	font-weight: normal;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  font-weight: normal;
 }
 
 .main-banner {
-	color: #ffffff;
-	background: #044fbd;
-	font-size: 3rem;
-	font-weight: normal;
-	line-height: 3.5rem;
-	padding: 0.9rem 6.3rem 0.7rem 8rem;
+  color: #ffffff;
+  background: #044fbd;
+  font-size: 3rem;
+  font-weight: normal;
+  line-height: 3.5rem;
+  padding: 0.9rem 6.3rem 0.7rem 8rem;
 }
