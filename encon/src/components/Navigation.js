@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/Nav.scss';
+import '../styles/Navigation.scss';
 import logo from '../assets/EnCon-logo.png';
 import {
 	Collapse,
