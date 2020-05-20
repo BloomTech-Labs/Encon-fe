@@ -38,7 +38,7 @@ export const Calculator = () => {
 
         <h2>Daily Use</h2>
         <div className="dailyUse">
-          <label>
+          <label className="divider">
             <input type="integer" />
             Hours
           </label>

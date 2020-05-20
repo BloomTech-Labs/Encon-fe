@@ -4,6 +4,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  input {
+    outline-color: #044fbd;
+  }
 
   .radioButtons {
     display: flex;
@@ -36,11 +39,17 @@
     justify-content: space-between;
     border: 1px solid #bdbdbd;
     border-radius: 5px;
-    width: 20%;
+    width: 17%;
     padding: 0.5%;
+    .divider {
+      border-right: solid #bdbdbd 2px;
+    }
     input {
       border: none;
-      width: 20%;
+      background-color: white;
+      // border-bottom: solid 2px black;
+      width: 40%;
+      padding: 3%;
     }
   }
 }
