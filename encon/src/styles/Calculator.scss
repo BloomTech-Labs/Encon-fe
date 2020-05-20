@@ -45,3 +45,35 @@
     border-radius: 2px;
   }
 }
+.register-login-landingCalc {
+  p {
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.9rem;
+    margin: 5%;
+  }
+  .register-login-link {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid #044fbd;
+    background: #044fbd;
+    text-decoration: none;
+    padding: 3% 25%;
+    margin: auto 0;
+    border-radius: 8px;
+  }
+  .login-link {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid #044fbd;
+    background: #044fbd;
+    text-decoration: none;
+    padding: 2.5% 30%;
+    margin: auto 0;
+    border-radius: 8px;
+  }
+}

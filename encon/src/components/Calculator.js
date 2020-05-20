@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/Calculator.scss";
+import { Link } from "react-router-dom";
+
 export const Calculator = () => {
   return (
     <div>
@@ -63,8 +65,20 @@ export const Calculator = () => {
           <p>$365test</p>
         </div>
       </div>
+
+      <section className="register-login-landingCalc">
+        <p>
+          Enjoyed using our calculator? Click below to keep track of your energy
+          costs.
+        </p>
+        <Link className="register-login-link" to="/register">
+          Register
+        </Link>
+        <p>Already have an account? Login below</p>
+        <Link className="login-link" to="/login">
+          Login
+        </Link>
+      </section>
     </div>
   );
 };
-
-//test remote branch work
