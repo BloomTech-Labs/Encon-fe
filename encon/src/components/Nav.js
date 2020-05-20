@@ -1,4 +1,6 @@
 import React from 'react';
+import '../styles/Nav.scss';
+
 import logo from '../assets/EnCon-logo.png';
 
 export const Nav = () => {
