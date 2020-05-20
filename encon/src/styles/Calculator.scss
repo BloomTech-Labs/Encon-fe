@@ -2,8 +2,9 @@
   display: flex;
   font-size: 1.4rem;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
+  margin: 3%;
   .deviceTitle {
     margin: 1%;
   }
@@ -27,12 +28,13 @@
   .location,
   .weeklyUse {
     display: flex;
-    margin: 1%;
+    margin: 2% 0;
     flex-direction: column;
     text-align: left;
     input {
       border: 1px solid #bdbdbd;
       padding: 2.5% 0;
+      margin: 4% 0;
       border-radius: 10px;
     }
   }
@@ -44,6 +46,7 @@
     border-radius: 5px;
     white-space: nowrap;
     width: 25%;
+    margin: 2% 0;
     padding: 0.5%;
     .divider {
       border-right: solid #bdbdbd 1px;
@@ -57,7 +60,7 @@
     }
 
     @media (max-width: 800px) {
-      width: 50%;
+      width: 60%;
     }
   }
 }
