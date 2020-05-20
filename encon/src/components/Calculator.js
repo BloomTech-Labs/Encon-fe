@@ -6,7 +6,7 @@ export const Calculator = () => {
       <div className="main-banner">Energy Calculator</div>
       {/* Calculator Starts here and is a form itself */}
       <form className="calculator">
-        <h3>Device</h3>
+        <h3 className="deviceTitle">Device</h3>
         {/* All the radio buttons begin here */}
         <div className="radioButtons">
           <label className="radio">
@@ -31,12 +31,13 @@ export const Calculator = () => {
           </label>
         </div>
         {/* Radio Buttons end here */}
+        {/* Location Input */}
         <label className="location">
           Location/Zip Code
           <input type="text" />
         </label>
-
         <h2>Daily Use</h2>
+        {/* Daily Use Container for Hours and Minutes */}
         <div className="dailyUse">
           <label className="divider">
             <input type="integer" />
