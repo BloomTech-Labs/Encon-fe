@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 export const Calculator = () => {
   return (
     <div>
+      <div className="main-banner">Energy Calculator</div>
       {/* Calculator Starts here and is a form itself */}
       <form className="calculator">
-        <h3>Device</h3>
+        <h3 className="deviceTitle">Device</h3>
         {/* All the radio buttons begin here */}
         <div className="radioButtons">
           <label className="radio">
@@ -32,16 +33,17 @@ export const Calculator = () => {
           </label>
         </div>
         {/* Radio Buttons end here */}
-        <label>
+        {/* Location Input */}
+        <label className="location">
           Location/Zip Code
           <input type="text" />
         </label>
-        <div>
-          <h2>Daily Use</h2>
-
-          <label>
-            Hours
+        <h2>Daily Use</h2>
+        {/* Daily Use Container for Hours and Minutes */}
+        <div className="dailyUse">
+          <label className="divider">
             <input type="integer" />
+            Hours
           </label>
 
           <label>
@@ -49,8 +51,8 @@ export const Calculator = () => {
             Minutes
           </label>
         </div>
-        <label>
-          Days Per Week
+        <label className="weeklyUse">
+          Days Per Week Used
           <input type="integer" />
         </label>
       </form>
