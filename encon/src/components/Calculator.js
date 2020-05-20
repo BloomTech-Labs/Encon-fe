@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/Calculator.scss";
+import { Link } from "react-router-dom";
+
 export const Calculator = () => {
   return (
     <div>
@@ -55,16 +57,30 @@ export const Calculator = () => {
         </label>
       </form>
       <div className="calc-output">
-        {/*use expression interpolation `${}` to insert output data once we connect to DS BE using axios*/}
-        <h3>Total Daily Cost</h3>
-        <p>$1test</p>
-        <h3>Average Monthly Cost based on daily rate</h3>
-        <p>$30test</p>
-        <h3>Annual Average</h3>
-        <p>$365test</p>
+        <div className="calc-belowBorder">
+          {/*use expression interpolation `${}` to insert output data once we connect to DS BE using axios*/}
+          <h3>Total Daily Cost</h3>
+          <p>$1test</p>
+          <h3>Average Monthly Cost based on daily rate</h3>
+          <p>$30test</p>
+          <h3>Annual Average</h3>
+          <p>$365test</p>
+        </div>
       </div>
+
+      <section className="register-login-landingCalc">
+        <p>
+          Enjoyed using our calculator? Click below to keep track of your energy
+          costs.
+        </p>
+        <Link className="register-login-link" to="/register">
+          Register
+        </Link>
+        <p>Already have an account? Login below</p>
+        <Link className="login-link" to="/login">
+          Login
+        </Link>
+      </section>
     </div>
   );
 };
-
-//test remote branch work
