@@ -29,6 +29,16 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
       />
       {touched.email && errors.email && <p>{errors.email}</p>}
     </div>
+  
+  <div>
+      <Field
+        type="password"
+        name="password"
+        placeholder="Password"
+        className="fields"
+      />
+      {touched.password && errors.password && <p>{errors.password}</p>}
+    </div>
 
     <div>
       <Field
@@ -51,10 +61,11 @@ const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
   </Form>
 );
 const FormikSignUp = withFormik({
-  mapPropsToValues({ name, email, zip }) {
+  mapPropsToValues({ name, email, password, zip }) {
     return {
       name: name || "",
       email: email || "",
+      password: password || "",
       zip: zip || "",
 
     };
@@ -62,6 +73,7 @@ const FormikSignUp = withFormik({
   validationSchema: Yup.object().shape({
     name: Yup.string().min(4).required("must be 4+ chars long"),
     email: Yup.string().min(4).required("must be 4+ chars long"),
+    password: Yup.string().min(4).required("must be 4+ chars long"),
     zip: Yup.string().min(5).required("must be 5+ chars long"),
 
   }),
