@@ -49,7 +49,7 @@ export const Calculator = () => {
           </label>
         </div>
         <label className="weeklyUse">
-          Days Per Week
+          Days Per Week Used
           <input type="integer" />
         </label>
       </form>
