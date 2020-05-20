@@ -1,6 +1,6 @@
 .calculator {
   display: flex;
-  font-size: 1rem;
+  font-size: 1.4rem;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
@@ -19,19 +19,29 @@
 
 .calc-output {
   border-top: 1px solid #bdbdbd;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  .calc-belowBorder {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 3% 3%;
+  }
 
   h3 {
     font-style: normal;
     font-weight: 500;
-    font-size: 1.04rem;
+    font-size: 1.4rem;
     line-height: 1.7rem;
+    padding: 1% 0 1% 0;
   }
 
   p {
     border: 1px solid #bdbdbd;
+    box-shadow: inset 1px 1px 3px rgb(173, 172, 172);
+    font-size: 1.2rem;
+    padding: 3%;
+    background-color: #dad4d4f5;
+    border-radius: 2px;
   }
 }
