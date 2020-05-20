@@ -11,9 +11,25 @@
     align-items: flex-start;
     .radio {
       display: flex;
+      font-size: 1.2rem;
       flex-direction: row-reverse;
       justify-content: space-evenly;
     }
+  }
+  .location {
+    display: flex;
+    margin: 1%;
+    flex-direction: column;
+    text-align: left;
+    input {
+      border: 1px solid #bdbdbd;
+      padding: 1%;
+      border-radius: 10px;
+    }
+  }
+
+  .dailyUse {
+    color: red;
   }
 }
 

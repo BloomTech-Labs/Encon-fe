@@ -3,6 +3,7 @@ import "../styles/Calculator.scss";
 export const Calculator = () => {
   return (
     <div>
+      <div className="main-banner">Energy Calculator</div>
       {/* Calculator Starts here and is a form itself */}
       <form className="calculator">
         <h3>Device</h3>
@@ -30,11 +31,11 @@ export const Calculator = () => {
           </label>
         </div>
         {/* Radio Buttons end here */}
-        <label>
+        <label className="location">
           Location/Zip Code
           <input type="text" />
         </label>
-        <div>
+        <div className="dailyUse">
           <h2>Daily Use</h2>
 
           <label>
