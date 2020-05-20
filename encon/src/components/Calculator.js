@@ -35,12 +35,12 @@ export const Calculator = () => {
           Location/Zip Code
           <input type="text" />
         </label>
-        <div className="dailyUse">
-          <h2>Daily Use</h2>
 
+        <h2>Daily Use</h2>
+        <div className="dailyUse">
           <label>
-            Hours
             <input type="integer" />
+            Hours
           </label>
 
           <label>
@@ -48,7 +48,7 @@ export const Calculator = () => {
             Minutes
           </label>
         </div>
-        <label>
+        <label className="weeklyUse">
           Days Per Week
           <input type="integer" />
         </label>

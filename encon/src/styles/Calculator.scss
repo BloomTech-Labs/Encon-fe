@@ -1,6 +1,6 @@
 .calculator {
   display: flex;
-  font-size: 1rem;
+  font-size: 1.4rem;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
@@ -11,25 +11,37 @@
     align-items: flex-start;
     .radio {
       display: flex;
+      margin: 4%;
+      white-space: nowrap;
+      text-align: left;
       font-size: 1.2rem;
       flex-direction: row-reverse;
-      justify-content: space-evenly;
     }
   }
-  .location {
+  .location,
+  .weeklyUse {
     display: flex;
     margin: 1%;
     flex-direction: column;
     text-align: left;
     input {
       border: 1px solid #bdbdbd;
-      padding: 1%;
+      padding: 2.5% 0;
       border-radius: 10px;
     }
   }
 
   .dailyUse {
-    color: red;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    width: 20%;
+    padding: 0.5%;
+    input {
+      border: none;
+      width: 20%;
+    }
   }
 }
 
