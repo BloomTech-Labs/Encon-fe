@@ -13,23 +13,23 @@ export const Calculator = () => {
         <div className="radioButtons">
           <label className="radio">
             Computer
-            <input type="radio" value="Computer" />
+            <input type="radio" name="device" value="Computer" />
           </label>
           <label className="radio">
             Washing Machine
-            <input type="radio" value="Washing Machine" />
+            <input type="radio" name="device" value="Washing Machine" />
           </label>
           <label className="radio">
             Refrigerator
-            <input type="radio" value="Washer/Dryer" />
+            <input type="radio" name="device" value="Washer/Dryer" />
           </label>
           <label className="radio">
             TV
-            <input type="radio" value="TV" />
+            <input type="radio" name="device" value="TV" />
           </label>
           <label className="radio">
             Lighting
-            <input type="radio" value="Lighting" />
+            <input type="radio" name="device" value="Lighting" />
           </label>
         </div>
         {/* Radio Buttons end here */}
