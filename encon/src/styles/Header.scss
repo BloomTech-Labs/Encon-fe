@@ -1,11 +1,15 @@
- 
+.main-header {
+  font-size: 3rem;
+}
+
 
 .main-title {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 
 .main-banner {
-	color: #ffffff;
-	background: #044fbd;
-	font-size: 3rem;
+  color: #ffffff;
+  background: #044fbd;
+  font-size: 3rem;
+  white-space: nowrap;
 }

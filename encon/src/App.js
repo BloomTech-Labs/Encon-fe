@@ -1,14 +1,14 @@
 import React from "react";
 import "./App.scss";
 import { Login } from "./components/LogIn.js";
-import { Nav } from "./components/Nav.js";
+import { Navigation } from "./components/Navigation.js";
 import { Route } from "react-router-dom";
 import { LandingPage } from "./components/Landing-Page";
 import { Headeralt } from "./components/Headeralt.js";
 export const App = () => {
   return (
     <div className="App">
-      <Nav />
+      <Navigation />
       <Route exact path="/">
         <LandingPage />
       </Route>
@@ -16,7 +16,6 @@ export const App = () => {
         
         <Login />
       </Route>
-      <p>encon wow</p>
     </div>
   );
 };
