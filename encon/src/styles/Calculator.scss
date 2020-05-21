@@ -1,127 +1,127 @@
 .calculator {
-  display: flex;
-  font-size: 1.4rem;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-evenly;
-  margin: 3%;
-  .deviceTitle {
-    margin: 1%;
-  }
-  input {
-    outline-color: #044fbd;
-  }
+	display: flex;
+	font-size: 1.4rem;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	margin: 3%;
+	.deviceTitle {
+		margin: 1%;
+	}
+	input {
+		outline-color: #044fbd;
+	}
 
-  .radioButtons {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    .radio {
-      display: flex;
-      margin: 4%;
-      white-space: nowrap;
-      text-align: left;
-      font-size: 1.2rem;
-      flex-direction: row-reverse;
-    }
-  }
-  .location,
-  .weeklyUse {
-    display: flex;
-    margin: 2% 0;
-    flex-direction: column;
-    text-align: left;
-    input {
-      border: 1px solid #bdbdbd;
-      padding: 2.5% 0;
-      margin: 4% 0;
-      border-radius: 10px;
-    }
-  }
+	.radioButtons {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		.radio {
+			display: flex;
+			margin: 4%;
+			white-space: nowrap;
+			text-align: left;
+			font-size: 1.2rem;
+			flex-direction: row-reverse;
+		}
+	}
+	.location,
+	.weeklyUse {
+		display: flex;
+		margin: 2% 0;
+		flex-direction: column;
+		text-align: left;
+		input {
+			border: 1px solid #bdbdbd;
+			padding: 2.5% 0;
+			margin: 4% 0;
+			border-radius: 10px;
+		}
+	}
 
-  .dailyUse {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid #bdbdbd;
-    border-radius: 5px;
-    white-space: nowrap;
-    width: 25%;
-    margin: 2% 0;
-    padding: 0.5%;
-    .divider {
-      border-right: solid #bdbdbd 1px;
-    }
-    input {
-      border: none;
-      border-radius: 5px;
-      margin: 0 5%;
-      width: 35%;
-      padding: 3%;
-    }
+	.dailyUse {
+		display: flex;
+		justify-content: space-between;
+		border: 1px solid #bdbdbd;
+		border-radius: 5px;
+		white-space: nowrap;
+		width: 25%;
+		margin: 2% 0;
+		padding: 0.5%;
+		.divider {
+			border-right: solid #bdbdbd 1px;
+		}
+		input {
+			border: none;
+			border-radius: 5px;
+			margin: 0 5%;
+			width: 35%;
+			padding: 3%;
+		}
 
-    @media (max-width: 800px) {
-      width: 60%;
-    }
-  }
+		@media (max-width: 800px) {
+			width: 60%;
+		}
+	}
 }
 
 .calc-output {
-  border-top: 1px solid #bdbdbd;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  .calc-belowBorder {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 3% 3%;
-  }
+	border-top: 1px solid #bdbdbd;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	.calc-belowBorder {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		margin: 3% 3%;
+	}
 
-  h3 {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.4rem;
-    line-height: 1.7rem;
-    padding: 1% 0 1% 0;
-  }
+	h3 {
+		font-style: normal;
+		font-weight: 500;
+		font-size: 1.4rem;
+		line-height: 1.7rem;
+		padding: 1% 0 1% 0;
+	}
 
-  p {
-    border: 1px solid #bdbdbd;
-    box-shadow: inset 1px 1px 3px rgb(173, 172, 172);
-    font-size: 1.2rem;
-    padding: 3%;
-    background-color: #dad4d4f5;
-    border-radius: 2px;
-  }
+	p {
+		border: 1px solid #bdbdbd;
+		box-shadow: inset 1px 1px 3px rgb(173, 172, 172);
+		font-size: 1.2rem;
+		padding: 3%;
+		background-color: #dad4d4f5;
+		border-radius: 2px;
+	}
 }
 .register-login-landingCalc {
-  p {
-    font-size: 1.6rem;
-    font-weight: 300;
-    line-height: 1.9rem;
-    margin: 5%;
-  }
-  .register-login-link {
-    color: white;
-    font-size: 2.5rem;
-    font-weight: 500;
-    text-align: center;
-    border: 1px solid #044fbd;
-    background: #044fbd;
-    text-decoration: none;
-    padding: 3% 25%;
-    margin: auto 0;
-    border-radius: 8px;
-  }
-  .login-link {
-    color: white;
-    font-size: 2.5rem;
-    font-weight: 500;
-    text-align: center;
-    border: 1px solid #044fbd;
-    background: #044fbd;
-    text-decoration: none;
-    padding: 2.5% 30%;
-    margin: auto 0;
-    border-radius: 8px;
-  }
+	p {
+		font-size: 1.6rem;
+		font-weight: 300;
+		line-height: 1.9rem;
+		margin: 5%;
+	}
+	.register-login-link {
+		color: white;
+		font-size: 2.5rem;
+		font-weight: 500;
+		text-align: center;
+		border: 1px solid #044fbd;
+		background: #044fbd;
+		text-decoration: none;
+		padding: 3% 25%;
+		margin: auto 0;
+		border-radius: 8px;
+	}
+	.login-link {
+		color: white;
+		font-size: 2.5rem;
+		font-weight: 500;
+		text-align: center;
+		border: 1px solid #044fbd;
+		background: #044fbd;
+		text-decoration: none;
+		padding: 2.5% 30%;
+		margin: auto 0;
+		border-radius: 8px;
+	}
 }
