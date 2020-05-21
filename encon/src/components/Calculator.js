@@ -34,11 +34,11 @@ export const Calculator = () => {
         </div>
         {/* Radio Buttons end here */}
         {/* Location Input */}
-        <label className="location">
-          Location/Zip Code
+        <h3 className="state">
+          State
           <input type="text" />
-        </label>
-        <h2>Daily Use</h2>
+        </h3>
+        <h3>Daily Use</h3>
         {/* Daily Use Container for Hours and Minutes */}
         <div className="dailyUse">
           <label className="divider">
@@ -51,10 +51,10 @@ export const Calculator = () => {
             Minutes
           </label>
         </div>
-        <label className="weeklyUse">
+        <h3 className="weeklyUse">
           Days Per Week Used
           <input type="integer" />
-        </label>
+        </h3>
       </form>
       <div className="calc-output">
         <div className="calc-belowBorder">
