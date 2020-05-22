@@ -1,10 +1,10 @@
-import React from 'react';
-import './App.scss';
-import { Login } from './components/LogIn.js';
-import { Register } from './components/Register.js';
-import { Navigation } from './components/Navigation.js';
-import { Route } from 'react-router-dom';
-import { LandingPage } from './components/Landing-Page';
+import React from "react";
+import "./App.scss";
+import { Login } from "./components/LogIn.js";
+import { Register } from "./components/Register.js";
+import { Navigation } from "./components/Navigation.js";
+import { Route } from "react-router-dom";
+import { LandingPage } from "./components/Landing-Page";
 
 const App = () => {
 	return (
