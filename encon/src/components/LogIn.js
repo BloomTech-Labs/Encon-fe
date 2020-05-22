@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import '../styles/login.scss';
-import {Headeralt} from '../components/Headeralt.js';
+import '../styles/Login.scss';
+import { Headeralt } from '../components/Headeralt.js';
 
 export const Login = () => {
 	const { handleSubmit, register, errors } = useForm();
@@ -18,16 +18,15 @@ export const Login = () => {
 		password: '',
 	});
 	return (
-		
 		<div className='login-container'>
-			<Headeralt/>
+			<Headeralt />
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<label htmlFor='email' className='label'>
 					Email
 				</label>
 
 				<input
-				className='email'
+					className='email'
 					name='email'
 					ref={register({
 						required: 'Required',

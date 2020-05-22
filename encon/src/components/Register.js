@@ -1,73 +1,57 @@
-import React, { useState, useEffect } from "react";
-import { render } from "react-dom";
+import React from "react";
 import * as Yup from "yup";
-
 import { withFormik, Form, Field } from "formik";
 import axios from "axios";
-import auth from "./auth";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import Login from "./Login";
+import "../styles/Register.scss";
+import { Headeralt } from "../components/Headeralt.js";
+
 const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
-  <Form>
-    <div>
-      <p>Track your energy usage and spending</p>
-      <Field
-        type="text"
-        name="name"
-        placeholder="Name"
-        className="fields"
-      />
-      {touched.name && errors.name && <p>{errors.name}</p>}
-    </div>
+  <div className="register-container">
+    <Form>
+      <div>
+        <Headeralt />
+        <label htmlFor="name" className="label">
+          Name
+        </label>
+        <Field type="text" name="name" className="input" />
+        {touched.name && errors.name && <p>{errors.name}</p>}
+      </div>
 
-    <div>
-      <Field
-        type="text"
-        name="email"
-        placeholder="Email"
-        className="fields"
-      />
-      {touched.email && errors.email && <p>{errors.email}</p>}
-    </div>
-  
-  <div>
-      <Field
-        type="password"
-        name="password"
-        placeholder="Password"
-        className="fields"
-      />
-      {touched.password && errors.password && <p>{errors.password}</p>}
-    </div>
+      <div>
+        <label htmlFor="email" className="label">
+          Email
+        </label>
+        <Field type="text" name="email" className="email" />
+        {touched.email && errors.email && <p>{errors.email}</p>}
+      </div>
 
-    <div>
-      <Field
-        type="text"
-        name="zip"
-        placeholder="Zip"
-        className="fields"
-      />
-      {touched.zip && errors.zip && <p>{errors.zip}</p>}
-    </div>
+      <div>
+        <label htmlFor="password" className="label">
+          Password
+        </label>
+        <Field type="password" name="password" className="input" />
+        {touched.password && errors.password && <p>{errors.password}</p>}
+      </div>
 
-    <button
-      disabled={isSubmitting}
-      onClick={() => {
-        auth.login(() => {});
-      }}
-    >
-      Submit
-    </button>
-  </Form>
+      <div>
+        <label htmlFor="zip" className="label">
+          Zip
+        </label>
+        <Field type="text" name="zip" className="input" />
+        {touched.zip && errors.zip && <p>{errors.zip}</p>}
+      </div>
+      <button type="submit">Register</button>
+    </Form>
+  </div>
 );
-const FormikSignUp = withFormik({
+
+export const Register = withFormik({
   mapPropsToValues({ name, email, password, zip }) {
     return {
       name: name || "",
       email: email || "",
       password: password || "",
       zip: zip || "",
-
     };
   },
   validationSchema: Yup.object().shape({
@@ -75,7 +59,6 @@ const FormikSignUp = withFormik({
     email: Yup.string().min(4).required("must be 4+ chars long"),
     password: Yup.string().min(4).required("must be 4+ chars long"),
     zip: Yup.string().min(5).required("must be 5+ chars long"),
-
   }),
   handleSubmit(
     values,
@@ -97,7 +80,3 @@ const FormikSignUp = withFormik({
       .catch((err) => console.log("error", err));
   },
 })(SignUp);
-
-render(<FormikSignUp />, document.getElementById("root"));
-
-export default FormikSignUp;
