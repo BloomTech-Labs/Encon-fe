@@ -82,4 +82,3 @@ export const Register = withFormik({
       .catch((err) => console.log("error", err));
   },
 })(SignUp);
-
