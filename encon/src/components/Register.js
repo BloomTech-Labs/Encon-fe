@@ -1,9 +1,11 @@
-import React from "react";
-import * as Yup from "yup";
-import { withFormik, Form, Field } from "formik";
-import axios from "axios";
-import "../styles/Register.scss";
-import { Headeralt } from "../components/Headeralt.js";
+import React from 'react';
+import * as Yup from 'yup';
+import { withFormik, Form, Field } from 'formik';
+import axios from 'axios';
+import '../styles/Register.scss';
+import { Headeralt } from '../components/Headeralt.js';
+
+
 
 const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
   <div className="register-container">
@@ -80,3 +82,4 @@ export const Register = withFormik({
       .catch((err) => console.log("error", err));
   },
 })(SignUp);
+

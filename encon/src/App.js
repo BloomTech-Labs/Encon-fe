@@ -6,7 +6,7 @@ import { Navigation } from './components/Navigation.js';
 import { Route } from 'react-router-dom';
 import { LandingPage } from './components/Landing-Page';
 
-export const App = () => {
+const App = () => {
 	return (
 		<div className='App'>
 			<Navigation />
@@ -22,3 +22,5 @@ export const App = () => {
 		</div>
 	);
 };
+
+export default App;
