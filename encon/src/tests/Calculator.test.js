@@ -9,3 +9,13 @@ test("should render Calculator component ", () => {
     </Router>
   );
 });
+
+test("check for text", () => {
+  const { getByText } = render(
+    <Router>
+      <Calculator />
+    </Router>
+  );
+  const register = getByText(/register/i);
+  expect(register).toBeInTheDocument();
+});
