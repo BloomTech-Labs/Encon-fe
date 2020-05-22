@@ -5,14 +5,28 @@ import { Headeralt } from '../components/Headeralt.js';
 
 export const Login = () => {
 	const { handleSubmit, register, errors } = useForm();
-	const onSubmit = (e) => {
-		e.persist();
-		setUser({
-			...user,
-			[e.target.email]: e.target.value,
-		});
-	};
-
+	
+	
+	const handleChange = e => {
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value
+        });
+    };
+	
+	 const onSubmit = e => {
+		e.preventDefault();
+        axios
+            .post('/back end user/', user)
+            .then(res => {
+                localStorage.setItem('token', res.data.token)
+                console.log('user data', res.data.user);
+                
+            })
+            .catch(err => {
+                console.log('Error while logging in', err.response)
+            });
+	}
 	const [user, setUser] = useState({
 		email: '',
 		password: '',
@@ -20,12 +34,14 @@ export const Login = () => {
 	return (
 		<div className='login-container'>
 			<Headeralt />
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<label htmlFor='email' className='label'>
+			<form onSubmit={handleSubmit}>
+				<label   htmlFor='email' className='label'>
 					Email
 				</label>
 
 				<input
+					id='email'
+					htmlFor='email'
 					className='email'
 					name='email'
 					ref={register({
@@ -35,6 +51,8 @@ export const Login = () => {
 							message: 'invalid email address',
 						},
 					})}
+					value={user.email}
+					onChange={handleChange}
 				/>
 				{errors.email && errors.email.message}
 				<br />
@@ -42,10 +60,12 @@ export const Login = () => {
 					Password
 				</label>
 
-				<input name='password' type='password' ref={register} />
+				<input  id='password' name='password' type='password' ref={register}  value={user.password}
+				onChange={handleChange}/>
+				
 				<br />
 
-				<button type='submit'>Sign In</button>
+				<button type='submit' data-testid="sign in">Sign In</button>
 			</form>
 		</div>
 	);

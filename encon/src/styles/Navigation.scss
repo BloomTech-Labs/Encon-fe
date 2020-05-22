@@ -1,11 +1,12 @@
 .nav-header {
 	background-color: #4f4f4f;
-}
-
-.nav-logo {
+	padding: 2rem;
+  }
+  
+.encon-logo {
 	display: flex;
+  }
+  
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: black;
 }
-
-// .nav-color {
-// 	color:#044FBD;
-// }
