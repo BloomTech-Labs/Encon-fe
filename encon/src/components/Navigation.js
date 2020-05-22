@@ -19,9 +19,9 @@ export const Navigation = (props) => {
 		<div className='nav-container'>
 			<div className='nav-header'></div>
 			<div>
-				<Navbar light expand='sm'>
+				<Navbar light expand='lg'>
 					<NavbarBrand href='/'>
-						<img className='nav-logo' src={logo} alt='Logo' />
+						<img className='encon-logo' src={logo} alt='Logo' />
 					</NavbarBrand>
 					<NavbarToggler onClick={toggleNavbar} />
 					<Collapse isOpen={!collapsed} navbar>
