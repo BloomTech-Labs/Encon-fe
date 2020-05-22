@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+// import { render } from 'react-dom';
 import * as Yup from 'yup';
 import { withFormik, Form, Field } from 'formik';
 import axios from 'axios';
@@ -82,4 +82,4 @@ export const Register = withFormik({
 	},
 })(SignUp);
 
-render(<Register />, document.getElementById('root'));
+// render(<Register />, document.getElementById('root'));
