@@ -1,6 +1,6 @@
-import React from 'react';
-import '../styles/Calculator.scss';
-import { Link } from 'react-router-dom';
+import React from "react";
+import "../styles/Calculator.scss";
+import { Link } from "react-router-dom";
 
 export const Calculator = () => {
   return (
@@ -68,19 +68,19 @@ export const Calculator = () => {
         </div>
       </div>
 
-			<section className='register-login-landingCalc'>
-				<p>
-					Enjoyed using our calculator? Click below to keep track of your energy
-					costs.
-				</p>
-				<Link className='register-login-link' to='/register'>
-					Register
-				</Link>
-				<p>Already have an account? Login below</p>
-				<Link className='login-link' to='/login'>
-					Login
-				</Link>
-			</section>
-		</div>
-	);
+      <section className="register-login-landingCalc">
+        <p>
+          Enjoyed using our calculator? Click below to keep track of your energy
+          costs.
+        </p>
+        <Link className="register-login-link" to="/register">
+          Register
+        </Link>
+        <p>Already have an account? Login below</p>
+        <Link className="login-link" to="/login">
+          Login
+        </Link>
+      </section>
+    </div>
+  );
 };
