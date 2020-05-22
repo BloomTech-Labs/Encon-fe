@@ -82,44 +82,46 @@
 		padding: 1% 0 1% 0;
 	}
 
-	p {
-		border: 1px solid #bdbdbd;
-		box-shadow: inset 1px 1px 3px rgb(173, 172, 172);
-		font-size: 1.2rem;
-		padding: 3%;
-		background-color: #dad4d4f5;
-		border-radius: 2px;
-	}
+
+  p {
+    border: 1px solid #bdbdbd;
+    box-shadow: inset 1px 1px 3px rgb(173, 172, 172);
+    font-size: 1.2rem;
+    padding: 2% 3%;
+    background-color: #ebe3e38e;
+    border-radius: 10px;
+  }
 }
 .register-login-landingCalc {
-	p {
-		font-size: 1.6rem;
-		font-weight: 300;
-		line-height: 1.9rem;
-		margin: 5%;
-	}
-	.register-login-link {
-		color: white;
-		font-size: 2.5rem;
-		font-weight: 500;
-		text-align: center;
-		border: 1px solid #044fbd;
-		background: #044fbd;
-		text-decoration: none;
-		padding: 3% 25%;
-		margin: auto 0;
-		border-radius: 8px;
-	}
-	.login-link {
-		color: white;
-		font-size: 2.5rem;
-		font-weight: 500;
-		text-align: center;
-		border: 1px solid #044fbd;
-		background: #044fbd;
-		text-decoration: none;
-		padding: 2.5% 30%;
-		margin: auto 0;
-		border-radius: 8px;
-	}
+  margin-bottom: 8%;
+  p {
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.9rem;
+    margin: 5%;
+  }
+  .register-login-link {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid #044fbd;
+    background: #044fbd;
+    text-decoration: none;
+    padding: 3% 25%;
+    margin: auto 0;
+    border-radius: 8px;
+  }
+  .login-link {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid #044fbd;
+    background: #044fbd;
+    text-decoration: none;
+    padding: 2.5% 30%;
+    margin: auto 0;
+    border-radius: 8px;
+  }
 }
