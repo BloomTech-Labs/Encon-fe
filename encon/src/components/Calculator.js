@@ -6,8 +6,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export const Calculator = () => {
-  const { handleSubmit, register, errors } = useForm();
-
+  const { handleSubmit } = useForm();
+  {
+    /* Set State for each available input in the form */
+  }
   const [device, setDevice] = useState("");
 
   const valueChange = (event) => {
@@ -31,6 +33,9 @@ export const Calculator = () => {
   const handleSubmitAll = (event) => {
     // event.preventDefault();
   };
+  {
+    /* useEffect watches the inputs change and adds it to the end of the data science api */
+  }
   useEffect(() => {
     const DAYS = `${days}`;
     const HOURS = `${hours}`;
