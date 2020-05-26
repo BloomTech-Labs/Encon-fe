@@ -10,6 +10,8 @@ export const Calculator = () => {
   {
     /* Set State for each available input in the form */
   }
+
+  const [data, setData] = useState({});
   const [device, setDevice] = useState("");
 
   const valueChange = (event) => {
@@ -46,7 +48,7 @@ export const Calculator = () => {
         `http://enconaq.eba-bqepxksk.us-east-1.elasticbeanstalk.com/${DEVICE}/${STATE}/${HOURS}/${DAYS}`
       )
       .then((res) => {
-        console.log(res.body);
+        setData(res.data);
       })
       .catch((err) => {
         console.log("wowowowow", err);
@@ -62,12 +64,12 @@ export const Calculator = () => {
         {/* All the radio buttons begin here */}
         <div className="radioButtons">
           <label className="radio">
-            Computer
+            Desktop Computer
             <input
               type="radio"
               name="device"
               onChange={valueChange}
-              value="Computer"
+              value="Computer Desktop"
             />
           </label>
           <label className="radio">
@@ -85,7 +87,7 @@ export const Calculator = () => {
               type="radio"
               name="device"
               onChange={valueChange}
-              value="Washer/Dryer"
+              value="Refrigerator"
             />
           </label>
           <label className="radio">
@@ -142,12 +144,11 @@ export const Calculator = () => {
       <div className="calc-output">
         <div className="calc-belowBorder">
           {/*use expression interpolation `${}` to insert output data once we connect to DS BE using axios*/}
-          <h3>Total Daily Cost</h3>
-          <p>$1test</p>
-          <h3>Average Monthly Cost based on daily rate</h3>
-          <p>$30test</p>
-          <h3>Annual Average</h3>
-          <p>$365test</p>
+          <h3>Cost Per Year</h3>
+          <p>${data.cost_per_year}</p>
+
+          <h3>Energy Used</h3>
+          <p>{data.energy_used}kWh</p>
         </div>
       </div>
 
