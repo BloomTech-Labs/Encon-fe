@@ -55,6 +55,9 @@ export const Calculator = () => {
           Days Per Week Used
           <input type="integer" />
         </h3>
+        <button type="submit" className="confirm">
+          Confirm
+        </button>
       </form>
       <div className="calc-output">
         <div className="calc-belowBorder">
