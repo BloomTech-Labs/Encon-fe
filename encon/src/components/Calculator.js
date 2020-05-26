@@ -1,16 +1,13 @@
 import React from "react";
 import "../styles/Calculator.scss";
 import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 export const Calculator = () => {
-  const { handleSubmit } = useForm();
   {
-    /* Set State for each available input in the form */
+    /* Set State for each available input in the form and data from the promise */
   }
-
   const [data, setData] = useState({});
   const [device, setDevice] = useState("");
 
@@ -32,9 +29,6 @@ export const Calculator = () => {
     setDays(event.target.value);
   };
 
-  const handleSubmitAll = (event) => {
-    // event.preventDefault();
-  };
   {
     /* useEffect watches the inputs change and adds it to the end of the data science api */
   }
@@ -59,12 +53,12 @@ export const Calculator = () => {
     <div>
       <div className="main-banner">Energy Calculator</div>
       {/* Calculator Starts here and is a form itself */}
-      <form className="calculator" onSubmit={handleSubmit(handleSubmitAll)}>
+      <form className="calculator">
         <h3 className="deviceTitle">Device</h3>
         {/* All the radio buttons begin here */}
         <div className="radioButtons">
           <label className="radio">
-            Desktop Computer
+            Desktop
             <input
               type="radio"
               name="device"
@@ -96,16 +90,16 @@ export const Calculator = () => {
               type="radio"
               name="device"
               onChange={valueChange}
-              value="TV"
+              value="TV (32” LED)"
             />
           </label>
           <label className="radio">
-            Lighting
+            Laptop
             <input
               type="radio"
               name="device"
               onChange={valueChange}
-              value="Lighting"
+              value="Computer Laptop"
             />
           </label>
         </div>
@@ -137,9 +131,6 @@ export const Calculator = () => {
           Days Per Week Used
           <input type="integer" onChange={daysChange} value={days} />
         </h3>
-        <button type="submit" className="confirm">
-          Confirm
-        </button>
       </form>
       <div className="calc-output">
         <div className="calc-belowBorder">
