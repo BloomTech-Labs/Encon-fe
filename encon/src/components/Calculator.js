@@ -1,8 +1,19 @@
 import React from "react";
 import "../styles/Calculator.scss";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
 export const Calculator = () => {
+  const { handleSubmit } = useForm();
+  const onSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .get
+      // `http://enconaq.eba-bqepxksk.us-east-1.elasticbeanstalk.com/${device.value}/${state.value}/8/5`
+      ();
+  };
+
   return (
     <div>
       <div className="main-banner">Energy Calculator</div>
@@ -36,26 +47,25 @@ export const Calculator = () => {
         {/* Location Input */}
         <h3 className="state">
           State
-          <input type="text" />
+          <input type="text" name="state" />
         </h3>
-        <h3>Daily Use</h3>
-        {/* Daily Use Container for Hours and Minutes */}
+        <h3>Hourly Use</h3>
+        {/* Hourly Use Container for Hours and Minutes */}
         <div className="dailyUse">
           <label className="divider">
-            <input type="integer" />
+            <input type="integer" name="hours" />
             Hours
-          </label>
-
-          <label>
-            <input type="integer" />
-            Minutes
           </label>
         </div>
         <h3 className="weeklyUse">
           Days Per Week Used
           <input type="integer" />
         </h3>
-        <button type="submit" className="confirm">
+        <button
+          onSubmit={handleSubmit(onSubmit)}
+          type="submit"
+          className="confirm"
+        >
           Confirm
         </button>
       </form>
