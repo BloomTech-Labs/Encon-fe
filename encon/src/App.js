@@ -1,15 +1,17 @@
-import React from "react";
-import "./App.scss";
-import { Login } from "./components/LogIn.js";
-import { Register } from "./components/Register.js";
-import { Navigation } from "./components/Navigation.js";
-import { Route } from "react-router-dom";
-import { LandingPage } from "./components/Landing-Page";
+import React from 'react';
+import './App.scss';
+import { Route } from 'react-router-dom';
+import { Login } from './components/Login.js';
+import { Register } from './components/Register.js';
+import { Navigation } from './components/Navigation.js';
+import { LandingPage } from './components/Landing-Page';
+import { LogoHeader } from './components/Logo-Header';
 
 const App = () => {
 	return (
 		<div className='App'>
 			<Navigation />
+			<LogoHeader />
 			<Route exact path='/'>
 				<LandingPage />
 			</Route>

@@ -1,34 +1,17 @@
 .login-container {
-	margin-top: 3rem;
-	margin-left: 2rem;
-	margin-right: 2rem;
+	margin: 3rem 2rem;
 
 	.label {
-		margin-top: 1.5rem;
-		margin-bottom: 0.3rem;
+		padding: 2rem 0 0.5rem 0;
 		display: flex;
-		font-weight: bolder;
-	}
-	.email {
-		margin-bottom: 0.5rem;
+		font-weight: 500;
 	}
 
 	input {
-		display: flex;
-		width: 98%;
-		margin-left: 0.03rem;
-		border-radius: 0.5rem;
-		border: 0.5px solid grey;
-		line-height: 2rem;
-	}
-	button {
 		width: 100%;
-		background-color: #044fbd;
-		padding-top: 1rem;
-		padding-bottom: 1rem;
-		color: white;
-		border-radius: 0.7rem;
-		border: #044fbd solid;
-		margin-top: 3rem;
+		margin-left: 0.03rem;
+		border-radius: 1.25rem;
+		border: 0.5px solid transparentize($color: #4f4f4f, $amount: 0.75);
+		padding: 1.5rem;
 	}
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 html,
 body,
@@ -81,12 +81,12 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 62.5%;
-  font: inherit;
-  vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	text-decoration: none;
+	vertical-align: baseline;
 }
 
 article,
@@ -100,71 +100,64 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+	display: block;
 }
 
 html {
-  font-size: 62.5%;
+	font-size: 62.5%;
 }
 
 body {
-  line-height: 1;
-  font-size: 62.5%;
-  font-weight: 500;
-  background: #e5e5e5;
-  font-family: "Rubik", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	font-family: 'Rubik', sans-serif;
+	background: transparentize($color: #e5e5e5, $amount: 0);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 ol,
 ul {
-  list-style: none;
+	list-style: none;
 }
 
 blockquote,
 q {
-  quotes: none;
+	quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
-  content: none;
+	content: '';
+	content: none;
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-* {
-  box-sizing: border-box;
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+	outline: none;
+	@media (max-width: 800px) {
+	}
 }
 
 .App {
-  text-align: center;
+	text-align: center;
 }
 
-.main-header {
-  font-size: 3rem;
-  line-height: 3.6rem;
-  font-weight: 500;
-}
-
-.main-title {
-  font-size: 2rem;
-  line-height: 2.4rem;
-  font-weight: normal;
-}
-
-.main-banner {
-  color: #ffffff;
-  background: #044fbd;
-  font-size: 3rem;
-  font-weight: normal;
-  line-height: 3.5rem;
-  padding: 0.9rem 6.3rem 0.7rem 8rem;
+// buttons for login/register
+.app-buttons {
+	font-size: 3rem;
+	margin-top: 5rem;
+	width: 100%;
+	background-color: #044fbd;
+	color: #ffffff;
+	border-radius: 1.25rem;
+	border: #044fbd solid;
+	padding: 1.75rem;
 }
