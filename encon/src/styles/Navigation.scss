@@ -52,6 +52,11 @@
 	font-weight: 400;
 	text-decoration: none;
 	color: transparentize($color: #e5e5e5, $amount: 0);
+
+	&:hover {
+		color: transparentize($color: #e5e5e5, $amount: 0.5);
+		text-decoration: none;
+	}
 }
 
 /* Sidebar wrapper styles
