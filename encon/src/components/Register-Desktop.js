@@ -2,7 +2,7 @@ import React from "react";
 import * as Yup from "yup";
 import { withFormik, Form, Field } from "formik";
 import axios from "axios";
-import "../styles/Desktop-Register.scss";
+import "../styles/Register.scss";
 
 const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
   <div className="register-container">

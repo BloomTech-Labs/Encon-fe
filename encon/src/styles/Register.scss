@@ -1,17 +1,17 @@
 .register-container {
-	margin: 3rem 2rem;
+  margin: 3rem 2rem;
 
-	.label {
-		padding: 2rem 0 0.5rem 0;
-		display: flex;
-		font-weight: 500;
-	}
+  .label {
+    padding: 2rem 0 0.5rem 0;
+    display: flex;
+    font-weight: 500;
+  }
 
-	input {
-		width: 100%;
-		margin-left: 0.03rem;
-		border-radius: 1.25rem;
-		border: 0.5px solid transparentize($color: #4f4f4f, $amount: 0.75);
-		padding: 1.5rem;
-	}
+  input {
+    width: 100%;
+    margin-left: 0.03rem;
+    border-radius: 1.25rem;
+    border: 0.5px solid transparentize($color: #4f4f4f, $amount: 0.75);
+    padding: 1.5rem;
+  }
 }

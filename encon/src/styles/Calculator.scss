@@ -3,10 +3,6 @@
   background: transparentize($color: #044fbd, $amount: 0);
   font-size: 5rem;
   padding-bottom: 1rem;
-
-  @media (min-width: 1200px) {
-    margin-bottom: 10%;
-  }
 }
 
 .calculator {

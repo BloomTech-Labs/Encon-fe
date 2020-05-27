@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Calc-Desktop.scss";
+import "../styles/Calculator.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
