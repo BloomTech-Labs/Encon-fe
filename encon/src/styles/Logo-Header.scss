@@ -1,5 +1,8 @@
 .logo-container-main {
 	width: 15rem;
+	@media (min-width: 1025px) {
+		display: none;
+	}
 }
 
 .logo-header-main {

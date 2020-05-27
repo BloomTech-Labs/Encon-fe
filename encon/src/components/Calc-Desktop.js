@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Calc-Desktop.scss";
 import axios from "axios";
-import { useEffect, useState } from "react";
 
 export const Calculator = () => {
   {

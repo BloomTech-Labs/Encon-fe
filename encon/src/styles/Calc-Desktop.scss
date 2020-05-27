@@ -2,14 +2,13 @@
   color: transparentize($color: #ffffff, $amount: 0);
   background: transparentize($color: #044fbd, $amount: 0);
   font-size: 5rem;
-  padding-bottom: 1rem;
 }
 
 .calculator {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 7.5rem 3rem 5rem;
+  margin: 5rem 3rem;
 
   .device-title {
     font-size: 3rem;
