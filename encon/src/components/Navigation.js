@@ -1,41 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/Navigation.scss';
-import logo from '../assets/EnCon-logo.png';
-import {
-	Collapse,
-	Navbar,
-	NavbarToggler,
-	NavbarBrand,
-	Nav,
-	NavItem,
-	NavLink,
-} from 'reactstrap';
+import Menu from 'react-burger-menu/lib/menus/stack';
 
-export const Navigation = (props) => {
-	const [collapsed, setCollapsed] = useState(true);
-	const toggleNavbar = () => setCollapsed(!collapsed);
-
+export const Navigation = () => {
 	return (
-		<div className='nav-container'>
-			<div className='nav-header'></div>
-			<div>
-				<Navbar light expand='lg'>
-					<NavbarBrand href='/'>
-						<img className='encon-logo' src={logo} alt='Logo' />
-					</NavbarBrand>
-					<NavbarToggler onClick={toggleNavbar} />
-					<Collapse isOpen={!collapsed} navbar>
-						<Nav navbar>
-							<NavItem>
-								<NavLink href='/login'>Login</NavLink>
-							</NavItem>
-							<NavItem>
-								<NavLink href='/register'>Register</NavLink>
-							</NavItem>
-						</Nav>
-					</Collapse>
-				</Navbar>
+		<Menu
+			right
+			width={'40rem'}
+			htmlClassName={'nav-overflow'}
+			bodyClassName={'nav-overflow'}
+		>
+			<div className='bm-item-list'>
+				<a className='bm-item' href='/'>
+					Home
+				</a>
+				<a className='bm-item' href='/login'>
+					Login
+				</a>
+				<a className='bm-item' href='/register'>
+					Register
+				</a>
 			</div>
-		</div>
+		</Menu>
 	);
 };
