@@ -1,13 +1,14 @@
 import React from "react";
-
+import computerPng from "../../assets/ElectronicsFolder/005-computer.png";
+import "../../styles/mobile/Appliance-Card.scss";
 export const ApplianceCard = () => {
   return (
     <div className="applianceContainer">
       <div className="imageContainer">
-        <img src="/src/assets/005-computer.png" alt="picture of an appliance" />
+        <img src={computerPng} alt="picture of an appliance" />
       </div>
 
-      <div className="outPutContainer">
+      <div className="outputContainer">
         <div className="estCost">
           <h5>Estimated Cost</h5>
           <br />
