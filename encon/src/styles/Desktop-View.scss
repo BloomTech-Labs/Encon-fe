@@ -10,6 +10,12 @@
       padding: 1%;
       border-radius: 10px;
     }
+    .calc-banner2 {
+      color: transparentize($color: #ffffff, $amount: 0);
+      background: transparentize($color: #044fbd, $amount: 0);
+      font-size: 5rem;
+      padding-bottom: 1rem;
+    }
   }
   .rightContainer {
     width: 50%;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Calculator } from "./Calc-Desktop";
+import { CalcDesktop } from "./Calc-Desktop";
 import { Register } from "./Register-Desktop";
 import "../styles/Desktop-View.scss";
 
@@ -7,9 +7,9 @@ export const DesktopView = () => {
   return (
     <div className="desktopView">
       <div className="leftContainer">
-        <div className="calc-banner">Energy Calculator</div>
+        <div className="calc-banner2">Energy Calculator</div>
         <div className="calcContainer">
-          <Calculator />
+          <CalcDesktop />
         </div>
       </div>
       <div className="rightContainer">
