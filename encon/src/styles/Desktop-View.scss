@@ -1,0 +1,32 @@
+.desktopView {
+  display: flex;
+  .leftContainer {
+    width: 50%;
+    font-size: 1.5rem;
+    padding: 5%;
+    background-color: #044fbd;
+    .calcContainer {
+      background-color: white;
+      padding: 1%;
+      border-radius: 10px;
+    }
+    .calc-banner2 {
+      color: transparentize($color: #ffffff, $amount: 0);
+      background: transparentize($color: #044fbd, $amount: 0);
+      font-size: 5rem;
+      padding-bottom: 1rem;
+    }
+  }
+  .rightContainer {
+    width: 50%;
+    font-size: 1.5rem;
+    padding: 5%;
+    background-color: grey;
+    .registerContainer {
+      background-color: white;
+      margin-top: 11%;
+      padding: 3%;
+      border-radius: 10px;
+    }
+  }
+}

@@ -3,6 +3,9 @@
   background: transparentize($color: #044fbd, $amount: 0);
   font-size: 5rem;
   padding-bottom: 1rem;
+  @media (min-width: 1025px) {
+    display: none;
+  }
 }
 
 .calculator {
@@ -147,5 +150,8 @@
   }
   .app-buttons {
     margin: 0 auto;
+  }
+  @media (min-width: 1025px) {
+    display: none;
   }
 }
