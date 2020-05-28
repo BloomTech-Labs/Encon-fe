@@ -1,6 +1,6 @@
 import React from "react";
 import { Calculator } from "./Calculator";
-import { Register } from "./Register-Desktop";
+import { Register } from "./Register";
 import "../styles/Desktop-View.scss";
 
 export const DesktopView = () => {
