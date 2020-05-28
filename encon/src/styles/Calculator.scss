@@ -151,4 +151,7 @@
   .app-buttons {
     margin: 0 auto;
   }
+  @media (min-width: 1025px) {
+    display: none;
+  }
 }

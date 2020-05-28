@@ -1,5 +1,5 @@
 import React from "react";
-import { CalcDesktop } from "./Calc-Desktop";
+import { Calculator } from "./Calculator";
 import { Register } from "./Register-Desktop";
 import "../styles/Desktop-View.scss";
 
@@ -9,7 +9,7 @@ export const DesktopView = () => {
       <div className="leftContainer">
         <div className="calc-banner2">Energy Calculator</div>
         <div className="calcContainer">
-          <CalcDesktop />
+          <Calculator />
         </div>
       </div>
       <div className="rightContainer">
