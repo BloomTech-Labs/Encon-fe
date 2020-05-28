@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Header-Alt.scss";
+import "../../styles/mobile/Header-Alt.scss";
 
 export const HeaderAlt = () => {
   return (

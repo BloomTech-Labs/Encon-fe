@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Navigation.scss";
+import "../../styles/mobile/Navigation.scss";
 import Menu from "react-burger-menu/lib/menus/stack";
 
 export const Navigation = () => {

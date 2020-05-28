@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/Logo-Header.scss";
-import logo from "../assets/EnCon-logo.png";
+import "../../styles/mobile/Logo-Header.scss";
+import logo from "../../assets/EnCon-logo.png";
 
 export const LogoHeader = () => {
   return (

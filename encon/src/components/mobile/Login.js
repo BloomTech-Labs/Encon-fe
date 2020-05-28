@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import "../styles/login.scss";
+import "../../styles/mobile/Login.scss";
 import axios from "axios";
 
 export const Login = () => {

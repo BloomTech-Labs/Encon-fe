@@ -1,8 +1,6 @@
-import React from "react";
-import "../styles/Calculator.scss";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import "../styles/Calc-Desktop.scss";
 import axios from "axios";
-import { useEffect, useState } from "react";
 
 export const Calculator = () => {
   {
@@ -51,7 +49,6 @@ export const Calculator = () => {
 
   return (
     <div>
-      <div className="calc-banner">Energy Calculator</div>
       {/* Calculator Starts here and is a form itself */}
       <form className="calculator">
         <h3 className="device-title">Device</h3>
@@ -145,19 +142,6 @@ export const Calculator = () => {
           </div>
         </div>
       </div>
-      <section className="calc-login-register">
-        <p>
-          Enjoyed using our calculator? Click below to keep track of your energy
-          costs.
-        </p>
-        <Link className="app-buttons" to="/register">
-          Register
-        </Link>
-        <p>Already have an account? Login below</p>
-        <Link className="app-buttons" to="/login">
-          Login
-        </Link>
-      </section>
     </div>
   );
 };
