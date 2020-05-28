@@ -3,13 +3,11 @@ import * as Yup from "yup";
 import { withFormik, Form, Field } from "formik";
 import axios from "axios";
 import "../styles/Register.scss";
-import { HeaderAlt } from "../components/Header-Alt.js";
 
 const SignUp = ({ values, errors, touched, isSubmitting }, props) => (
   <div className="register-container">
     <Form>
       <div>
-        <HeaderAlt />
         <label htmlFor="name" className="label">
           Name
         </label>

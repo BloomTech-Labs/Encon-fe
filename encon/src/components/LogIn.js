@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "../styles/login.scss";
-import { HeaderAlt } from "../components/Header-Alt.js";
 import axios from "axios";
 
 export const Login = () => {
@@ -34,7 +33,6 @@ export const Login = () => {
 
   return (
     <div className="login-container">
-      <HeaderAlt />
       <form onSubmit={handleSubmit}>
         <label htmlFor="email" className="label">
           Email

@@ -1,4 +1,6 @@
 .header-containerA {
+  margin-left: 1.5%;
+  margin-top: 0.5%;
   .main-headerA {
     font-size: 1.6rem;
     text-align: left;
@@ -8,8 +10,5 @@
     font-size: 1rem;
     text-align: left;
     font-weight: normal;
-  }
-  @media (min-width: 1025px) {
-    display: none;
   }
 }
