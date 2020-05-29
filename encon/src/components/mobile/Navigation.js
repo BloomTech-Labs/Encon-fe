@@ -20,6 +20,9 @@ export const Navigation = () => {
         <a className="bm-item" href="/register">
           Register
         </a>
+        <a className="bm-item" href="/input">
+          temp link user input
+        </a>
       </div>
     </Menu>
   );
