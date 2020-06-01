@@ -16,6 +16,12 @@ export const ApplianceList = () => {
         <a href="">Monthly</a>
       </div>
       <ApplianceCard />
+      <div className="totalOutput">
+        <h3>Total:</h3>
+        <div className="totalCost">$100</div>
+        <div className="totalEnergy">10kwh</div>
+      </div>
+      <button className="app-buttons">Input Daily Energy</button>
     </div>
   );
 };
