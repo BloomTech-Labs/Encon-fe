@@ -3,6 +3,7 @@ import { WelcomeHeader } from "./Welcome-Header";
 import { EnergyLocation } from "./Energy-Location";
 import { ApplianceTracker } from "./Appliance-Tracker";
 import { ApplianceCard } from "./Appliance-Card";
+import "../../styles/mobile/Appliance-List.scss";
 export const ApplianceList = () => {
   return (
     <div>
@@ -10,9 +11,9 @@ export const ApplianceList = () => {
       <EnergyLocation />
       <ApplianceTracker />
       <div className="timeContainer">
-        <a>Daily</a>
-        <a>Weekly</a>
-        <a>Monthly</a>
+        <a href="">Daily</a>
+        <a href="">Weekly</a>
+        <a href="">Monthly</a>
       </div>
       <ApplianceCard />
       {/*Author Attribution */}
