@@ -1,14 +1,16 @@
 import React from "react";
-
+import "../../styles/mobile/Energy-Location.scss";
 export const EnergyLocation = () => {
   return (
-    <div>
-      <div className="energyContatiner">
+    <div className="energyLocation">
+      <div className="energyContainer">
         <h2>My Energy</h2>
       </div>
 
       <div className="locationContainer">
-        <h3>"Location: "Insert User's Location Here "()"</h3>
+        <h5>
+          Location: 1120 <a href="/">(change)</a>{" "}
+        </h5>
       </div>
     </div>
   );
