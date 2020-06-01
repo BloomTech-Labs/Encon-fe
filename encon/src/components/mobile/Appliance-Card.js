@@ -5,19 +5,20 @@ export const ApplianceCard = () => {
   return (
     <div className="applianceContainer">
       <div className="imageContainer">
-        <img src={computerPng} alt=" An appliance" />
+        <img src={computerPng} alt=" an appliance" />
       </div>
+      <div className="applianceInfo">
+        <h3 className="applianceTitle">Appliance Name</h3>
+        <div className="outputContainer">
+          <div className="estCost">
+            <h6>Estimated Cost</h6>
+            <p>$100</p>
+          </div>
 
-      <div className="outputContainer">
-        <div className="estCost">
-          <h5>Estimated Cost</h5>
-          <br />
-          <p>Total Cost Goes Here</p>
-        </div>
-
-        <div className="energyOutput">
-          <h5>Avg.Energy Output</h5>
-          <p>Total Amount of Energy</p>
+          <div className="energyOutput">
+            <h6>Avg.Energy Output</h6>
+            <p>100kwh</p>
+          </div>
         </div>
       </div>
     </div>
