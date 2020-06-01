@@ -1,0 +1,24 @@
+.applianceTracker {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-align: center;
+  .left {
+    width: 50%;
+    border-right: black 1px solid;
+  }
+  .right {
+    width: 50%;
+  }
+  .leftButton,
+  .rightButton {
+    color: black;
+    background-color: white;
+    padding: 0.5rem;
+    border: none;
+    &:active {
+      color: white;
+      background-color: #044fbd;
+    }
+  }
+}
