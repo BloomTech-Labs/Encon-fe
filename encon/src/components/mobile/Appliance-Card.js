@@ -5,7 +5,7 @@ export const ApplianceCard = () => {
   return (
     <div className="applianceContainer">
       <div className="imageContainer">
-        <img src={computerPng} alt="picture of an appliance" />
+        <img src={computerPng} alt=" An appliance" />
       </div>
 
       <div className="outputContainer">
