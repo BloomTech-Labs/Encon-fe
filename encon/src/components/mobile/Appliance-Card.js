@@ -8,7 +8,7 @@ export const ApplianceCard = () => {
         <img src={computerPng} alt=" an appliance" />
       </div>
       <div className="applianceInfo">
-        <h3 className="applianceTitle">Appliance Name</h3>
+        <h3 className="applianceTitle">Computer</h3>
         <div className="outputContainer">
           <div className="estCost">
             <h6>Estimated Cost</h6>
