@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { HeaderAlt } from '../mobile/Header-Alt.js';
 import '../../styles/mobile/Login.scss';
 import axios from 'axios';
 
@@ -33,6 +34,7 @@ export const Login = () => {
 
 	return (
 		<div className='login-container'>
+			<HeaderAlt />
 			<form onSubmit={handleSubmit}>
 				<label htmlFor='email' className='label'>
 					Email
