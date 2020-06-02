@@ -1,44 +1,64 @@
-.timeContainer {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 1%;
-  a {
-    color: black;
-  }
-  a:hover {
-    color: #02a2e2;
-    text-decoration: none;
-    border-bottom: solid 3px #02a2e2;
-  }
-}
-
-.totalOutput {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 4%;
-  .totalCost,
-  .totalEnergy {
+.applianceList {
+  .timeContainer {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
+    justify-content: space-evenly;
+    padding: 1%;
+    a {
+      color: black;
+    }
+    a:hover {
+      color: #02a2e2;
+      text-decoration: none;
+      border-bottom: solid 3px #02a2e2;
+    }
   }
-  .totalCost {
-    background-color: #2f80ed;
-    color: white;
+
+  .totalOutput {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 4%;
+    .totalCost,
+    .totalEnergy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
+    .totalCost {
+      background-color: #2f80ed;
+      color: white;
+    }
+    .totalEnergy {
+      border: 1px solid black;
+      color: black;
+    }
+
+    @media (min-width: 1025px) {
+      justify-content: flex-end;
+      padding: 0;
+      * {
+        margin: 2%;
+      }
+    }
   }
-  .totalEnergy {
-    border: 1px solid black;
-    color: black;
-  }
-  @media (min-width: 1025px) {
-    justify-content: flex-end;
-    padding: 0;
-    * {
-      margin: 2%;
+  .inputEnergy {
+    font-size: 2rem;
+    margin-top: 3.5rem;
+    width: 60%;
+    background-color: transparentize($color: #044fbd, $amount: 0);
+    color: transparentize($color: #ffffff, $amount: 0);
+    border-radius: 1.25rem;
+    border: 0.25rem solid transparentize($color: #044fbd, $amount: 0);
+    padding: 1.5rem;
+    transition: 0.5s ease-in-out;
+    &:hover {
+      background-color: transparentize($color: #044fbd, $amount: 0.25);
+    }
+    @media (min-width: 1025px) {
+      width: 35%;
     }
   }
 }

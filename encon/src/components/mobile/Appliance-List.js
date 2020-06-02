@@ -6,7 +6,7 @@ import { ApplianceCard } from "./Appliance-Card";
 import "../../styles/mobile/Appliance-List.scss";
 export const ApplianceList = () => {
   return (
-    <div>
+    <div className="applianceList">
       <WelcomeHeader />
       <EnergyLocation />
       <ApplianceTracker />
@@ -21,7 +21,7 @@ export const ApplianceList = () => {
         <div className="totalCost">$100</div>
         <div className="totalEnergy">10kwh</div>
       </div>
-      <button className="app-buttons">Input Daily Energy</button>
+      <button className="inputEnergy">Input Daily Energy</button>
     </div>
   );
 };
