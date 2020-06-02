@@ -16,6 +16,9 @@
     img {
       width: 100%;
     }
+    @media (min-width: 1025px) {
+      width: 15%;
+    }
   }
   .applianceInfo {
     padding: 3%;
@@ -32,5 +35,8 @@
     .estCost {
       border-right: 1px #bdbdbd solid;
     }
+  }
+  @media (min-width: 1025px) {
+    margin: 2%;
   }
 }

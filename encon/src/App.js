@@ -10,6 +10,7 @@ import { UserContext } from "./context/UserContext.js";
 import { DesktopRegister } from "./components/desktop/Desktop-Register";
 import { LoginDesktop } from "./components/desktop/Desktop-Login";
 import { DesktopNav } from "./components/desktop/Desktop-Nav.js";
+import { ApplianceList } from "./components/mobile/Appliance-List";
 
 const App = () => {
   const user = useState({
@@ -28,7 +29,7 @@ const App = () => {
         <Route exact path="/">
           <MediaQuery minDeviceWidth={1025}>
             <DesktopNav />
-            <DesktopView />
+            <ApplianceList />
           </MediaQuery>
           <MediaQuery maxDeviceWidth={1025}>
             <LandingPage />
