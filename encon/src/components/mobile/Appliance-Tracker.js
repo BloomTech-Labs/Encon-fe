@@ -1,15 +1,13 @@
 import React from "react";
-
+import "../../styles/mobile/Appliance-Tracker.scss";
 export const ApplianceTracker = () => {
   return (
-    <div>
-      <div className="buttonContainer">
-        <div className="leftButtonContainer">
-          <button>Appliance List</button>
-        </div>
-        <div className="rightButtonContainer">
-          <button> Track Usage</button>
-        </div>
+    <div className="applianceTracker">
+      <div className="left">
+        <button className="leftButton">Appliance List</button>
+      </div>
+      <div className="right">
+        <button className="rightButton"> Track Usage</button>
       </div>
     </div>
   );

@@ -1,0 +1,36 @@
+.applianceContainer {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 3%;
+  border-bottom: solid 2px #bdbdbd;
+  .applianceTitle {
+    text-align: center;
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+  .imageContainer {
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    width: 50%;
+    img {
+      width: 100%;
+    }
+  }
+  .applianceInfo {
+    padding: 3%;
+  }
+  .outputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .estCost,
+    .energyOutput {
+      padding: 2%;
+    }
+
+    .estCost {
+      border-right: 1px #bdbdbd solid;
+    }
+  }
+}
