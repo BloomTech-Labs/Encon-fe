@@ -27,8 +27,7 @@ export const DesktopNav = (props) => {
 				</div>
 			</div>
 			<div className='desktop-nav-header'>
-
-			<DesktopHeader  />
+				<DesktopHeader />
 			</div>
 		</div>
 	);

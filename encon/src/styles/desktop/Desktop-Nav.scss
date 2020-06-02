@@ -2,20 +2,23 @@
 	display: flex;
 	justify-content: space-between;
 	margin: 5.75rem 10rem 2.5rem;
+	@media (max-width: 1025px) {
+		display: none;
+	}
 }
 
 .desktop-nav-link-container {
 	display: flex;
-    flex-direction: row;
+	flex-direction: row;
 }
 
 .desktop-nav-link {
-    font-size: 3rem;
-    font-weight: 500;
-    margin: 3.75rem 2.5rem;
-    color: #000000
+	font-size: 3rem;
+	font-weight: 500;
+	margin: 3.75rem 2.5rem;
+	color: #000000;
 }
 
 .desktop-nav-header {
-    margin: 1rem 5rem;
+	margin: 1rem 5rem;
 }
