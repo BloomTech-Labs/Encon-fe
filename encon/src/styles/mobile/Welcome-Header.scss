@@ -1,0 +1,14 @@
+.welcomeHeader {
+  display: flex;
+  justify-content: space-evenly;
+  .userName {
+    text-decoration: underline;
+    text-decoration-color: #044fbd;
+  }
+  .notUser {
+    text-align: left;
+  }
+  .newAccount {
+    color: #044fbd;
+  }
+}
