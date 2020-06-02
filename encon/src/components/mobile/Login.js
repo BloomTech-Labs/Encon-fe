@@ -2,34 +2,43 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "../../styles/mobile/Login.scss";
 import axios from "axios";
+import OktaAuth from '@okta/okta-auth-js';
+import { useOktaAuth } from '@okta/okta-react';
+import config from '../../App.Config.js';
 
-export const Login = () => {
-  const { handleSubmit, register, errors } = useForm();
-
-  const handleChange = (e) => {
-    setUser({
-      ...user,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const onSubmit = (e) => {
+export const Login = ({issuer}) => {
+  const { authService } = useOktaAuth();
+  const [sessionToken, setSessionToken] = useState();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  
+  const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("/back end user/", user)
-      .then((res) => {
-        localStorage.setItem("token", res.data.token);
-        console.log("user data", res.data.user);
-      })
-      .catch((err) => {
-        console.log("Error while logging in", err.response);
-      });
+    const oktaAuth = new OktaAuth({ issuer: config.issuer });
+    oktaAuth.signIn({ username, password })
+    .then(res => {
+      console.log( 'res',res)
+      const sessionToken = res.sessionToken;
+      setSessionToken(sessionToken);
+      // sessionToken is a one-use token, so make sure this is only called once
+      authService.redirect({ sessionToken });
+    })
+    .catch(err => console.log('Found an error', err));
+  };     
+  const handleEmailChange = (e) => {
+    setUsername(e.target.value);
   };
 
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+  
+  if (sessionToken) {
+    // Hide form while sessionToken is converted into id/access tokens
+    return null;
+  }
+
+
 
   return (
     <div className="login-container">
@@ -40,20 +49,13 @@ export const Login = () => {
 
         <input
           id="email"
-          htmlFor="email"
+          type="text"
           className="email"
           name="email"
-          ref={register({
-            required: "Required",
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-              message: "invalid email address",
-            },
-          })}
-          value={user.email}
-          onChange={handleChange}
+          value={username}
+          onChange={handleEmailChange}
         />
-        {errors.email && errors.email.message}
+        {/* {errors.email && errors.email.message} */}
         <br />
         <label htmlFor="password" className="label">
           Password
@@ -63,9 +65,9 @@ export const Login = () => {
           id="password"
           name="password"
           type="password"
-          ref={register}
-          value={user.password}
-          onChange={handleChange}
+          
+          value={password}
+          onChange={handlePasswordChange}
         />
 
         <br />

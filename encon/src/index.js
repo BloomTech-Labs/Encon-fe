@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, withRouter} from 'react-router-dom';
 import { Security } from '@okta/okta-react';
-import config from './App.config.js';
+import config from './App.Config.js';
 import  App  from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
