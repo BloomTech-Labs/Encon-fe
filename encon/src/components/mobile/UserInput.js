@@ -3,7 +3,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 
 export const UserInput = () => {
-  const { handleSubmit } = useForm();
+  const { handleSubmit, register } = useForm();
   //maybe user id and state entered in url as params? then hardcode appliance name in individual state/hook variables
 
   const [dishWasher, setDishWasher] = useState({
@@ -59,6 +59,13 @@ export const UserInput = () => {
     setPC({ ...pc, days: event.target.value });
   };
 
+  const handleTVHoursChange = (event) => {
+    setTv({ ...tv, hours: event.target.value });
+  };
+  const handleTVDaysChange = (event) => {
+    setTv({ ...tv, days: event.target.value });
+  };
+
   return (
     <div className="user-input">
       <h1>Input time used</h1>
@@ -66,7 +73,8 @@ export const UserInput = () => {
         <h3>Dishwasher</h3>
         <label htmlFor="dishWasher hours">hours</label>
         <input
-          type="integer"
+          type="number"
+          ref={register({ min: 1, max: 24 })}
           name="dishWasher hours"
           onChange={handleDishHoursChange}
           value={dishWasher.hours}
@@ -126,6 +134,23 @@ export const UserInput = () => {
           onChange={handlePCDaysChange}
           value={pc.days}
         ></input>
+
+        <h3>Television</h3>
+        <label htmlFor="tv hours">hours</label>
+        <input
+          type="integer"
+          name="tv hours"
+          onChange={handleTVHoursChange}
+          value={tv.hours}
+        ></input>
+        <label htmlFor="tv days">days per week</label>
+        <input
+          type="integer"
+          name="tv days"
+          onChange={handleTVDaysChange}
+          value={tv.days}
+        ></input>
+        <button type="submit">Confirm</button>
       </form>
     </div>
   );
