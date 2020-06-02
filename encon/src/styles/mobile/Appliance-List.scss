@@ -1,25 +1,26 @@
 .applianceList {
-  margin: 2%;
+  margin: 0 2% 2% 2%;
   .timeContainer {
     display: flex;
+    align-items: center;
+    flex-grow: 1;
     justify-content: space-evenly;
     a {
       color: black;
+      padding: 0 2%;
     }
     a:hover {
       color: #02a2e2;
       text-decoration: none;
       border-bottom: 2px solid #02a2e2;
     }
-    .daily,
-    .weekly {
-      border-right: solid 1px #bdbdbd;
-    }
+
     @media (min-width: 1025px) {
       justify-content: flex-start;
       margin-left: 2%;
-      * {
-        padding: 0 2%;
+      .daily,
+      .weekly {
+        border-right: solid 1px #bdbdbd;
       }
     }
   }
@@ -27,7 +28,7 @@
   .totalOutput {
     display: flex;
     justify-content: space-evenly;
-    padding: 4%;
+    margin: 1% 4%;
     .totalCost,
     .totalEnergy {
       display: flex;
