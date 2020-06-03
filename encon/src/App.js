@@ -10,7 +10,6 @@ import { UserContext } from "./context/UserContext.js";
 import { DesktopRegister } from "./components/desktop/Desktop-Register";
 import { LoginDesktop } from "./components/desktop/Desktop-Login";
 import { DesktopNav } from "./components/desktop/Desktop-Nav.js";
-import { ApplianceList } from "./components/mobile/Appliance-List";
 
 const App = () => {
   const user = useState({
