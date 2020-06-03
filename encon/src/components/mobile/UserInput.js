@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import "../../styles/mobile/UserInput.scss";
 
 export const UserInput = () => {
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register, errors } = useForm();
   //maybe user id and state entered in url as params? then hardcode appliance name in individual state/hook variables
 
   const [dishWasher, setDishWasher] = useState({
@@ -68,88 +69,134 @@ export const UserInput = () => {
 
   return (
     <div className="user-input">
-      <h1>Input time used</h1>
+      <h1>Input Time Used</h1>
+      <h2>Calendar is going here</h2>
       <form onSubmit={handleSubmit}>
-        <h3>Dishwasher</h3>
-        <label htmlFor="dishWasher hours">hours</label>
-        <input
-          type="number"
-          ref={register({ min: 1, max: 24 })}
-          name="dishWasher hours"
-          onChange={handleDishHoursChange}
-          value={dishWasher.hours}
-        ></input>
-        <label htmlFor="dishWasher days">days per week</label>
-        <input
-          type="integer"
-          name="dishWasher days"
-          onChange={handleDishDaysChange}
-          value={dishWasher.days}
-        ></input>
+        <div className="device-container">
+          <section className="dishWasher-sec">
+            <h3>Dishwasher</h3>
+            <div className="dish-hours">
+              <input
+                type="number"
+                name="dishWasherHours"
+                ref={register({ min: 1, max: 24 })}
+                onChange={handleDishHoursChange}
+                value={dishWasher.hours}
+              ></input>
+              <label htmlFor="dishWasherHours">hours</label>
+              {errors.dishWasherHours && "hours 1-24"}
+            </div>
 
-        <h3>Washing Machine</h3>
-        <label htmlFor="Washing Machine hours">hours</label>
-        <input
-          type="integer"
-          name="Washing Machine hours"
-          onChange={handleWashingHoursChange}
-          value={washingMachine.hours}
-        ></input>
-        <label htmlFor="Washing Machine days">days per week</label>
-        <input
-          type="integer"
-          name="Washing Machine days"
-          onChange={handleWashingDaysChange}
-          value={washingMachine.days}
-        ></input>
+            <div className="dish-days">
+              <input
+                type="integer"
+                ref={register({ min: 1, max: 7 })}
+                name="dishWasherDays"
+                onChange={handleDishDaysChange}
+                value={dishWasher.days}
+              ></input>
+              <label htmlFor="dishWasher days">days per week</label>
+              {errors.dishWasherDays && <p>enter message</p>}
+            </div>
+          </section>
 
-        <h3>Clothes Dryer</h3>
-        <label htmlFor="Dryer hours">hours</label>
-        <input
-          type="integer"
-          name="Dryer hours"
-          onChange={handleDryerHoursChange}
-          value={dryer.hours}
-        ></input>
-        <label htmlFor="Dryer days">days per week</label>
-        <input
-          type="integer"
-          name="Dryer days"
-          onChange={handleDryerDaysChange}
-          value={dryer.days}
-        ></input>
+          <section className="washing-machine-sec">
+            <h3>Washing Machine</h3>
+            <div className="washing-hours">
+              <label htmlFor="Washing Machine hours">hours</label>
+              <input
+                type="integer"
+                ref={register({ min: 1, max: 24 })}
+                name="Washing Machine hours"
+                onChange={handleWashingHoursChange}
+                value={washingMachine.hours}
+              ></input>
+              {errors.entername && <p>enter message</p>}
+            </div>
 
-        <h3>Desktop PC</h3>
-        <label htmlFor="pc hours">hours</label>
-        <input
-          type="integer"
-          name="pc hours"
-          onChange={handlePCHoursChange}
-          value={pc.hours}
-        ></input>
-        <label htmlFor="pc days">days per week</label>
-        <input
-          type="integer"
-          name="pc days"
-          onChange={handlePCDaysChange}
-          value={pc.days}
-        ></input>
+            <div className="washing-days">
+              <label htmlFor="Washing Machine days">days per week</label>
+              <input
+                type="integer"
+                ref={register({ min: 1, max: 7 })}
+                name="Washing Machine days"
+                onChange={handleWashingDaysChange}
+                value={washingMachine.days}
+              ></input>
+              {errors.entername && <p>enter message</p>}
+            </div>
+          </section>
 
-        <h3>Television</h3>
-        <label htmlFor="tv hours">hours</label>
-        <input
-          type="integer"
-          name="tv hours"
-          onChange={handleTVHoursChange}
-          value={tv.hours}
-        ></input>
-        <label htmlFor="tv days">days per week</label>
-        <input
-          type="integer"
-          name="tv days"
-          onChange={handleTVDaysChange}
-          value={tv.days}
-        ></input>
+          <section className="clothes-dryer-sec">
+            <h3>Clothes Dryer</h3>
+            <div className="dryer-hours">
+              <label htmlFor="Dryer hours">hours</label>
+              <input
+                type="integer"
+                ref={register({ min: 1, max: 24 })}
+                name="Dryer hours"
+                onChange={handleDryerHoursChange}
+                value={dryer.hours}
+              ></input>
+              {errors.entername && <p>enter message</p>}
+            </div>
+
+            <div className="dryer-days">
+              <label htmlFor="Dryer days">days per week</label>
+              <input
+                type="integer"
+                ref={register({ min: 1, max: 7 })}
+                name="Dryer days"
+                onChange={handleDryerDaysChange}
+                value={dryer.days}
+              ></input>
+              {errors.entername && <p>enter message</p>}
+            </div>
+          </section>
+
+          <h3>Desktop PC</h3>
+          <label htmlFor="pc hours">hours</label>
+          <input
+            type="integer"
+            ref={register({ min: 1, max: 24 })}
+            name="pc hours"
+            onChange={handlePCHoursChange}
+            value={pc.hours}
+          ></input>
+          {errors.entername && <p>enter message</p>}
+
+          <label htmlFor="pc days">days per week</label>
+          <input
+            type="integer"
+            ref={register({ min: 1, max: 7 })}
+            name="pc days"
+            onChange={handlePCDaysChange}
+            value={pc.days}
+          ></input>
+          {errors.entername && <p>enter message</p>}
+
+          <h3>Television</h3>
+          <label htmlFor="tv hours">hours</label>
+          <input
+            type="integer"
+            ref={register({ min: 1, max: 24 })}
+            name="tv hours"
+            onChange={handleTVHoursChange}
+            value={tv.hours}
+          ></input>
+          {errors.entername && <p>enter message</p>}
+
+          <label htmlFor="tv days">days per week</label>
+          <input
+            type="integer"
+            ref={register({ min: 1, max: 7 })}
+            name="tv days"
+            onChange={handleTVDaysChange}
+            value={tv.days}
+          ></input>
+          {errors.entername && <p>enter message</p>}
+        </div>
+
         <button type="submit">Confirm</button>
       </form>
     </div>
