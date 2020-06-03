@@ -22,8 +22,12 @@
   label {
     font-size: 1.6rem;
   }
-  .dishWasher-sec {
-    // border-top: $grey-border;
+  .device-section {
     border-bottom: $grey-border;
+  }
+
+  .device-fields {
+    display: flex;
+    flex-direction: row;
   }
 }
