@@ -8,11 +8,14 @@
   }
   .notUser {
     text-align: left;
+    margin-left: 1%;
   }
   .newAccount {
     color: #044fbd;
   }
   @media (min-width: 1025px) {
     margin-top: 0;
+    justify-content: flex-start;
+    margin-left: 5%;
   }
 }
