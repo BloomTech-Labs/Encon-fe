@@ -1,7 +1,7 @@
 .welcomeHeader {
   display: flex;
   justify-content: space-evenly;
-  margin: 3%;
+  margin-top: 6%;
   .userName {
     text-decoration: underline;
     text-decoration-color: #044fbd;
@@ -11,5 +11,8 @@
   }
   .newAccount {
     color: #044fbd;
+  }
+  @media (min-width: 1025px) {
+    margin-top: 0;
   }
 }
