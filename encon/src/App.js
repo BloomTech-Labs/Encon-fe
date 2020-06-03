@@ -29,7 +29,7 @@ const App = () => {
         <Route exact path="/">
           <MediaQuery minDeviceWidth={1025}>
             <DesktopNav />
-            <ApplianceList />
+            <DesktopView />
           </MediaQuery>
           <MediaQuery maxDeviceWidth={1025}>
             <LandingPage />

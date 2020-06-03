@@ -1,8 +1,8 @@
 .applianceTracker {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   text-align: center;
+  margin: 1% 2%;
   .left {
     width: 50%;
     border-right: #bdbdbd 1px solid;
@@ -10,12 +10,20 @@
   .right {
     width: 50%;
   }
+  .left,
+  .right {
+    @media (min-width: 1025px) {
+      width: 10%;
+      white-space: nowrap;
+      box-sizing: border-box;
+    }
+  }
 
   .leftButton,
   .rightButton {
     color: black;
     background-color: white;
-    padding: 0.5rem;
+    padding: 2% 7%;
     border: none;
     &:hover {
       color: white;

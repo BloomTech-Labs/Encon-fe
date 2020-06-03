@@ -28,7 +28,7 @@
   .totalOutput {
     display: flex;
     justify-content: space-evenly;
-    margin: 1% 4%;
+    margin: 2% 4%;
     .totalCost,
     .totalEnergy {
       display: flex;
@@ -58,8 +58,10 @@
   }
   .inputEnergy {
     font-size: 2rem;
-    white-space: nowrap;
-    width: 85%;
+    box-sizing: border-box;
+    text-align: center;
+    width: 95%;
+    margin: 2%;
     background-color: transparentize($color: #044fbd, $amount: 0);
     color: transparentize($color: #ffffff, $amount: 0);
     border-radius: 1.25rem;

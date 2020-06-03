@@ -9,8 +9,8 @@ export const ApplianceList = () => {
     <div>
       <WelcomeHeader />
       <EnergyLocation />
-      <ApplianceTracker />
       <div className="applianceList">
+        <ApplianceTracker />
         <div className="timeContainer">
           <a href="" className="daily">
             Daily
