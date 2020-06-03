@@ -1,14 +1,22 @@
 .header-containerA {
-  margin-left: 1.5%;
-  margin-top: 0.5%;
-  .main-headerA {
-    font-size: 1.6rem;
-    text-align: left;
-    margin-bottom: 0.5rem;
-  }
-  .main-titleA {
-    font-size: 1rem;
-    text-align: left;
-    font-weight: normal;
-  }
+	text-align: left;
+	padding: 0.25rem 0 0.5rem;
+
+	.main-headerA {
+		font-size: 2.75rem;
+		font-weight: 600;
+		letter-spacing: 0.1rem;
+		line-height: 2.75rem;
+	}
+
+	.main-titleA {
+		font-size: 1.9rem;
+		font-weight: 500;
+		letter-spacing: 0.05rem;
+		line-height: 2.25rem;
+		padding-left: 0.25rem;
+	}
+	@media (min-width: 1025px) {
+		display: none;
+	}
 }
