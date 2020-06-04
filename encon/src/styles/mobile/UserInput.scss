@@ -29,5 +29,12 @@
   .device-fields {
     display: flex;
     flex-direction: row;
+    margin: 5% 0% 5% 25%;
+    border: $grey-border;
+  }
+  input {
+    position: static;
+    // opacity: 0;
+    padding: 8% 0;
   }
 }

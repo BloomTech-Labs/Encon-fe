@@ -80,11 +80,12 @@ export const UserInput = () => {
                 <input
                   type="number"
                   name="dishWasherHours"
+                  placeholder="hours"
                   ref={register({ min: 1, max: 24 })}
                   onChange={handleDishHoursChange}
                   value={dishWasher.hours}
                 ></input>
-                <label htmlFor="dishWasherHours">hours</label>
+                <label htmlFor="dishWasherHours"></label>
                 {errors.dishWasherHours && "hours 1-24"}
               </div>
 
@@ -93,10 +94,11 @@ export const UserInput = () => {
                   type="integer"
                   ref={register({ min: 1, max: 7 })}
                   name="dishWasherDays"
+                  placeholder="days per week"
                   onChange={handleDishDaysChange}
                   value={dishWasher.days}
                 ></input>
-                <label htmlFor="dishWasher days">days per week</label>
+                <label htmlFor="dishWasher days"></label>
                 {errors.dishWasherDays && <p>enter message</p>}
               </div>
             </div>
@@ -110,10 +112,11 @@ export const UserInput = () => {
                   type="integer"
                   ref={register({ min: 1, max: 24 })}
                   name="Washing Machine hours"
+                  placeholder="hours"
                   onChange={handleWashingHoursChange}
                   value={washingMachine.hours}
                 ></input>
-                <label htmlFor="Washing Machine hours">hours</label>
+                <label htmlFor="Washing Machine hours"></label>
                 {errors.entername && <p>enter message</p>}
               </div>
 
@@ -122,10 +125,11 @@ export const UserInput = () => {
                   type="integer"
                   ref={register({ min: 1, max: 7 })}
                   name="Washing Machine days"
+                  placeholder="days per week"
                   onChange={handleWashingDaysChange}
                   value={washingMachine.days}
                 ></input>
-                <label htmlFor="Washing Machine days">days per week</label>
+                <label htmlFor="Washing Machine days"></label>
                 {errors.entername && <p>enter message</p>}
               </div>
             </div>
@@ -139,10 +143,11 @@ export const UserInput = () => {
                   type="integer"
                   ref={register({ min: 1, max: 24 })}
                   name="Dryer hours"
+                  placeholder="hours"
                   onChange={handleDryerHoursChange}
                   value={dryer.hours}
                 ></input>
-                <label htmlFor="Dryer hours">hours</label>
+                <label htmlFor="Dryer hours"></label>
                 {errors.entername && <p>enter message</p>}
               </div>
 
@@ -151,10 +156,11 @@ export const UserInput = () => {
                   type="integer"
                   ref={register({ min: 1, max: 7 })}
                   name="Dryer days"
+                  placeholder="days per week"
                   onChange={handleDryerDaysChange}
                   value={dryer.days}
                 ></input>
-                <label htmlFor="Dryer days">days per week</label>
+                <label htmlFor="Dryer days"></label>
                 {errors.entername && <p>enter message</p>}
               </div>
             </div>
@@ -168,10 +174,11 @@ export const UserInput = () => {
                   type="integer"
                   ref={register({ min: 1, max: 24 })}
                   name="pc hours"
+                  placeholder="hours"
                   onChange={handlePCHoursChange}
                   value={pc.hours}
                 ></input>
-                <label htmlFor="pc hours">hours</label>
+                <label htmlFor="pc hours"></label>
                 {errors.entername && <p>enter message</p>}
               </div>
               <div className="device-use-duration">
@@ -179,10 +186,11 @@ export const UserInput = () => {
                   type="integer"
                   ref={register({ min: 1, max: 7 })}
                   name="pc days"
+                  placeholder="days per week"
                   onChange={handlePCDaysChange}
                   value={pc.days}
                 ></input>
-                <label htmlFor="pc days">days per week</label>
+                <label htmlFor="pc days"></label>
                 {errors.entername && <p>enter message</p>}
               </div>
             </div>
@@ -196,10 +204,11 @@ export const UserInput = () => {
                   type="integer"
                   ref={register({ min: 1, max: 24 })}
                   name="tv hours"
+                  placeholder="hours"
                   onChange={handleTVHoursChange}
                   value={tv.hours}
                 ></input>
-                <label htmlFor="tv hours">hours</label>
+                <label htmlFor="tv hours"></label>
                 {errors.entername && <p>enter message</p>}
               </div>
               <div className="device-use-duration">
@@ -207,10 +216,11 @@ export const UserInput = () => {
                   type="integer"
                   ref={register({ min: 1, max: 7 })}
                   name="tv days"
+                  placeholder="days per week"
                   onChange={handleTVDaysChange}
                   value={tv.days}
                 ></input>
-                <label htmlFor="tv days">days per week</label>
+                <label htmlFor="tv days"></label>
                 {errors.entername && <p>enter message</p>}
               </div>
             </div>
