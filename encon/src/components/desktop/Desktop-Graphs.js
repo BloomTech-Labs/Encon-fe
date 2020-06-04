@@ -22,7 +22,9 @@ export const DesktopGraphs = () => {
 
   return (
     <div className='graphContainer'>
+      <h2>Average Energy Output Per Appliance Per Month </h2>
       <LineChart
+        className='energyGraph'
         width={1000}
         height={500}
         data={data}
@@ -48,6 +50,7 @@ export const DesktopGraphs = () => {
         <Legend />
       </LineChart>
 
+      <h2>Average Expenses</h2>
       <BarChart
         width={1000}
         height={500}

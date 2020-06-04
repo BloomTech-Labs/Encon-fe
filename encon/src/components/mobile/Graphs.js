@@ -22,7 +22,9 @@ export const Graphs = () => {
 
   return (
     <div className='graphContainer'>
+      <h2>Average Energy Output Per Appliance Per Month</h2>
       <LineChart
+        className='energyGraph'
         width={300}
         height={300}
         data={data}
@@ -48,6 +50,7 @@ export const Graphs = () => {
         <Legend />
       </LineChart>
 
+      <h2>Average Expenses</h2>
       <BarChart
         width={300}
         height={300}
