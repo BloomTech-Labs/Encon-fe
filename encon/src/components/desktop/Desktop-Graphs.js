@@ -12,7 +12,7 @@ import {
   Legend,
 } from 'recharts';
 
-export const Graphs = () => {
+export const DesktopGraphs = () => {
   const data = [
     { month: 'January', TV: 400, Computer: 2400, Microwave: 2400 },
     { month: 'Febuary', TV: 600, Computer: 2000, Microwave: 2800 },
@@ -23,8 +23,8 @@ export const Graphs = () => {
   return (
     <div className='graphContainer'>
       <LineChart
-        width={300}
-        height={300}
+        width={1000}
+        height={500}
         data={data}
         margin={{ top: 5, right: 20, bottom: 10, left: 0 }}
       >
@@ -49,8 +49,8 @@ export const Graphs = () => {
       </LineChart>
 
       <BarChart
-        width={300}
-        height={300}
+        width={1000}
+        height={500}
         data={data}
         margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
       >
