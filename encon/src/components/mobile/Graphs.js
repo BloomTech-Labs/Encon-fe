@@ -16,6 +16,7 @@ export const UserGraph = () => {
     { month: 'March', TV: 1400, Computer: 400, Microwave: 2000 },
     { month: 'April', TV: 6400, Computer: 200, Microwave: 2402 },
   ];
+
   return (
     <LineChart
       width={1000}
@@ -31,9 +32,10 @@ export const UserGraph = () => {
         stroke='purple'
         strokeWidth={2}
       />
-      <CartesianGrid stroke='#ccc' strokeDasharray='3 3' />
+      <CartesianGrid stroke='grey' strokeDasharray='10' />
       <XAxis dataKey='month' />
       <YAxis />
+      <Tooltip content={data} />
       <Legend />
     </LineChart>
   );
