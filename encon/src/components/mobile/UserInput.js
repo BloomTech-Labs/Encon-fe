@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import "../../styles/mobile/UserInput.scss";
+import computerPNG from "../../assets/ElectronicsFolder/005-computer.png";
+import dishPNG from "../../assets/ElectronicsFolder/006-dishwasher.png";
+import clothesWashPNG from "../../assets/ElectronicsFolder/048-washing machine.png";
+import tvPNG from "../../assets/ElectronicsFolder/042-television.png";
 
 export const UserInput = () => {
   const { handleSubmit, register, errors } = useForm();
@@ -74,11 +78,13 @@ export const UserInput = () => {
       <form onSubmit={handleSubmit}>
         <div className="device-container">
           <section className="device-section">
-            <h3>Dishwasher</h3>
+            <img src={dishPNG} alt="black line drawing of a dishwasher" />
+            <h3 className="dishH3">Dishwasher</h3>
             <div className="device-fields">
               <div className="device-use-duration">
                 <input
                   type="number"
+                  className="inputHrs"
                   name="dishWasherHours"
                   placeholder="hours"
                   ref={register({ min: 1, max: 24 })}
@@ -91,7 +97,8 @@ export const UserInput = () => {
 
               <div className="device-use-duration">
                 <input
-                  type="integer"
+                  type="number"
+                  className="inputDays"
                   ref={register({ min: 1, max: 7 })}
                   name="dishWasherDays"
                   placeholder="days per week"
@@ -105,11 +112,16 @@ export const UserInput = () => {
           </section>
 
           <section className="device-section">
-            <h3>Washing Machine</h3>
+            <img
+              src={clothesWashPNG}
+              alt="black line drawing of a washer/dryer for clothes"
+            />
+            <h3 className="washH3">Washing Machine</h3>
             <div className="device-fields">
               <div className="device-use-duration">
                 <input
-                  type="integer"
+                  type="number"
+                  className="inputHrs"
                   ref={register({ min: 1, max: 24 })}
                   name="Washing Machine hours"
                   placeholder="hours"
@@ -122,7 +134,8 @@ export const UserInput = () => {
 
               <div className="device-use-duration">
                 <input
-                  type="integer"
+                  type="number"
+                  className="inputDays"
                   ref={register({ min: 1, max: 7 })}
                   name="Washing Machine days"
                   placeholder="days per week"
@@ -136,11 +149,16 @@ export const UserInput = () => {
           </section>
 
           <section className="device-section">
-            <h3>Clothes Dryer</h3>
+            <img
+              src={clothesWashPNG}
+              alt="black line drawing of a washer/dryer for clothes"
+            />
+            <h3 className="clothesH3">Clothes Dryer</h3>
             <div className="device-fields">
               <div className="device-use-duration">
                 <input
-                  type="integer"
+                  type="number"
+                  className="inputHrs"
                   ref={register({ min: 1, max: 24 })}
                   name="Dryer hours"
                   placeholder="hours"
@@ -153,7 +171,8 @@ export const UserInput = () => {
 
               <div className="device-use-duration">
                 <input
-                  type="integer"
+                  type="number"
+                  className="inputDays"
                   ref={register({ min: 1, max: 7 })}
                   name="Dryer days"
                   placeholder="days per week"
@@ -167,11 +186,16 @@ export const UserInput = () => {
           </section>
 
           <section className="device-section">
-            <h3>Desktop PC</h3>
+            <img
+              src={computerPNG}
+              alt="black line drawing of a desktop computer"
+            />
+            <h3 className="pcH3">Desktop PC</h3>
             <div className="device-fields">
               <div className="device-use-duration">
                 <input
-                  type="integer"
+                  type="number"
+                  className="inputHrs"
                   ref={register({ min: 1, max: 24 })}
                   name="pc hours"
                   placeholder="hours"
@@ -183,7 +207,8 @@ export const UserInput = () => {
               </div>
               <div className="device-use-duration">
                 <input
-                  type="integer"
+                  type="number"
+                  className="inputDays"
                   ref={register({ min: 1, max: 7 })}
                   name="pc days"
                   placeholder="days per week"
@@ -197,11 +222,13 @@ export const UserInput = () => {
           </section>
 
           <section className="device-section">
-            <h3>Television</h3>
+            <img src={tvPNG} alt="black line drawing of a television" />
+            <h3 className="tvH3">Television</h3>
             <div className="device-fields">
               <div className="device-use-duration">
                 <input
-                  type="integer"
+                  type="number"
+                  className="inputHrs"
                   ref={register({ min: 1, max: 24 })}
                   name="tv hours"
                   placeholder="hours"
@@ -213,7 +240,8 @@ export const UserInput = () => {
               </div>
               <div className="device-use-duration">
                 <input
-                  type="integer"
+                  type="number"
+                  className="inputDays"
                   ref={register({ min: 1, max: 7 })}
                   name="tv days"
                   placeholder="days per week"
@@ -226,9 +254,15 @@ export const UserInput = () => {
             </div>
           </section>
         </div>
-
-        <button type="submit">Confirm</button>
       </form>
+      <div className="input-button-container">
+        <button className="app-buttons-input" type="submit">
+          Confirm
+        </button>
+        <button className="app-buttons-input-dashlink">Go to Dashboard</button>
+        /** will probably make dashboard button a react-router-dom Link once
+        path is established */
+      </div>
     </div>
   );
 };
