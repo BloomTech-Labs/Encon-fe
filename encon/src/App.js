@@ -11,6 +11,7 @@ import { DesktopRegister } from './components/desktop/Desktop-Register';
 import { LoginDesktop } from './components/desktop/Desktop-Login';
 import { ApplianceList } from './components/mobile/Appliance-List.js';
 import { DesktopNav } from './components/desktop/Desktop-Nav.js';
+import { UserGraph } from './components/mobile/Graphs';
 
 const App = () => {
   const user = useState({
@@ -43,7 +44,7 @@ const App = () => {
         </Route>
         <Route path='/profile'>
           <DesktopNav />
-          <ApplianceList />
+          <UserGraph />
         </Route>
       </UserContext.Provider>
     </div>
