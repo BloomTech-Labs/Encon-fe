@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
-
 html,
 body,
 div,
@@ -92,7 +91,6 @@ video {
 	text-decoration: none;
 	vertical-align: baseline;
 }
-
 article,
 aside,
 details,
@@ -104,7 +102,7 @@ hgroup,
 menu,
 nav,
 section {
-	display: block;
+  display: block;
 }
 
 body {
@@ -112,41 +110,34 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
 ol,
 ul {
-	list-style: none;
+  list-style: none;
 }
-
 blockquote,
 q {
-	quotes: none;
+  quotes: none;
 }
-
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
-
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-
 *,
 *:after,
 *:before {
-	box-sizing: border-box;
-	outline: none;
+  box-sizing: border-box;
+  outline: none;
 }
-
 .App {
-	text-align: center;
+  text-align: center;
 }
-
 // buttons for login/register
 .app-buttons {
 	font-size: 2rem;
