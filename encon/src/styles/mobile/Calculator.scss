@@ -46,7 +46,7 @@
 		span {
 			display: flex;
 			align-items: center;
-			padding: 0.5rem .75rem;
+			padding: 0.5rem 0.75rem;
 			border-radius: 125rem;
 			transition: 0.25s ease-in;
 			&:hover {
@@ -75,12 +75,22 @@
 		margin-bottom: 4rem;
 		font-size: 1.35rem;
 		text-align: left;
-		input {
+		input,
+		select,
+		option {
 			font-size: 1.5rem;
 			margin-top: 0.75rem;
 			padding: 1.25rem 2.75rem 1.25rem 1.75rem;
 			border: 0.1rem solid transparentize($color: #4f4f4f, $amount: 0.75);
 			border-radius: 1.25rem;
+		}
+		select,
+		option {
+			padding: 1.25rem 2.75rem 1.25rem 1.75rem;
+			width: 22.3rem;
+		}
+		option {
+			overflow: scroll;
 		}
 	}
 
