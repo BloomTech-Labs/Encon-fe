@@ -9,7 +9,7 @@ import MediaQuery from 'react-responsive';
 
 export const Dashboard = () => {
   return (
-    <div>
+    <div className='dashboard'>
       <WelcomeHeader />
       <EnergyLocation />
       <div className='applianceTracker'>
