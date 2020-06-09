@@ -74,3 +74,5 @@ export const Graphs = () => {
     </div>
   );
 };
+
+export default Graphs;
