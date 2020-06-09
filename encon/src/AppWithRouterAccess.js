@@ -28,12 +28,8 @@ const AppWithRouterAccess = () => {
   });
 
   return (
-    <Security
-      issuer={config.issuer}
-      clientId={config.client_id}
-      redirectUri={window.location.origin + "/implicit/callback"}
-      onAuthRequired={onAuthRequired}
-      pkce={true}
+    <Security {...config.oidc}
+  
     >
       <UserContext.Provider value={{ user }}>
         <MediaQuery maxDeviceWidth={1025}>
@@ -58,10 +54,10 @@ const AppWithRouterAccess = () => {
       <Route
         path="/login"
         render={() => (
-          <LoginDesktop issuer="https://dev-208626.okta.com/oauth2/default" />
+          <LoginDesktop issuer="https://dev-208626.okta.com/oauth2/default"component={LoginCallback} />
         )}
       />
-      <Route path="/implicit/callback" component={DesktopView} />
+      <Route path="/login" component={DesktopView} />
     </Security>
   );
 };

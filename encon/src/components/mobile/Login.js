@@ -48,6 +48,7 @@ import config from '../../App.Config.js';
     widget.renderEl(
       { el: '#sign-in-widget' },
       () => {
+        
         /**
          * In this flow, the success handler will not be called beacuse we redirect
          * to the Okta org for the authentication workflow.

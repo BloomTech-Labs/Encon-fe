@@ -1,9 +1,10 @@
 export default {
-    url: 'https://dev-208626.okta.com',
+
+  oidc: {
+    clientId:'0oadvz08xHN08rIYc4x6' ,
     issuer: 'https://dev-208626.okta.com/oauth2/default',
-    redirect_uri: window.location.origin + '/implicit/callback',
-    client_id: '0oadvz08xHN08rIYc4x6',
+    redirectUri: window.location.origin + '/implicit/callback',
+    scopes: ["openid", "profile", "email"],
     pkce: true,
-  disableHttpsCheck: false,
-  };
-  
+  }
+} 
