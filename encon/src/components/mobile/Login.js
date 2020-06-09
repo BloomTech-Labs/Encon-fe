@@ -4,7 +4,7 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 import config from '../../App.Config.js';
 
- export const Login = () => {
+ const Login = () => {
   useEffect(() => {
    
     const widget = new OktaSignIn({
@@ -13,9 +13,9 @@ import config from '../../App.Config.js';
        * needs to be configured with the base URL for your Okta Org. Here
        * we derive it from the given issuer for convenience.
        */
-      baseUrl: config.issuer ? config.issuer.split('/oauth2')[0] : '',
-      client_Id: config.client_id,
-      redirectUri: config.redirect_uri,
+      baseUrl: 'https://dev-208626.okta.com/oauth2/default' ,
+      client_id: config.client_id,
+      redirect_Uri: config.redirect_Uri,
       logo: '/react.svg',
       i18n: {
         en: {
@@ -65,3 +65,5 @@ import config from '../../App.Config.js';
     </div>
   );
 };
+
+export default Login;

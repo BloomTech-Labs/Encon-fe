@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Route, useHistory } from "react-router-dom";
 import { Security, SecureRoute, LoginCallback } from "@okta/okta-react";
-// import Home from './Home';
-// import Login from './Login';
-// import Protected from './Protected';
 import config from "./App.Config.js";
 import { Navigation } from "./components/mobile/Navigation.js";
 import { LandingPage } from "./components/mobile/Landing-Page.js";
@@ -14,9 +11,12 @@ import { UserContext } from "./context/UserContext.js";
 import { DesktopRegister } from "./components/desktop/Desktop-Register";
 import { LoginDesktop } from "./components/desktop/Desktop-Login";
 import { DesktopNav } from "./components/desktop/Desktop-Nav.js";
+import Dashboard from "./components/mobile/Dashboard.js";
 
 const AppWithRouterAccess = () => {
+  
   const history = useHistory();
+  
   const onAuthRequired = () => {
     history.push("/login");
   };
@@ -28,36 +28,36 @@ const AppWithRouterAccess = () => {
   });
 
   return (
-    <Security {...config.oidc}
-  
-    >
+    <Security baseUrl={config.baseUrl} 
+    issuer={config.issuer}
+    clientId={config.client_id}
+    redirectUri= {config.redirect_Uri}
+    pkce={true} onAuthRequired={onAuthRequired}>
       <UserContext.Provider value={{ user }}>
         <MediaQuery maxDeviceWidth={1025}>
           <Navigation />
         </MediaQuery>
         <LogoHeader />
-
-        <Route path="/register">
+        <Route exact path='/'>
+          <MediaQuery minDeviceWidth={1025}>
+            <DesktopNav />
+            <DesktopView />
+          </MediaQuery>
+          <MediaQuery maxDeviceWidth={1025}>
+            <LandingPage />
+          </MediaQuery>
+        </Route>
+        <Route path='/login' 
+        render={ () => (<LoginDesktop baseUrl='https://dev-208626.okta.com'/>)}/>
+          
+        
+        <Route path='/register'>
           <DesktopRegister />
         </Route>
+        <SecureRoute path='/profile' component={Dashboard}/>
+       <Route path='/implicit/callback' component={LoginCallback}/>   
+        
       </UserContext.Provider>
-      <Route path="/" exact={true} >
-        <MediaQuery minDeviceWidth={1025}>
-          <DesktopNav />
-          <DesktopView />
-        </MediaQuery>
-        <MediaQuery maxDeviceWidth={1025}>
-          <LandingPage />
-        </MediaQuery>
-      </Route>
-      <SecureRoute path="/protected" component={DesktopView} />
-      <Route
-        path="/login"
-        render={() => (
-          <LoginDesktop issuer="https://dev-208626.okta.com/oauth2/default"component={LoginCallback} />
-        )}
-      />
-      <Route path="/login" component={DesktopView} />
     </Security>
   );
 };

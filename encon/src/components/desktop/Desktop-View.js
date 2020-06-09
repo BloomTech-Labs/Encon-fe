@@ -1,7 +1,6 @@
 import React from 'react';
 import { Calculator } from '../mobile/Calculator.js';
-import { Register } from '../mobile/Register.js';
-import { Login } from '../mobile/Login.js';
+import OktaLogin from '../mobile/OktaLogin.js';
 import '../../styles/desktop/Desktop-View.scss';
 
 export const DesktopView = () => {
@@ -15,8 +14,8 @@ export const DesktopView = () => {
 			</div>
 			<div className='rightContainer'>
 				<div className='registerContainer'>
-					<Register />
-					<Login/>
+					
+					<OktaLogin/>
 
 				</div>
 			</div>
