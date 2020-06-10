@@ -1,7 +1,8 @@
 import React from 'react';
 import { render, act, fireEvent } from '@testing-library/react';
-import { Calculator } from '../components/Calculator';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Calculator } from '.././components/mobile/Calculator';
+
 test('should render Calculator component ', () => {
   render(
     <Router>
@@ -19,28 +20,32 @@ test('check for text', () => {
   const register = getByText(/register/i);
   expect(register).toBeInTheDocument();
 });
-
-test('should show the correct outputs given inputs', () => {
-  const { getByLabelText } = render(
+// trying to figure out how to test calculator
+test('should show the correct outputs given inputs', async () => {
+  const { getByText, getByTestId } = render(
     <Router>
       <Calculator />
     </Router>
   );
-  const deviceButton = getByLabelText(/device/i);
-  const stateInput = getByLabelText(/state/i);
-  const hoursInput = getByLabelText(/hourly use/i);
-  const daysInput = getByLabelText(/days per week used/i);
+  const deviceButton = getByTestId('desktop');
+  const stateInput = getByText(/texas/i);
+  const hoursInput = getByTestId('hourlyUse');
+  const daysInput = getByTestId('daysPerWeek');
 
   act(() => {
-    fireEvent.click(deviceButton);
+    fireEvent.change(deviceButton, { target: { value: 'Computer Desktop' } });
     fireEvent.change(stateInput, {
-      target: { name: 'State', value: 'Virginia' },
+      target: { value: 'Texas' },
     });
     fireEvent.change(hoursInput, {
-      target: { name: 'Hourly Use', value: '5' },
+      target: { value: 5 },
     });
     fireEvent.change(daysInput, {
-      target: { name: 'Days Per Week Used', value: '5' },
+      target: { value: 5 },
     });
   });
+  const costPerYear = getByTestId('costPerYear');
+  const energyUsed = getByTestId('energyUsed');
+  await expect(costPerYear).toContain(0);
+  await expect(energyUsed).toContain(0);
 });
