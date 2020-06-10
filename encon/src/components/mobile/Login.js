@@ -13,9 +13,9 @@ import config from '../../App.Config.js';
        * needs to be configured with the base URL for your Okta Org. Here
        * we derive it from the given issuer for convenience.
        */
-      baseUrl: 'https://dev-208626.okta.com/oauth2/default' ,
-      client_id: config.client_id,
-      redirect_Uri: config.redirect_Uri,
+      baseUrl: config.baseUrl,
+      clientId: config.clientId,
+      redirectUri: config.redirectUri,
       logo: '/react.svg',
       i18n: {
         en: {
