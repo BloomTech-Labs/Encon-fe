@@ -9,11 +9,11 @@
     border-bottom: $grey-border;
   }
 
-  h2 {
-    border-bottom: $grey-border;
-    margin: 5%;
-    padding-bottom: 5%;
-  }
+  // h2 {
+  //   border-bottom: $grey-border;
+  //   margin: 5%;
+  //   padding-bottom: 5%;
+  // }
   h3 {
     font-size: 1.6rem;
     font-weight: bold;
@@ -34,6 +34,11 @@
   }
   .tvH3 {
     margin-right: 8%;
+  }
+  .calendar {
+    border-bottom: $grey-border;
+    padding: 5% 0;
+    margin: 5%;
   }
 
   .device-section {

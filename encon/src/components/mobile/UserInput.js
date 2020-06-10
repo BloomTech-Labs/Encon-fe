@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { DatePicker } from "./DatePicker";
+import { Link, Route } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import "../../styles/mobile/UserInput.scss";
@@ -74,7 +76,14 @@ export const UserInput = () => {
   return (
     <div className="user-input">
       <h1>Input Time Used</h1>
-      <h2>Calendar is going here</h2>
+      <div className="calendar">
+        <Route
+          path="/DatePicker"
+          render={(props) => <DatePicker {...props} />}
+        />
+        <Link to="/DatePicker">calendar logo</Link>
+      </div>
+
       <form onSubmit={handleSubmit}>
         <div className="device-container">
           <section className="device-section">
@@ -255,13 +264,14 @@ export const UserInput = () => {
           </section>
         </div>
       </form>
+      <div className=""></div>
       <div className="input-button-container">
         <button className="app-buttons-input" type="submit">
           Confirm
         </button>
         <button className="app-buttons-input-dashlink">Go to Dashboard</button>
-        /** will probably make dashboard button a react-router-dom Link once
-        path is established */
+        {/* will probably make dashboard button a react-router-dom Link once
+        path is established */}
       </div>
     </div>
   );
