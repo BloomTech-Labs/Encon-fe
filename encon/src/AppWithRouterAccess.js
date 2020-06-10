@@ -30,8 +30,8 @@ const AppWithRouterAccess = () => {
   return (
     <Security baseUrl={config.baseUrl} 
     issuer={config.issuer}
-    clientId={config.client_id}
-    redirectUri= {config.redirect_Uri}
+    clientId={config.clientId}
+    redirectUri= {config.redirectUri}
     pkce={true} onAuthRequired={onAuthRequired}>
       <UserContext.Provider value={{ user }}>
         <MediaQuery maxDeviceWidth={1025}>
