@@ -33,7 +33,7 @@ const AppWithRouterAccess = () => {
     clientId={config.clientId}
     redirectUri= {config.redirectUri}
     storage={localStorage}
-    pkce={true} onAuthRequired={onAuthRequired}>
+    pkce={false} onAuthRequired={onAuthRequired}>
       <UserContext.Provider value={{ user }}>
         <MediaQuery maxDeviceWidth={1025}>
           <Navigation />

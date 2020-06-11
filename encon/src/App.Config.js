@@ -4,5 +4,5 @@ export default {
   issuer: 'https://dev-208626.okta.com/oauth2/default',
   redirectUri: window.location.origin + '/implicit/callback',
   scopes: ["openid", "profile", "email", 'encon_user'],
-  pkce: true
+  pkce: false
 } 

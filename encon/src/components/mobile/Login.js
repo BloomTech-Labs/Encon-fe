@@ -23,12 +23,12 @@
          },
        },
        authParams: {
-         pkce: config.pkce,
+         pkce: false,
         issuer: config.issuer,
          redirectUri: config.redirectUri,
          display: 'page',
-         responseMode: 'query',
-         responseType: 'code'
+         
+         responseType: 'token'
 
         
        },
