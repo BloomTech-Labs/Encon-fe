@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DatePicker } from "./DatePicker";
+
 import { Link, Route } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
@@ -8,6 +8,7 @@ import computerPNG from "../../assets/ElectronicsFolder/005-computer.png";
 import dishPNG from "../../assets/ElectronicsFolder/006-dishwasher.png";
 import clothesWashPNG from "../../assets/ElectronicsFolder/048-washing machine.png";
 import tvPNG from "../../assets/ElectronicsFolder/042-television.png";
+import { DatePicker } from "./DatePicker";
 
 export const UserInput = () => {
   const { handleSubmit, register, errors } = useForm();
@@ -76,12 +77,11 @@ export const UserInput = () => {
   return (
     <div className="user-input">
       <h1>Input Time Used</h1>
-      <div className="calendar">
-        <Route
-          path="/DatePicker"
-          render={(props) => <DatePicker {...props} />}
-        />
-        <Link to="/DatePicker">calendar logo</Link>
+      <div className="datepicker-link">
+        <Link to="/input/DatePicker">calendar logo</Link>
+        <Route path="/input/DatePicker">
+          <DatePicker />
+        </Route>
       </div>
 
       <form onSubmit={handleSubmit}>
