@@ -1,69 +1,107 @@
-import React, { useEffect } from 'react';
-import * as OktaSignIn from '@okta/okta-signin-widget';
-import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
+ import React, { useEffect } from 'react';
+ import * as OktaSignIn from '@okta/okta-signin-widget';
+ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
-import config from '../../App.Config.js';
+ import config from '../../App.Config.js';
 
- const Login = () => {
-  useEffect(() => {
+  const Login = () => {
+   useEffect(() => {
    
-    const widget = new OktaSignIn({
+     const widget = new OktaSignIn({
       /**
        * Note: when using the Sign-In Widget for an OIDC flow, it still
        * needs to be configured with the base URL for your Okta Org. Here
        * we derive it from the given issuer for convenience.
        */
-      baseUrl: config.baseUrl,
-      clientId: config.clientId,
-      redirectUri: config.redirectUri,
-      logo: '/react.svg',
+       baseUrl: config.baseUrl,
+       clientId: config.clientId,
+       redirectUri: config.redirectUri,
+       logo: '/react.svg',
       i18n: {
-        en: {
-          'primaryauth.title': 'EnCon',
-        },
-      },
-      authParams: {
-        pkce: config.pkce,
+         en: {
+           'primaryauth.title': 'EnCon',
+         },
+       },
+       authParams: {
+         pkce: config.pkce,
         issuer: config.issuer,
-        display: 'page',
+         redirectUri: config.redirectUri,
+         display: 'page',
+         responseMode: 'query',
+         responseType: 'code'
+
         
-      },
-      registration: {
-        parseSchema: function(schema, onSuccess, onFailure) {
-           // handle parseSchema callback
-           onSuccess(schema);
-        },
+       },
+       registration: {
+         parseSchema: function(schema, onSuccess, onFailure) {
+            // handle parseSchema callback
+            onSuccess(schema);
+         },
 
 
-      },
+       },
 
-      features: {
-        registration: true
-      }
+       features: {
+         registration: true
+       }
       
       
-    });
+     });
+    
+    
+    //   let idToken = widget.tokenManager.get('idToken').then(idToken => {
+    //    // If ID Token exists, output it to the console
+    //    if (idToken) {
+    //      console.log(`hi ${idToken.claims.email}!`);
+    //    // If ID Token isn't found, try to parse it from the current URL
+    //    } else if (window.location.hash) {
+    //      widget.token.parseFromUrl()
+    //      .then(idToken => {
+    //       console.log(`hi ${idToken.claims.email}!`);
+    //        // Store parsed token in Token Manager
+    //        widget.tokenManager.add('idToken', idToken);
+    //        console.log(idToken);
+    //      });
+    //    } else {
+    //      // You're not logged in, you need a sessionToken
+    //      var username = prompt('What is your username?');
+    //      var password = prompt('What is your password?');
 
-    widget.renderEl(
-      { el: '#sign-in-widget' },
-      () => {
+    //      widget.signIn({username, password})
+    //      .then(res => {
+    //        if (res.status === 'SUCCESS') {
+    //          widget.token.getWithRedirect({
+    //            sessionToken: res.sessionToken,
+    //            responseType: 'id_token'
+    //          });
+    //        }
+    //      });
+    //    }
+    //  });
+        
+
+
+
+     widget.renderEl(
+       { el: '#sign-in-widget' },
+       () => {
         
         /**
-         * In this flow, the success handler will not be called beacuse we redirect
+          * In this flow, the success handler will not be called beacuse we redirect
          * to the Okta org for the authentication workflow.
-         */
-      },
+          */
+       },
       (err) => {
-        throw err;
-      },
-    );
+         throw err;
+       },
+     );
   }, []);
 
-  return (
+   return (
     <div>
-      <div id="sign-in-widget" />
+     <div id="sign-in-widget" />
     </div>
   );
 };
 
-export default Login;
+ export default Login;

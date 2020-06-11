@@ -32,6 +32,7 @@ const AppWithRouterAccess = () => {
     issuer={config.issuer}
     clientId={config.clientId}
     redirectUri= {config.redirectUri}
+    storage={localStorage}
     pkce={true} onAuthRequired={onAuthRequired}>
       <UserContext.Provider value={{ user }}>
         <MediaQuery maxDeviceWidth={1025}>
@@ -54,7 +55,7 @@ const AppWithRouterAccess = () => {
         <Route path='/register'>
           <DesktopRegister />
         </Route>
-        <SecureRoute path='/profile' component={Dashboard}/>
+        <SecureRoute path='/profile' component={Dashboard} />
        <Route path='/implicit/callback' component={LoginCallback}/>   
         
       </UserContext.Provider>
