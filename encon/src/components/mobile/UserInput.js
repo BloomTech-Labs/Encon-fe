@@ -77,12 +77,12 @@ export const UserInput = () => {
   return (
     <div className="user-input">
       <h1>Input Time Used</h1>
-      <div className="datepicker-link">
-        <Link to="/input/DatePicker">calendar logo</Link>
-        <Route path="/input/DatePicker">
-          <DatePicker />
-        </Route>
-      </div>
+      {/* <div className="datepicker-link"> */}
+      <Link to="/input/DatePicker">calendar logo</Link>
+      <Route path="/input/DatePicker">
+        <DatePicker />
+      </Route>
+      {/* </div> */}
 
       <form onSubmit={handleSubmit}>
         <div className="device-container">

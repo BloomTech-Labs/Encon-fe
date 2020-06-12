@@ -1,12 +1,11 @@
 import React from "react";
 import "../../styles/mobile/Navigation.scss";
 import Menu from "react-burger-menu/lib/menus/stack";
-
 export const Navigation = () => {
   return (
     <Menu
       right
-      width={"40rem"}
+      width={"25rem"}
       htmlClassName={"nav-overflow"}
       bodyClassName={"nav-overflow"}
     >
@@ -20,8 +19,11 @@ export const Navigation = () => {
         <a className="bm-item" href="/register">
           Register
         </a>
+        <a className="bm-item" href="/profile">
+          Profile
+        </a>
         <a className="bm-item" href="/input">
-          temp link user input
+          User Input
         </a>
       </div>
     </Menu>

@@ -90,7 +90,6 @@ video {
   text-decoration: none;
   vertical-align: baseline;
 }
-
 article,
 aside,
 details,
@@ -111,17 +110,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 ol,
 ul {
   list-style: none;
 }
-
 blockquote,
 q {
   quotes: none;
 }
-
 blockquote:before,
 blockquote:after,
 q:before,
@@ -129,23 +125,19 @@ q:after {
   content: "";
   content: none;
 }
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 *,
 *:after,
 *:before {
   box-sizing: border-box;
   outline: none;
 }
-
 .App {
   text-align: center;
 }
-
 // buttons for login/register
 .app-buttons {
   font-size: 3rem;
