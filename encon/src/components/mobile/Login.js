@@ -28,7 +28,9 @@
          redirectUri: config.redirectUri,
          display: 'page',
          
-         responseType: 'token'
+         responseType: 'id_token',
+         scopes:["openid", "profile", "address"],
+         
 
         
        },
