@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/mobile/Energy-Location.scss";
-export const EnergyLocation = () => {
+export const EnergyLocation = (props) => {
+
   return (
     <div className="energyLocation">
       <div className="energyContainer">
@@ -9,7 +10,7 @@ export const EnergyLocation = () => {
 
       <div className="locationContainer">
         <h5>
-          Location: 1120 <a href="/">(change)</a>{" "}
+          Location: {props.state}  <a href="/">(change)</a>{" "}
         </h5>
       </div>
     </div>

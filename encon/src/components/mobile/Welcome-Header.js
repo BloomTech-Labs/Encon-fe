@@ -1,11 +1,12 @@
 import React from "react";
 import "../../styles/mobile/Welcome-Header.scss";
 
-export const WelcomeHeader = () => {
+export const WelcomeHeader = (props) => {
+  console.log('props',props)
   return (
     <div className="welcomeHeader">
       <div className="userName">
-        <h2>Hi "insert user's name here"</h2>
+        <h2>Hi {props.name} </h2>
       </div>
       <div className="notUser">
         <p>
