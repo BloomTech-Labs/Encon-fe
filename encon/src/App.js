@@ -44,9 +44,7 @@ const App = () => {
         <Route path="/register">
           <DesktopRegister />
         </Route>
-        <Route path="/input">
-          <UserInput />
-        </Route>
+        <Route path="/userInput" component={UserInput} />
         <Route path="/profile">
           <DesktopNav />
           <Dashboard />

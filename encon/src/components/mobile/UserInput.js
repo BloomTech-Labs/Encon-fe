@@ -78,8 +78,8 @@ export const UserInput = () => {
     <div className="user-input">
       <h1>Input Time Used</h1>
       {/* <div className="datepicker-link"> */}
-      <Link to="/input/DatePicker">calendar logo</Link>
-      <Route path="/input/DatePicker">
+      <Link to="/userInput/DatePicker">calendar logo</Link>
+      <Route path="/userInput/DatePicker">
         <DatePicker />
       </Route>
       {/* </div> */}
