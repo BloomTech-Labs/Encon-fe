@@ -1,0 +1,103 @@
+@import "./variables.scss";
+
+.user-input {
+  .device-container {
+    margin: 5%;
+  }
+  h1 {
+    font-size: 3rem;
+    border-bottom: $grey-border;
+  }
+
+  // h2 {
+  //   border-bottom: $grey-border;
+  //   margin: 5%;
+  //   padding-bottom: 5%;
+  // }
+  h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: -4%;
+  }
+
+  .dishH3 {
+    margin-right: 4%;
+  }
+  .washH3 {
+    margin-left: 11%;
+  }
+  .clothesH3 {
+    margin-left: 2%;
+  }
+  .pcH3 {
+    margin-right: 4%;
+  }
+  .tvH3 {
+    margin-right: 8%;
+  }
+  .calendar {
+    border-bottom: $grey-border;
+    padding: 5% 0;
+    margin: 5%;
+  }
+
+  .device-section {
+    border-bottom: $grey-border;
+    padding: 5% 0;
+  }
+
+  .inputHrs {
+    border-right: $grey-border;
+    // border-collapse: separate;
+    margin: 5% 0;
+  }
+
+  .inputDays {
+    margin: 5% 0;
+  }
+
+  .device-fields {
+    display: flex;
+    flex-direction: row;
+    margin: 5% 5% 5% 35%;
+    border: $grey-border;
+    width: 65%;
+    border-radius: 0.5rem;
+  }
+  input {
+    position: static;
+    padding: 5% 1%;
+    // margin: 5%;
+    font-size: 1.4rem;
+    width: 85%;
+    border: 0;
+  }
+
+  img {
+    width: 20%;
+    margin-right: 65%;
+    margin-bottom: -25%;
+  }
+
+  .app-buttons-input {
+    font-size: 2.5rem;
+    margin: 3%;
+    width: 90%;
+    background-color: #044fbd;
+    color: #ffffff;
+    border-radius: 1.25rem;
+    border: #044fbd solid;
+    padding: 3%;
+  }
+
+  .app-buttons-input-dashlink {
+    font-size: 2.5rem;
+    margin: 3%;
+    width: 90%;
+    background-color: #ffffff;
+    color: #044fbd;
+    border-radius: 1.25rem;
+    border: 1px #010307 solid;
+    padding: 3%;
+  }
+}
