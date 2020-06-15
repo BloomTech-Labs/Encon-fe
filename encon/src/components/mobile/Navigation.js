@@ -22,9 +22,6 @@ export const Navigation = () => {
         <a className="bm-item" href="/profile">
           Profile
         </a>
-        <a className="bm-item" href="/input">
-          User Input
-        </a>
       </div>
     </Menu>
   );
