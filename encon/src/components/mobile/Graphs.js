@@ -21,7 +21,7 @@ export const Graphs = () => {
   ];
 
   return (
-    <div className='graphContainer'>
+    <div className='graphContainer' data-testid='EnergyChart'>
       <h2>Average Energy Output Per Appliance Per Month</h2>
       <LineChart
         className='energyGraph'
