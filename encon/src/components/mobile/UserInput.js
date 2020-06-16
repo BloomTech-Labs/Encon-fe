@@ -8,6 +8,7 @@ import computerPNG from "../../assets/ElectronicsFolder/005-computer.png";
 import dishPNG from "../../assets/ElectronicsFolder/006-dishwasher.png";
 import clothesWashPNG from "../../assets/ElectronicsFolder/048-washing machine.png";
 import tvPNG from "../../assets/ElectronicsFolder/042-television.png";
+import calendarPNG from "../../assets/ElectronicsFolder/calendar.png";
 import { DatePicker } from "./DatePicker";
 
 export const UserInput = () => {
@@ -77,13 +78,18 @@ export const UserInput = () => {
   return (
     <div className="user-input">
       <h1>Input Time Used</h1>
-      {/* <div className="datepicker-link"> */}
-      <Link to="/userInput/DatePicker">calendar logo</Link>
-      <Route path="/userInput/DatePicker">
-        <DatePicker />
-      </Route>
-      {/* </div> */}
-
+      <div className="datepicker-link">
+        <Link to="/userInput/DatePicker">
+          <img
+            className="calPNG"
+            src={calendarPNG}
+            alt="black line drawing of a calendar"
+          />
+        </Link>
+        <Route path="/userInput/DatePicker">
+          <DatePicker />
+        </Route>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="device-container">
           <section className="device-section">
@@ -267,12 +273,24 @@ export const UserInput = () => {
       <div className=""></div>
       <div className="input-button-container">
         <button className="app-buttons-input" type="submit">
+          {/* this button will submit post request */}
           Confirm
         </button>
-        <button className="app-buttons-input-dashlink">Go to Dashboard</button>
-        {/* will probably make dashboard button a react-router-dom Link once
-        path is established */}
+        <Link to="/profile/appliances">
+          <button className="app-buttons-input-dashlink">
+            Go to Dashboard
+          </button>
+        </Link>
       </div>
+      Icons made by{" "}
+      <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+        Freepik
+      </a>{" "}
+      from{" "}
+      <a href="https://www.flaticon.com/" title="Flaticon">
+        {" "}
+        www.flaticon.com
+      </a>
     </div>
   );
 };
