@@ -45,6 +45,9 @@
     border-bottom: $grey-border;
     padding: 5% 0;
   }
+  .device-section:first-child {
+    border-top: $grey-border;
+  }
 
   .inputHrs {
     border-right: $grey-border;
@@ -73,10 +76,18 @@
     border: 0;
   }
 
-  img {
+  .device-container img {
     width: 20%;
     margin-right: 65%;
     margin-bottom: -25%;
+  }
+  .datepicker-link {
+    // border-bottom: $grey-border;
+    margin: 10% 10% 10% 0%;
+    .calPNG {
+      width: 5%;
+      margin: 0 85% 20% 0;
+    }
   }
 
   .app-buttons-input {
