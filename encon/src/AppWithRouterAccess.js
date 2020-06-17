@@ -11,9 +11,7 @@ import MediaQuery from "react-responsive";
 import { UserContext } from "./context/UserContext.js";
 import { DesktopRegister } from "./components/desktop/Desktop-Register";
 import { LoginDesktop } from "./components/desktop/Desktop-Login";
-import { ApplianceList } from "./components/mobile/Appliance-List.js";
 import { DesktopNav } from "./components/desktop/Desktop-Nav.js";
-import { DesktopGraphs } from "./components/desktop/Desktop-Graphs";
 import { Dashboard } from "./components/mobile/Dashboard";
 import { UserInput } from "./components/mobile/UserInput";
 
@@ -58,7 +56,7 @@ const AppWithRouterAccess = () => {
         <Route path="/register">
           <DesktopRegister />
         </Route>
-        <Route path="/userInput" component={UserInput} />
+        <SecureRoute path="/userInput" component={UserInput} />
         <Route path='/implicit/callback' component={LoginCallback}/>
         <SecureRoute path="/profile">
           <DesktopNav />

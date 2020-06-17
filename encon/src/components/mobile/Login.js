@@ -29,7 +29,7 @@
          display: 'page',
          
          responseType: 'id_token',
-         scopes:["openid", "profile", "address"],
+         scopes:["openid", "profile", 'address'],
          
 
         

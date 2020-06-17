@@ -8,7 +8,7 @@ import { Graphs } from './Graphs';
 import { useOktaAuth } from '@okta/okta-react';
 import MediaQuery from 'react-responsive';
 import '../../styles/mobile/Appliance-Tracker.scss';
-import { object } from "yup";
+import {  SecureRoute } from "@okta/okta-react";
 
 export const Dashboard = (props) => {
   const { authState, authService } = useOktaAuth();
@@ -32,7 +32,7 @@ export const Dashboard = (props) => {
   return (
     <div className='dashboard'>
       <WelcomeHeader name={userInfo.given_name}/>
-      <EnergyLocation state={JSON.stringify(userInfo.address)} />
+      <EnergyLocation user={userInfo.middle_name} />
       <div className='applianceTracker'>
         <div className='left'>
           <Link to='/profile/appliances' className='leftButton'>
@@ -45,8 +45,9 @@ export const Dashboard = (props) => {
           </Link>
         </div>
       </div>
-      <Route path='/profile/appliances' component={ApplianceList} />
-
+      <SecureRoute path='/profile/appliances'>
+        <ApplianceList user={userInfo}/>
+</SecureRoute>
       <MediaQuery minDeviceWidth={1025}>
         <Route path='/profile/graphs' component={DesktopGraphs} />
       </MediaQuery>
