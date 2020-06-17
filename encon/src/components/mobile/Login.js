@@ -1,81 +1,109 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { HeaderAlt } from '../mobile/Header-Alt.js';
-import '../../styles/mobile/Login.scss';
-import axios from 'axios';
+ import React, { useEffect } from 'react';
+ import * as OktaSignIn from '@okta/okta-signin-widget';
+ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
-export const Login = () => {
-	const { handleSubmit, register, errors } = useForm();
+ import config from '../../App.Config.js';
 
-	const handleChange = (e) => {
-		setUser({
-			...user,
-			[e.target.name]: e.target.value,
-		});
-	};
+  const Login = () => {
+   useEffect(() => {
+   
+     const widget = new OktaSignIn({
+      /**
+       * Note: when using the Sign-In Widget for an OIDC flow, it still
+       * needs to be configured with the base URL for your Okta Org. Here
+       * we derive it from the given issuer for convenience.
+       */
+       baseUrl: config.baseUrl,
+       clientId: config.clientId,
+       redirectUri: config.redirectUri,
+       logo: '/react.svg',
+      i18n: {
+         en: {
+           'primaryauth.title': 'EnCon',
+         },
+       },
+       authParams: {
+         pkce: false,
+        issuer: config.issuer,
+         redirectUri: config.redirectUri,
+         display: 'page',
+         
+         responseType: 'id_token',
+         scopes:["openid", "profile", 'address'],
+         
 
-	const onSubmit = (e) => {
-		e.preventDefault();
-		axios
-			.post('/back end user/', user)
-			.then((res) => {
-				localStorage.setItem('token', res.data.token);
-				console.log('user data', res.data.user);
-			})
-			.catch((err) => {
-				console.log('Error while logging in', err.response);
-			});
-	};
+        
+       },
+       registration: {
+         parseSchema: function(schema, onSuccess, onFailure) {
+            // handle parseSchema callback
+            onSuccess(schema);
+         },
 
-	const [user, setUser] = useState({
-		email: '',
-		password: '',
-	});
 
-	return (
-		<div className='login-container'>
-			<HeaderAlt />
-			<form onSubmit={handleSubmit}>
-				<label htmlFor='email' className='label'>
-					Email
-				</label>
+       },
 
-				<input
-					id='email'
-					htmlFor='email'
-					className='email'
-					name='email'
-					ref={register({
-						required: 'Required',
-						pattern: {
-							value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-							message: 'invalid email address',
-						},
-					})}
-					value={user.email}
-					onChange={handleChange}
-				/>
-				{errors.email && errors.email.message}
-				<br />
-				<label htmlFor='password' className='label'>
-					Password
-				</label>
+       features: {
+         registration: true
+       }
+      
+      
+     });
+    
+    
+    //   let idToken = widget.tokenManager.get('idToken').then(idToken => {
+    //    // If ID Token exists, output it to the console
+    //    if (idToken) {
+    //      console.log(`hi ${idToken.claims.email}!`);
+    //    // If ID Token isn't found, try to parse it from the current URL
+    //    } else if (window.location.hash) {
+    //      widget.token.parseFromUrl()
+    //      .then(idToken => {
+    //       console.log(`hi ${idToken.claims.email}!`);
+    //        // Store parsed token in Token Manager
+    //        widget.tokenManager.add('idToken', idToken);
+    //        console.log(idToken);
+    //      });
+    //    } else {
+    //      // You're not logged in, you need a sessionToken
+    //      var username = prompt('What is your username?');
+    //      var password = prompt('What is your password?');
 
-				<input
-					id='password'
-					name='password'
-					type='password'
-					ref={register}
-					value={user.password}
-					onChange={handleChange}
-				/>
+    //      widget.signIn({username, password})
+    //      .then(res => {
+    //        if (res.status === 'SUCCESS') {
+    //          widget.token.getWithRedirect({
+    //            sessionToken: res.sessionToken,
+    //            responseType: 'id_token'
+    //          });
+    //        }
+    //      });
+    //    }
+    //  });
+        
 
-				<br />
 
-				<button className='app-buttons' type='submit' data-testid='sign in'>
-					Sign In
-				</button>
-			</form>
-		</div>
-	);
+
+     widget.renderEl(
+       { el: '#sign-in-widget' },
+       () => {
+        
+        /**
+          * In this flow, the success handler will not be called beacuse we redirect
+         * to the Okta org for the authentication workflow.
+          */
+       },
+      (err) => {
+         throw err;
+       },
+     );
+  }, []);
+
+   return (
+    <div>
+     <div id="sign-in-widget" />
+    </div>
+  );
 };
+
+ export default Login;
