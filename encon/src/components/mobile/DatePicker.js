@@ -6,6 +6,7 @@ import "../../styles/mobile/DatePicker.scss";
 
 export const DatePicker = () => {
   const [date, setDate] = useState(new Date());
+  console.log(date);
 
   const onChange = (date) => {
     setDate(date);

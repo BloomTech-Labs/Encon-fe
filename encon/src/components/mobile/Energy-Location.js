@@ -17,6 +17,7 @@ export const EnergyLocation = (props) => {
           Location: {props.user}  <a href="/">(change)</a>{" "}
         </h5>
       </div> 
+
     </div>
     
   );
