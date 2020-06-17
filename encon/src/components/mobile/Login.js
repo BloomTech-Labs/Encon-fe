@@ -8,36 +8,9 @@ import { ErrorMessage } from './Error-Message.js';
 
 export const Login = () => {
 	const { handleSubmit, register, errors, reset } = useForm();
-	const baseUrl = '';
+	const baseUrl = 'http://localhost:3300';
 	const [loginError, setLoginError] = useState();
 	const history = useHistory();
-
-	// const handleChange = (e) => {
-	// 	setUser({
-	// 		...user,
-	// 		[e.target.name]: e.target.value,
-	// 	});
-	// };
-
-	// const onSubmit = (data) => {
-	// 	e.preventDefault();
-	// 	axios
-	// 		.post(baseUrl + '/auth/login',)
-	// 		.then((res) => {
-	// 			localStorage.setItem('token', res.data.token);
-
-	// 			history.push('/profile');
-	// 			console.log('user data', res.data.user);
-	// 		})
-	// 		.catch((err) => {
-	// 			console.log('Error while logging in', err.response);
-	// 		});
-	// };
-
-	// const [user, setUser] = useState({
-	// 	email: '',
-	// 	password: '',
-	// });
 
 	const onLoginSubmit = (data) => {
 		axios
@@ -67,7 +40,6 @@ export const Login = () => {
 				<input
 					type='email'
 					name='email'
-					// placeholder='Email'
 					ref={register({ required: true, pattern: /^\S+@\S+$/i })}
 				/>
 				<ErrorMessage error={errors.email} />
@@ -78,7 +50,6 @@ export const Login = () => {
 				<input
 					type='password'
 					name='password'
-					// placeholder='Password'
 					ref={register({ required: true })}
 				/>
 				<ErrorMessage error={errors.password} />
