@@ -4,12 +4,18 @@ import { render } from "react-dom";
 import "../../styles/mobile/DatePicker.scss";
 // import "react-calendar/dist/Calendar.css";
 
-export const DatePicker = () => {
+export const DatePicker = (props) => {
   const [date, setDate] = useState(new Date());
   console.log(date);
+  console.log(props);
 
   const onChange = (date) => {
     setDate(date);
+  };
+
+  const liftDateState = () => {
+    const liftDate = date;
+    props.todaysDate(liftDate);
   };
 
   return (
