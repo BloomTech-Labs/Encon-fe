@@ -1,7 +1,7 @@
 import React from 'react';
-import computerPng from '../../assets/ElectronicsFolder/005-computer.png';
+import computerPng from '../../assets/ElectronicsFolder/Computer Desktop.png';
 import '../../styles/mobile/Appliance-Card.scss';
-export const ApplianceCard = () => {
+export const ApplianceCard = (props) => {
   return (
     <div className='applianceContainer'>
       <div className='imageContainer'>
