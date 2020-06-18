@@ -1,6 +1,6 @@
 import React from 'react';
 import { Calculator } from '../mobile/Calculator.js';
-import OktaLogin from '../mobile/OktaLogin.js';
+import {OktaLogin} from '../mobile/Okta-Login.js';
 import '../../styles/desktop/Desktop-View.scss';
 
 export const DesktopView = () => {
