@@ -16,9 +16,8 @@ import { Dashboard } from "./components/mobile/Dashboard";
 import { UserInput } from "./components/mobile/UserInput";
 
 const AppWithRouterAccess = () => {
-  
   const history = useHistory();
-  
+
   const onAuthRequired = () => {
     history.push("/login");
   };
@@ -30,13 +29,16 @@ const AppWithRouterAccess = () => {
   });
 
   return (
-    <Security baseUrl={config.baseUrl} 
-    issuer={config.issuer}
-    clientId={config.clientId}
-    redirectUri= {config.redirectUri}
-    storage={localStorage}
-    pkce={false} onAuthRequired={onAuthRequired}>
-     <UserContext.Provider value={{ user }}>
+    <Security
+      baseUrl={config.baseUrl}
+      issuer={config.issuer}
+      clientId={config.clientId}
+      redirectUri={config.redirectUri}
+      storage={localStorage}
+      pkce={false}
+      onAuthRequired={onAuthRequired}
+    >
+      <UserContext.Provider value={{ user }}>
         <MediaQuery maxDeviceWidth={1025}>
           <Navigation />
         </MediaQuery>
@@ -56,17 +58,14 @@ const AppWithRouterAccess = () => {
         <Route path="/register">
           <DesktopRegister />
         </Route>
-        <SecureRoute path="/userInput" component={UserInput} />
-        <Route path='/implicit/callback' component={LoginCallback}/>
-        <SecureRoute path="/profile">
+        <Route path="/userInput" component={UserInput} />
+        <Route path="/implicit/callback" component={LoginCallback} />
+        <Route path="/profile">
           <DesktopNav />
           <Dashboard />
-        </SecureRoute>
+        </Route>
       </UserContext.Provider>
     </Security>
   );
 };
 export default AppWithRouterAccess;
-
-
-

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Link, Route } from "react-router-dom";
 import axios from "axios";
@@ -10,36 +10,129 @@ import clothesWashPNG from "../../assets/ElectronicsFolder/048-washing machine.p
 import tvPNG from "../../assets/ElectronicsFolder/042-television.png";
 import calendarPNG from "../../assets/ElectronicsFolder/calendar.png";
 import { DatePicker } from "./DatePicker";
+import { getByText } from "@testing-library/react";
+
+// import { useOktaAuth } from "@okta/okta-react";
 
 export const UserInput = () => {
   const { handleSubmit, register, errors } = useForm();
+
+  // const onSubmit = () => {
+  //   let one = `https://localhost:3300/api/encon/appliances,${dishWasher}`;
+
+  //   let two = "https://localhost:3300/api/encon/appliances";
+
+  //   let three = "https://localhost:3300/api/encon/appliances";
+
+  //   let four = "https://localhost:3300/api/encon/appliances";
+  //   let five = "https://localhost:3300/api/encon/appliances";
+
+  //   const requestOne = axios.post(one, dishWasher);
+  //   const requestTwo = axios.post(two);
+  //   const requestThree = axios.post(three);
+  //   const requestFour = axios.post(four);
+  //   const requestFive = axios.post(five);
+
+  //   axios
+  //     .all([requestOne, requestTwo, requestThree, requestFour, requestFive])
+  //     .then(
+  //       axios.spread((...responses) => {
+  //         const responseOne = responses[0];
+  //         const responseTwo = responses[1];
+  //         const responesThree = responses[2];
+  //         const requestFour = responses[3];
+  //         const requestFive = responses[4];
+
+  //         console.log(
+  //           responseOne,
+  //           responseTwo,
+  //           responesThree,
+  //           requestFour,
+  //           requestFive
+  //         );
+
+  //         // use/access the results
+  //       })
+  //     )
+  //     .catch((errors) => {
+  //       console.log(errors);
+  //     });
+  // };
+  // const { authState, authService } = useOktaAuth();
+  // const [userInfo, setUserInfo] = useState({});
   //maybe user id and state entered in url as params? then hardcode appliance name in individual state/hook variables
+  // useEffect(() => {
+  //   const { accessToken } = authState;
+  //   if (!authState.isAuthenticated) {
+  //     setUserInfo({});
+  //   } else {
+  //     authService.getUser().then((info) => {
+  //       const oktaUserInfo = info;
+  //       const SERVER_HOST = 5000;
+  //       console.log("info from userinput", info);
+  //       axios
+  //         .post(`http://localhost:5000/api/users`, oktaUserInfo, {
+  //           headers: {
+  //             Authorization: `Bearer ${accessToken}`,
+  //           },
+  //         })
+  //         .then((res) => {
+  //           setUserInfo(res.data.data);
+  //           window.localStorage.setItem("user_id", res.data.data.id);
+  //         })
+  //         .catch((err) => err.message);
+  //     });
+  //   }
+  // }, [authState, authService]);
+
+  const onSubmit = () => {
+    axios
+      .post("https://localhost:3300/api/encon/appliances", dishWasher)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+  };
 
   const [dishWasher, setDishWasher] = useState({
     device: "Dishwasher",
     hours: "",
     days: "",
+    user_id: 1,
   });
   const [washingMachine, setWashingMachine] = useState({
     device: "Washing Machine",
     hours: "",
     days: "",
+    user_id: 1,
   });
   const [dryer, setDryer] = useState({
     device: "Clothes Dryer",
     hours: "",
     days: "",
+    user_id: 1,
   });
   const [pc, setPC] = useState({
     device: "Computer Desktop",
     hours: "",
     days: "",
+    user_id: 1,
   });
   const [tv, setTv] = useState({
     device: `TV (55" LED)`,
     hours: "",
     days: "",
+    user_id: 1,
   });
+  console.log(dishWasher);
+  // const [date, setDate] = useState("");
+
+  // const todaysDate = (calendarData) => {
+  //   setDate(calendarData);
+  //intended as a callback function in order to lift state from datepicker and display current date here in userInput
+  // };
 
   const handleDishHoursChange = (event) => {
     setDishWasher({ ...dishWasher, hours: event.target.value });
@@ -86,11 +179,12 @@ export const UserInput = () => {
             alt="black line drawing of a calendar"
           />
         </Link>
+
         <Route path="/userInput/DatePicker">
           <DatePicker />
         </Route>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="device-container">
           <section className="device-section">
             <img src={dishPNG} alt="black line drawing of a dishwasher" />
@@ -269,13 +363,13 @@ export const UserInput = () => {
             </div>
           </section>
         </div>
-      </form>
-      <div className=""></div>
-      <div className="input-button-container">
         <button className="app-buttons-input" type="submit">
           {/* this button will submit post request */}
           Confirm
         </button>
+      </form>
+      <div className=""></div>
+      <div className="input-button-container">
         <Link to="/profile/appliances">
           <button className="app-buttons-input-dashlink">
             Go to Dashboard
