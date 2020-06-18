@@ -1,11 +1,13 @@
 import React from 'react';
-import computerPng from '../../assets/ElectronicsFolder/Computer Desktop.png';
 import '../../styles/mobile/Appliance-Card.scss';
 export const ApplianceCard = (props) => {
   return (
     <div className='applianceContainer'>
       <div className='imageContainer'>
-        <img src={computerPng} alt=' an appliance' />
+        <img
+          src={require('../../assets/ElectronicsFolder/Computer Desktop.png')}
+          alt='an appliance'
+        />
       </div>
       <div className='applianceInfo'>
         <h2 className='applianceTitle'>Computer</h2>

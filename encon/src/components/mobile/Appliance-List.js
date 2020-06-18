@@ -32,7 +32,7 @@ export const ApplianceList = () => {
           return (
             <ApplianceCard
               key={appliance.id}
-              name={appliance.device}
+              device={appliance.device}
               hours={appliance.hours}
               days={appliance.days}
             />
