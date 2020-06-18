@@ -29,43 +29,43 @@ const AppWithRouterAccess = () => {
   });
 
   return (
-    <Security
-      baseUrl={config.baseUrl}
-      issuer={config.issuer}
-      clientId={config.clientId}
-      redirectUri={config.redirectUri}
-      storage={localStorage}
-      pkce={false}
-      onAuthRequired={onAuthRequired}
-    >
-      <UserContext.Provider value={{ user }}>
-        <MediaQuery maxDeviceWidth={1025}>
-          <Navigation />
-        </MediaQuery>
-        <LogoHeader />
-        <Route exact path="/">
-          <MediaQuery minDeviceWidth={1025}>
-            <DesktopNav />
-            <DesktopView />
-          </MediaQuery>
-          <MediaQuery maxDeviceWidth={1025}>
-            <LandingPage />
-          </MediaQuery>
-        </Route>
-        <Route path="/login">
-          <LoginDesktop />
-        </Route>
-        <Route path="/register">
-          <DesktopRegister />
-        </Route>
-        <Route path="/userInput" component={UserInput} />
-        <Route path="/implicit/callback" component={LoginCallback} />
-        <Route path="/profile">
+    // <Security
+    //   baseUrl={config.baseUrl}
+    //   issuer={config.issuer}
+    //   clientId={config.clientId}
+    //   redirectUri={config.redirectUri}
+    //   storage={localStorage}
+    //   pkce={false}
+    //   onAuthRequired={onAuthRequired}
+    // >
+    <UserContext.Provider value={{ user }}>
+      <MediaQuery maxDeviceWidth={1025}>
+        <Navigation />
+      </MediaQuery>
+      <LogoHeader />
+      <Route exact path="/">
+        <MediaQuery minDeviceWidth={1025}>
           <DesktopNav />
-          <Dashboard />
-        </Route>
-      </UserContext.Provider>
-    </Security>
+          <DesktopView />
+        </MediaQuery>
+        <MediaQuery maxDeviceWidth={1025}>
+          <LandingPage />
+        </MediaQuery>
+      </Route>
+      <Route path="/login">
+        <LoginDesktop />
+      </Route>
+      <Route path="/register">
+        <DesktopRegister />
+      </Route>
+      <Route path="/userInput" component={UserInput} />
+      <Route path="/implicit/callback" component={LoginCallback} />
+      <Route path="/profile">
+        <DesktopNav />
+        <Dashboard />
+      </Route>
+    </UserContext.Provider>
+    /* </Security> */
   );
 };
 export default AppWithRouterAccess;
