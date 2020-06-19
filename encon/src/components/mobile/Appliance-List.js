@@ -6,8 +6,8 @@ import { axiosWithAuth } from '../../utils/auth/axiosWithAuth';
 import axios from 'axios';
 export const ApplianceList = () => {
   const [appliances, setAppliances] = useState([]);
-  const [total, setTotal] = useState([]);
-  const [usage, setUsage] = useState([]);
+  let [total, setTotal] = useState(0);
+  let [totalUsage, setTotalUsage] = useState(0);
   useEffect(() => {
     axiosWithAuth()
       .get('http://localhost:3300/api/encon/appliances')
@@ -26,12 +26,8 @@ export const ApplianceList = () => {
           `http://enconaq.eba-bqepxksk.us-east-1.elasticbeanstalk.com/${appliance.device}/Virginia/${appliance.hours}/${appliance.days}`
         )
         .then((res) => {
-          console.log(res.data.cost_per_year, 'COST PER YEAR');
-          console.log(res.data.energy_used, 'ENERGY USED');
-          setTotal(res.data.cost_per_year);
-          setUsage(res.data.energy_used);
-          console.log(total);
-          console.log(usage);
+          setTotal((total += res.data.cost_per_year));
+          setTotalUsage((totalUsage = totalUsage + res.data.energy_used));
         })
         .catch((err) => {
           console.log('error getting appliance data', err);
@@ -63,8 +59,8 @@ export const ApplianceList = () => {
         })}
         <div className='totalOutput'>
           <h2>Total:</h2>
-          <div className='totalCost'>${total.cost_per_year}</div>
-          <div className='totalEnergy'>10kwh</div>
+          <div className='totalCost'>${total}</div>
+          <div className='totalEnergy'>{totalUsage}kWh</div>
         </div>
         {/* <Route path="/profile/userInput" component={UserInput} /> */}
         <Link to='/userInput'>
