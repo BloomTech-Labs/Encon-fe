@@ -1,11 +1,27 @@
 .register-container {
 	margin: 3rem 1.75rem;
 
+	.header-alt-container {
+		margin: 3.25rem 0;
+	}
+
 	.label {
 		display: flex;
 		font-size: 1.35rem;
 		font-weight: 500;
-		margin-top:1.75rem;
+		margin-top: 1.75rem;
+	}
+
+	.select-state {
+		font-size: 1.35rem;
+		width: 100%;
+		padding: 1.25rem 1.75rem;
+		border-radius: 1.25rem;
+		border: 0.5px solid transparentize($color: #4f4f4f, $amount: 0.75);
+
+		option {
+			overflow: scroll;
+		}
 	}
 
 	input {
@@ -15,5 +31,4 @@
 		border-radius: 1.25rem;
 		border: 0.5px solid transparentize($color: #4f4f4f, $amount: 0.75);
 	}
-
 }

@@ -2,11 +2,9 @@ import React from "react";
 import "../../styles/mobile/Energy-Location.scss";
 
 export const EnergyLocation = (props) => {
-
- console.log('propppppppp', props.user)
+  //  console.log('propppppppp', props.user)
 
   return (
-    
     <div className="energyLocation">
       <div className="energyContainer">
         <h2>My Energy</h2>
@@ -14,11 +12,9 @@ export const EnergyLocation = (props) => {
 
       <div className="locationContainer">
         <h5>
-          Location: {props.user}  <a href="/">(change)</a>{" "}
+          Location: <a href="/">(change)</a>{" "}
         </h5>
-      </div> 
-
+      </div>
     </div>
-    
   );
 };
