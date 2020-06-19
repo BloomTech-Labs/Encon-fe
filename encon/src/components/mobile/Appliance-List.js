@@ -2,15 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ApplianceCard } from './Appliance-Card';
 import '../../styles/mobile/Appliance-List.scss';
-import axios from 'axios';
+import { axiosWithAuth } from '../../utils/auth/axiosWithAuth';
 export const ApplianceList = () => {
   const [appliances, setAppliances] = useState([]);
   useEffect(() => {
-    axios
+    axiosWithAuth()
       .get('http://localhost:3300/api/encon/appliances')
-      .then((appliances) => {
-        console.log('=======', appliances);
-        setAppliances(appliances);
+      .then((response) => {
+        setAppliances(response.data);
       })
       .catch((err) => {
         console.log('error getting appliance list', err);
@@ -31,7 +30,7 @@ export const ApplianceList = () => {
         {appliances.map((appliance) => {
           return (
             <ApplianceCard
-              key={appliance.id}
+              key={appliance.device}
               device={appliance.device}
               hours={appliance.hours}
               days={appliance.days}

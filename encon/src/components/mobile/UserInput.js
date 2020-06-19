@@ -8,7 +8,7 @@ import computerPNG from '../../assets/ElectronicsFolder/Computer Desktop.png';
 import dishPNG from '../../assets/ElectronicsFolder/Dishwasher.png';
 import clothesWashPNG from '../../assets/ElectronicsFolder/Clothes Dryer.png';
 import washingMachinePNG from '../../assets/ElectronicsFolder/Washing Machine.png';
-import tvPNG from '../../assets/ElectronicsFolder/TV (55" LED).png';
+import tvPNG from '../../assets/ElectronicsFolder/TV (55” LED).png';
 import calendarPNG from '../../assets/ElectronicsFolder/calendar.png';
 import { DatePicker } from './DatePicker';
 import { getByText } from '@testing-library/react';
@@ -101,11 +101,11 @@ export const UserInput = () => {
   const onSubmit = () => {
     const baseUrl = 'http://localhost:3300/api/encon/appliances';
 
-    let one = baseUrl`${'dishWasher'}`;
-    let two = baseUrl`${'washingMachine'}`;
-    let three = baseUrl`${'dryer'}`;
-    let four = baseUrl`${'pc'}`;
-    let five = baseUrl`${'tv'}`;
+    let one = baseUrl + `${'dishWasher'}`;
+    let two = baseUrl + `${'washingMachine'}`;
+    let three = baseUrl + `${'dryer'}`;
+    let four = baseUrl + `${'pc'}`;
+    let five = baseUrl + `${'tv'}`;
 
     const requestOne = axios.post(one);
     const requestTwo = axios.post(two);
