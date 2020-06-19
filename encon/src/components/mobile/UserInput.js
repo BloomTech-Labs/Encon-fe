@@ -4,10 +4,11 @@ import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import '../../styles/mobile/UserInput.scss';
-import computerPNG from '../../assets/ElectronicsFolder/005-computer.png';
-import dishPNG from '../../assets/ElectronicsFolder/006-dishwasher.png';
-import clothesWashPNG from '../../assets/ElectronicsFolder/048-washing machine.png';
-import tvPNG from '../../assets/ElectronicsFolder/042-television.png';
+import computerPNG from '../../assets/ElectronicsFolder/Computer Desktop.png';
+import dishPNG from '../../assets/ElectronicsFolder/Dishwasher.png';
+import clothesWashPNG from '../../assets/ElectronicsFolder/Clothes Dryer.png';
+import washingMachinePNG from '../../assets/ElectronicsFolder/Washing Machine.png';
+import tvPNG from '../../assets/ElectronicsFolder/TV (55" LED).png';
 import calendarPNG from '../../assets/ElectronicsFolder/calendar.png';
 import { DatePicker } from './DatePicker';
 import { getByText } from '@testing-library/react';
@@ -260,7 +261,7 @@ export const UserInput = () => {
 
           <section className='device-section'>
             <img
-              src={clothesWashPNG}
+              src={washingMachinePNG}
               alt='black line drawing of a washer/dryer for clothes'
             />
             <h3 className='washH3'>Washing Machine</h3>
