@@ -7,7 +7,7 @@ export const ApplianceList = () => {
   const [appliances, setAppliances] = useState([]);
   useEffect(() => {
     axios
-      .get('https://encon-be.herokuapp.com/api/encon/appliances')
+      .get('http://localhost:3300/api/encon/appliances')
       .then((appliances) => {
         console.log('=======', appliances);
         setAppliances(appliances);
