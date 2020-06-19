@@ -32,7 +32,6 @@ export const Graphs = () => {
             },
           ];
           setDevice(device);
-          console.log(device, 'NEW LIST OF ARRAYS');
         });
       })
       .catch((err) => {
@@ -56,33 +55,23 @@ export const Graphs = () => {
               TotalUsage: totalUsage,
             },
           ];
-          console.log(dataList, 'GRAPH LIST');
           setDataList(dataList);
-          console.log(dataList, 'FINAL DATA LIST');
         })
         .catch((err) => {
           console.log('error getting appliance data', err);
         });
     });
   }, [device]);
-
   return (
     <div className='graphContainer' data-testid='EnergyChart'>
       <h2>Average Energy Output Per Appliance Per Month</h2>
       <LineChart
         className='energyGraph'
-        width={300}
+        width={350}
         height={300}
         data={dataList}
         margin={{ top: 5, right: 20, bottom: 10, left: 0 }}
       >
-        <Line type='monotone' dataKey='Name' stroke='red' strokeWidth={2} />
-        <Line
-          type='monotone'
-          dataKey='TotalCost'
-          stroke='blue'
-          strokeWidth={2}
-        />
         <Line
           type='monotone'
           dataKey='TotalUsage'
@@ -90,32 +79,31 @@ export const Graphs = () => {
           strokeWidth={2}
         />
         <CartesianGrid stroke='grey' strokeDasharray='10' />
-        <XAxis dataKey='Name' />
+        <XAxis tick={{ fontSize: 8 }} dataKey='Name' />
         <YAxis />
         <Tooltip content={dataList} />
         <Legend />
       </LineChart>
-
       <h2>Average Expenses</h2>
       <BarChart
-        width={300}
+        className='energyGraph'
+        width={350}
         height={300}
         data={dataList}
-        margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+        margin={{ top: 5, right: 20, bottom: 10, left: 0 }}
       >
-        <CartesianGrid strokeDasharray='10' stroke='grey' />
-        <XAxis dataKey='Name' />
+        <Bar
+          type='monotone'
+          dataKey='TotalCost'
+          stroke='green'
+          fill='green'
+          strokeWidth={2}
+        />
+        <CartesianGrid stroke='grey' strokeDasharray='10' />
+        <XAxis tick={{ fontSize: 8 }} dataKey='Name' />
         <YAxis />
         <Tooltip content={dataList} />
         <Legend />
-        <Bar type='monotone' dataKey='TotalCost' fill='red' strokeWidth={2} />
-        <Bar type='monotone' dataKey='TotalUsage' fill='blue' strokeWidth={2} />
-        <Bar
-          type='monotone'
-          dataKey='Microwave'
-          fill='purple'
-          strokeWidth={2}
-        />
       </BarChart>
     </div>
   );
