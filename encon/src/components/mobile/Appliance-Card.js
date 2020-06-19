@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import '../../styles/mobile/Appliance-Card.scss';
 import axios from 'axios';
-export const ApplianceCard = (props) => {
+export const ApplianceCard = ({ device, hours, days }) => {
   const [data, setData] = useState({});
   useEffect(() => {
     axios
       .get(
-        `http://enconaq.eba-bqepxksk.us-east-1.elasticbeanstalk.com/${props.device}/Virginia/${props.hours}/${props.days}`
+        `http://enconaq.eba-bqepxksk.us-east-1.elasticbeanstalk.com/${device}/Virginia/${hours}/${days}`
       )
       .then((res) => {
         setData(res.data);
@@ -14,17 +14,17 @@ export const ApplianceCard = (props) => {
       .catch((err) => {
         console.log('error getting appliance data', err);
       });
-  });
+  }, [device, hours, days]);
   return (
     <div className='applianceContainer'>
       <div className='imageContainer'>
         <img
-          src={require(`../../assets/ElectronicsFolder/${props.device}.png`)}
-          alt='an appliance'
+          src={require(`../../assets/ElectronicsFolder/${device}.png`)}
+          alt={`a ${device}`}
         />
       </div>
       <div className='applianceInfo'>
-        <h2 className='applianceTitle'>{props.device}</h2>
+        <h2 className='applianceTitle'>{device}</h2>
         <div className='outputContainer'>
           <div className='estCost'>
             <h4>Estimated Cost</h4>
