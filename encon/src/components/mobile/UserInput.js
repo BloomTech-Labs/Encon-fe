@@ -12,12 +12,15 @@ import calendarPNG from "../../assets/ElectronicsFolder/calendar.png";
 import { DatePicker } from "./DatePicker";
 import { getByText } from "@testing-library/react";
 import { axiosWithAuth } from "../../utils/auth/axiosWithAuth";
+import { date } from "yup";
+import moment from "moment";
 
 // import { useOktaAuth } from "@okta/okta-react";
 
 export const UserInput = () => {
   const { handleSubmit, register, errors } = useForm();
   const userId = localStorage.getItem("USER_ID");
+  const [date, setDate] = useState(new Date());
 
   const onSubmit = () => {
     // const url = `/encon/appliances,${washingMachine}`;
@@ -161,10 +164,10 @@ export const UserInput = () => {
             alt="black line drawing of a calendar"
           />
         </Link>
-
-        <Route path="/userInput/DatePicker">
-          <DatePicker />
-        </Route>
+      </div>
+      <h2 className="todaysDate">{moment().format("LL")}</h2>
+      <div className="calDiv">
+        <Route path="/userInput/DatePicker" component={DatePicker} />
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="device-container">
