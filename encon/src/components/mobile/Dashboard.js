@@ -9,24 +9,30 @@ import { Graphs } from "./Graphs";
 import MediaQuery from "react-responsive";
 import "../../styles/mobile/Appliance-Tracker.scss";
 import { SecureRoute } from "@okta/okta-react";
+import { axiosWithAuth } from "../../utils/auth/axiosWithAuth";
+import axios from "axios";
 
 export const Dashboard = (props) => {
-  // const { authState, authService } = useOktaAuth();
-  // const [userInfo, setUserInfo] = useState({});
+  // const [userName, setUserName] = useState("");
+  // const [location, setLocation] = useState("");
+  // const [userId, setUserId] = useState("");
 
-  //   useEffect( () => {
-  //     if (!authState.isAuthenticated) {
-  //       // When user isn't authenticated, forget any user info
-  //       setUserInfo({});
-  //     } else {
-  //      authService.getUser().then((info) => {
-  //         setUserInfo(info);
-  //       });
-  //     }
-  //   }, [authState, authService])
-  //   console.log('UI',userInfo)
-  //  console.log('state', userInfo.address)
-  //   console.log(JSON.stringify(userInfo.address))
+  // useEffect(async () => {
+  //   axiosWithAuth()
+  //     .get("/encon/users")
+  //     .then((res) => {
+  //       setUserName(res.data.userName);
+  //       setLocation(res.data.location);
+  //       setUserId(res.data.id);
+  //       console.log(
+  //         res.data,
+  //         "res data from useEffect get on profile/dashboard redirect"
+  //       );
+  //     })
+  //     .catch((err) => {
+  //       console.log("waaaiiiitttt....what?", err);
+  //     });
+  // }, []);
 
   return (
     <div className="dashboard">
