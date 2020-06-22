@@ -22,7 +22,7 @@ export const Graphs = () => {
   let [totalUsage, setTotalUsage] = useState(0);
   useEffect(() => {
     axiosWithAuth()
-      .get('http://localhost:3300/api/encon/appliances')
+      .get('https://encon-be.herokuapp.com/api/encon/appliances')
       .then((response) => {
         setDeviceList(response.data);
         response.data.map((appliances) => {
