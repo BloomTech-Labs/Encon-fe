@@ -1,7 +1,8 @@
 import React from 'react';
 import { Calculator } from '../mobile/Calculator.js';
-import {OktaLogin} from '../mobile/Okta-Login.js';
 import '../../styles/desktop/Desktop-View.scss';
+import { LoginRegister } from '../desktop/Desktop-Login-Register.js'
+
 
 export const DesktopView = () => {
 	return (
@@ -15,7 +16,8 @@ export const DesktopView = () => {
 			<div className='rightContainer'>
 				<div className='registerContainer'>
 					
-					<OktaLogin/>
+				< LoginRegister />
+
 
 				</div>
 			</div>

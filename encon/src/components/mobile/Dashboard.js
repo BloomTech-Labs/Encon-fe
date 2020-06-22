@@ -8,31 +8,31 @@ import { Graphs } from "./Graphs";
 // import { useOktaAuth } from '@okta/okta-react';
 import MediaQuery from "react-responsive";
 import "../../styles/mobile/Appliance-Tracker.scss";
-import { SecureRoute } from "@okta/okta-react";
+// import { SecureRoute } from "@okta/okta-react";
 import { axiosWithAuth } from "../../utils/auth/axiosWithAuth";
 import axios from "axios";
 
 export const Dashboard = (props) => {
-  // const [userName, setUserName] = useState("");
-  // const [location, setLocation] = useState("");
-  // const [userId, setUserId] = useState("");
+  const [userName, setUserName] = useState("");
+  const [location, setLocation] = useState("");
+  const [userId, setUserId] = useState("");
 
-  // useEffect(async () => {
-  //   axiosWithAuth()
-  //     .get("/encon/users")
-  //     .then((res) => {
-  //       setUserName(res.data.userName);
-  //       setLocation(res.data.location);
-  //       setUserId(res.data.id);
-  //       console.log(
-  //         res.data,
-  //         "res data from useEffect get on profile/dashboard redirect"
-  //       );
-  //     })
-  //     .catch((err) => {
-  //       console.log("waaaiiiitttt....what?", err);
-  //     });
-  // }, []);
+  useEffect(async () => {
+    axiosWithAuth()
+      .get("/encon/users")
+      .then((res) => {
+        setUserName(res.data.userName);
+        setLocation(res.data.location);
+        setUserId(res.data.id);
+        console.log(
+          res.data,
+          "res data from useEffect get on profile/dashboard redirect"
+        );
+      })
+      .catch((err) => {
+        console.log("waaaiiiitttt....what?", err);
+      });
+  }, []);
 
   return (
     <div className="dashboard">
@@ -50,9 +50,9 @@ export const Dashboard = (props) => {
           </Link>
         </div>
       </div>
-      <SecureRoute path="/profile/appliances">
+      {/* <SecureRoute path="/profile/appliances"> */}
         <ApplianceList />
-      </SecureRoute>
+      {/* </SecureRoute> */}
       <MediaQuery minDeviceWidth={1025}>
         <Route path="/profile/graphs" component={DesktopGraphs} />
       </MediaQuery>
