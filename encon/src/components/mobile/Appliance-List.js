@@ -10,7 +10,7 @@ export const ApplianceList = () => {
   let [totalUsage, setTotalUsage] = useState(0);
   useEffect(() => {
     axiosWithAuth()
-      .get('http://localhost:3300/api/encon/appliances')
+      .get('https://encon-be.herokuapp.com/api/encon/appliances')
       .then((response) => {
         setAppliances(response.data);
       })
