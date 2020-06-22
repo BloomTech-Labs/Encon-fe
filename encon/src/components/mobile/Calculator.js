@@ -37,7 +37,7 @@ export const Calculator = () => {
 		const DEVICE = `${device}`;
 		axios
 			.get(
-				`https://enconaq.eba-bqepxksk.us-east-1.elasticbeanstalk.com/${DEVICE}/${STATE}/${HOURS}/${DAYS}`
+				`https://environment-2.eba-j6sk9zsp.us-east-1.elasticbeanstalk.com/${DEVICE}/${STATE}/${HOURS}/${DAYS}`
 			)
 			.then((res) => {
 				setData(res.data);
