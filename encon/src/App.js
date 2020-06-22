@@ -49,7 +49,7 @@ const App = () => {
 					</MediaQuery>
 				</Route>
 				<PrivateRoute>
-				<DesktopNav />
+				{/* <DesktopNav /> */}
 					<Route path='/userInput' component={UserInput}>
 						</Route>
 					</PrivateRoute>
