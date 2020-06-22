@@ -9,7 +9,7 @@ import { ErrorMessage } from "./Error-Message.js";
 export const Login = () => {
   const { handleSubmit, register, errors, reset } = useForm();
   const baseUrl = "http://localhost:3300/api";
-  const [loginError, setLoginError] = useState();
+  // const [loginError, setLoginError] = useState();
   const history = useHistory();
 
   const onLoginSubmit = (data) => {
@@ -21,12 +21,14 @@ export const Login = () => {
       .then((res) => {
         reset();
         localStorage.setItem("AUTH_TOKEN", res.data.token);
-        localStorage.setItem("USER_ID", res.data.id);
+        localStorage.setItem("USER_ID", res.data.Data.id);
+        localStorage.setItem("USER_NAME", res.data.Data.name);
+        localStorage.setItem("USER_LOCATION", res.data.Data.state);
         history.push("/profile");
-        console.log(res.data, "res from login");
+        console.log(res, "res from login");
       })
       .catch((err) => {
-        setLoginError("Login Error: " + err.response.data.error);
+				// setLoginError('Login Error: ' + err.response.data.error.message);
       });
   };
   console.log(errors);
@@ -57,7 +59,7 @@ export const Login = () => {
         <button className="app-buttons" type="submit" data-testid="sign in">
           Sign In
         </button>
-        <div>{loginError}</div>
+        {/* <div>{loginError}</div> */}
       </form>
     </div>
   );

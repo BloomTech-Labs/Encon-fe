@@ -13,9 +13,10 @@ export const Register = () => {
     getValues,
     handleSubmit,
     register,
+    reset,
     triggerValidation,
   } = useForm();
-  const [RegisterError, setRegisterError] = useState();
+  // const [RegisterError, setRegisterError] = useState();
   const baseUrl = 'http://localhost:3300/api';
   const history = useHistory();
 
@@ -28,12 +29,24 @@ export const Register = () => {
         password: data.password,
         // repeatPassword: data.repeatPassword,
       })
-      .then((res) => {
-        history.push('/profile');
-        console.log(getValues(), 'this is the res from register');
+      .then(() => {
+        axios
+          .post(baseUrl + '/auth/login', {
+            email: data.email,
+            password: data.password,
+          })
+          .then((res) => {
+            reset();
+            localStorage.setItem('AUTH_TOKEN', res.data.token);
+            localStorage.setItem('USER_ID', res.data.Data.id);
+            localStorage.setItem('USER_NAME', res.data.Data.name);
+            localStorage.setItem('USER_LOCATION', res.data.Data.state);
+            history.push('/profile');
+            console.log(getValues(), 'this is the res from register');
+          });
       })
       .catch((err) => {
-        setRegisterError('Registration Error: ' + err.response);
+        // setRegisterError("Registration Error: " + err.response.data.error.message);
       });
     console.log(data);
   };
@@ -145,22 +158,22 @@ export const Register = () => {
           onChange={validatePassword}
         />
         <ErrorMessage error={errors.password} />
-        {/* <label htmlFor="verifyPassword" className="label">
+        <label htmlFor='verifyPassword' className='label'>
           Verify Password
         </label>
         <input
-          type="password"
-          name="repeatPassword"
+          type='password'
+          name='repeatPassword'
           ref={register({
             required: true,
             validate: verifyPassword,
           })}
         />
-        {errors.repeatPassword && <p>{errors.repeatPassword.message}</p>} */}
+        {errors.repeatPassword && <p>{errors.repeatPassword.message}</p>}
         <button className='app-buttons' type='submit'>
           Register
         </button>
-        <div>{RegisterError}</div>
+        {/* <div>{RegisterError}</div> */}
       </form>
     </div>
   );

@@ -1,0 +1,10 @@
+.desktop-register-tab,
+.desktop-login-tab {
+	padding: 1rem;
+
+	.desktop-register-card,
+	.desktop-login-card {
+		border-radius: 1.25rem;
+		transition: 1s ease-in-out;
+	}
+}

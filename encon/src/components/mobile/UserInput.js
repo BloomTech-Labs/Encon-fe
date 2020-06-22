@@ -4,166 +4,112 @@ import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import '../../styles/mobile/UserInput.scss';
-import computerPNG from '../../assets/ElectronicsFolder/Computer Desktop.png';
-import dishPNG from '../../assets/ElectronicsFolder/Dishwasher.png';
-import clothesWashPNG from '../../assets/ElectronicsFolder/Clothes Dryer.png';
-import washingMachinePNG from '../../assets/ElectronicsFolder/Washing Machine.png';
-import tvPNG from '../../assets/ElectronicsFolder/TV (55” LED).png';
+import computerPNG from '../../assets/ElectronicsFolder/005-computer.png';
+import dishPNG from '../../assets/ElectronicsFolder/006-dishwasher.png';
+import clothesWashPNG from '../../assets/ElectronicsFolder/048-washing machine.png';
+import tvPNG from '../../assets/ElectronicsFolder/042-television.png';
 import calendarPNG from '../../assets/ElectronicsFolder/calendar.png';
 import { DatePicker } from './DatePicker';
 import { getByText } from '@testing-library/react';
 import { axiosWithAuth } from '../../utils/auth/axiosWithAuth';
+import { date } from 'yup';
+import moment from 'moment';
 
 // import { useOktaAuth } from "@okta/okta-react";
 
 export const UserInput = () => {
   const { handleSubmit, register, errors } = useForm();
-
-  // const onSubmit = () => {
-  //   let one = "http://localhost:3300/api/encon/appliances";
-
-  //   let two = "http://localhost:3300/api/encon/appliances";
-
-  //   let three = "http://localhost:3300/api/encon/appliances";
-
-  //   let four = "http://localhost:3300/api/encon/appliances";
-  //   let five = "http://localhost:3300/api/encon/appliances";
-
-  //   const requestOne = axios.post(one);
-  //   const requestTwo = axios.post(two);
-  //   const requestThree = axios.post(three);
-  //   const requestFour = axios.post(four);
-  //   const requestFive = axios.post(five);
-
-  //   axiosWithAuth()
-  //     .all([requestOne, requestTwo, requestThree, requestFour, requestFive])
-  //     .then(
-  //       axios.spread((...responses) => {
-  //         const responseOne = responses[0];
-  //         const responseTwo = responses[1];
-  //         const responesThree = responses[2];
-  //         const requestFour = responses[3];
-  //         const requestFive = responses[4];
-
-  //         console.log(
-  //           responseOne,
-  //           responseTwo,
-  //           responesThree,
-  //           requestFour,
-  //           requestFive
-  //         );
-
-  //         // use/access the results
-  //       })
-  //     )
-  //     .catch((errors) => {
-  //       console.log(errors);
-  //     });
-  // };
-  // const { authState, authService } = useOktaAuth();
-  // const [userInfo, setUserInfo] = useState({});
-  //maybe user id and state entered in url as params? then hardcode appliance name in individual state/hook variables
-  // useEffect(() => {
-  //   const { accessToken } = authState;
-  //   if (!authState.isAuthenticated) {
-  //     setUserInfo({});
-  //   } else {
-  //     authService.getUser().then((info) => {
-  //       const oktaUserInfo = info;
-  //       const SERVER_HOST = 5000;
-  //       console.log("info from userinput", info);
-  //       axios
-  //         .post(`http://localhost:5000/api/users`, oktaUserInfo, {
-  //           headers: {
-  //             Authorization: `Bearer ${accessToken}`,
-  //           },
-  //         })
-  //         .then((res) => {
-  //           setUserInfo(res.data.data);
-  //           window.localStorage.setItem("user_id", res.data.data.id);
-  //         })
-  //         .catch((err) => err.message);
-  //     });
-  //   }
-  // }, [authState, authService]);
-
-  // const onSubmit = () => {
-  //   axiosWithAuth()
-  //     .post("/encon/appliances", dishWasher)
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log("error", err);
-  //     });
-  // };
+  const userId = localStorage.getItem('USER_ID');
+  const [date, setDate] = useState(new Date());
 
   const onSubmit = () => {
-    const baseUrl = 'http://localhost:3300/api/encon/appliances';
+    // const url = `/encon/appliances,${washingMachine}`;
 
-    let one = baseUrl + `${'dishWasher'}`;
-    let two = baseUrl + `${'washingMachine'}`;
-    let three = baseUrl + `${'dryer'}`;
-    let four = baseUrl + `${'pc'}`;
-    let five = baseUrl + `${'tv'}`;
-
-    const requestOne = axios.post(one);
-    const requestTwo = axios.post(two);
-    const requestThree = axios.post(three);
-    const requestFour = axios.post(four);
-    const requestFive = axios.post(five);
-    axiosWithAuth()
-      .all([requestOne, requestTwo, requestThree, requestFour, requestFive])
-      .then(
-        axios.spread((...responses) => {
-          const responseOne = responses[0];
-          const responseTwo = responses[1];
-          const responesThree = responses[2];
-          const requestFour = responses[3];
-          const requestFive = responses[4];
-          console.log(
-            responseOne,
-            responseTwo,
-            responesThree,
-            requestFour,
-            requestFive
-          );
-          // use/access the results
+    if (dishWasher.days && dishWasher.hours) {
+      axiosWithAuth()
+        .post('/encon/appliances', dishWasher)
+        .then((res) => {
+          console.log(res);
         })
-      )
-      .catch((errors) => {
-        console.log(errors);
-      });
+        .catch((err) => {
+          console.log('error', err);
+        });
+    } else console.log('hours and days not entered for dishwasher');
+
+    if (washingMachine.days && washingMachine.hours) {
+      axiosWithAuth()
+        .post('/encon/appliances', washingMachine)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log('error', err);
+        });
+    } else console.log('hours and days not entered for dishwasher');
+
+    if (dryer.days && dryer.hours) {
+      axiosWithAuth()
+        .post('/encon/appliances', dryer)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log('error', err);
+        });
+    } else console.log('hours and days not entered for dryer');
+
+    if (pc.days && pc.hours) {
+      axiosWithAuth()
+        .post('/encon/appliances', pc)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log('error', err);
+        });
+    } else console.log('hours and days not entered for pc');
+
+    if (tv.days && tv.hours) {
+      axiosWithAuth()
+        .post('/encon/appliances', tv)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log('error', err);
+        });
+    } else console.log('hours and days not entered for tv');
   };
+
   const [dishWasher, setDishWasher] = useState({
     device: 'Dishwasher',
     hours: '',
     days: '',
-    user_id: 4,
+    user_id: userId,
   });
   const [washingMachine, setWashingMachine] = useState({
     device: 'Washing Machine',
     hours: '',
     days: '',
-    user_id: 4,
+    user_id: userId,
   });
   const [dryer, setDryer] = useState({
     device: 'Clothes Dryer',
     hours: '',
     days: '',
-    user_id: 4,
+    user_id: userId,
   });
   const [pc, setPC] = useState({
     device: 'Computer Desktop',
     hours: '',
     days: '',
-    user_id: 4,
+    user_id: userId,
   });
   const [tv, setTv] = useState({
     device: `TV (55" LED)`,
     hours: '',
     days: '',
-    user_id: 4,
+    user_id: userId,
   });
   console.log(dishWasher);
   // const [date, setDate] = useState("");
@@ -218,10 +164,10 @@ export const UserInput = () => {
             alt='black line drawing of a calendar'
           />
         </Link>
-
-        <Route path='/userInput/DatePicker'>
-          <DatePicker />
-        </Route>
+      </div>
+      <h2 className='todaysDate'>{moment().format('LL')}</h2>
+      <div className='calDiv'>
+        <Route path='/userInput/DatePicker' component={DatePicker} />
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='device-container'>
