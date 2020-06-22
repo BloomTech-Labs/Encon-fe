@@ -26,8 +26,10 @@ export const ApplianceList = () => {
           `http://enconaq.eba-bqepxksk.us-east-1.elasticbeanstalk.com/${appliance.device}/Virginia/${appliance.hours}/${appliance.days}`
         )
         .then((res) => {
-          setTotal((total += res.data.cost_per_year));
-          setTotalUsage((totalUsage = totalUsage + res.data.energy_used));
+          setTotal((total += res.data.cost_per_year).toFixed(2));
+          setTotalUsage(
+            (totalUsage = totalUsage + res.data.energy_used).toFixed(2)
+          );
         })
         .catch((err) => {
           console.log('error getting appliance data', err);

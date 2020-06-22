@@ -6,7 +6,7 @@ export const ApplianceCard = ({ device, hours, days }) => {
   useEffect(() => {
     axios
       .get(
-        `http://enconaq.eba-bqepxksk.us-east-1.elasticbeanstalk.com/${device}/Virginia/${hours}/${days}`
+        `http://enconaq.eba-bqepxksk.us-east-1.elasticbeanstalk.com/${device}/${localStorage.USER_LOCATION}/${hours}/${days}`
       )
       .then((res) => {
         setData(res.data);
