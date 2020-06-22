@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { axiosWithAuth } from '../../utils/auth/axiosWithAuth';
 import '../../styles/mobile/Graph.scss';
 import {
   LineChart,
@@ -13,63 +15,95 @@ import {
 } from 'recharts';
 
 export const Graphs = () => {
-  const data = [
-    { month: 'January', TV: 400, Computer: 2400, Microwave: 2400 },
-    { month: 'Febuary', TV: 600, Computer: 2000, Microwave: 2800 },
-    { month: 'March', TV: 1400, Computer: 400, Microwave: 2000 },
-    { month: 'April', TV: 6400, Computer: 200, Microwave: 2402 },
-  ];
-
+  let [deviceList, setDeviceList] = useState([]);
+  let [device, setDevice] = useState([]);
+  let [dataList, setDataList] = useState([]);
+  let [total, setTotal] = useState(0);
+  let [totalUsage, setTotalUsage] = useState(0);
+  useEffect(() => {
+    axiosWithAuth()
+      .get('http://localhost:3300/api/encon/appliances')
+      .then((response) => {
+        setDeviceList(response.data);
+        response.data.map((appliances) => {
+          device = [
+            {
+              Name: `${appliances.device}`,
+            },
+          ];
+          setDevice(device);
+        });
+      })
+      .catch((err) => {
+        console.log('error getting appliance list', err);
+      });
+  }, []);
+  useEffect(() => {
+    deviceList.map((appliance) => {
+      axios
+        .get(
+          `http://enconaq.eba-bqepxksk.us-east-1.elasticbeanstalk.com/${appliance.device}/Virginia/${appliance.hours}/${appliance.days}`
+        )
+        .then((res) => {
+          setTotal((total += res.data.cost_per_year));
+          setTotalUsage((totalUsage = totalUsage + res.data.energy_used));
+          dataList = [
+            ...dataList,
+            {
+              Name: appliance.device,
+              TotalCost: total,
+              TotalUsage: totalUsage,
+            },
+          ];
+          setDataList(dataList);
+        })
+        .catch((err) => {
+          console.log('error getting appliance data', err);
+        });
+    });
+  }, [device]);
   return (
     <div className='graphContainer' data-testid='EnergyChart'>
       <h2>Average Energy Output Per Appliance Per Month</h2>
       <LineChart
         className='energyGraph'
-        width={300}
+        width={350}
         height={300}
-        data={data}
+        data={dataList}
         margin={{ top: 5, right: 20, bottom: 10, left: 0 }}
       >
-        <Line type='monotone' dataKey='TV' stroke='red' strokeWidth={2} />
         <Line
           type='monotone'
-          dataKey='Computer'
-          stroke='blue'
-          strokeWidth={2}
-        />
-        <Line
-          type='monotone'
-          dataKey='Microwave'
+          dataKey='TotalUsage'
           stroke='purple'
           strokeWidth={2}
         />
         <CartesianGrid stroke='grey' strokeDasharray='10' />
-        <XAxis dataKey='month' />
+        <XAxis tick={{ fontSize: 8 }} dataKey='Name' />
         <YAxis />
-        <Tooltip content={data} />
+        <Tooltip content={dataList} />
         <Legend />
       </LineChart>
-
       <h2>Average Expenses</h2>
       <BarChart
-        width={300}
+        className='energyGraph'
+        width={350}
         height={300}
-        data={data}
-        margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+        data={dataList}
+        margin={{ top: 5, right: 20, bottom: 10, left: 0 }}
       >
-        <CartesianGrid strokeDasharray='10' stroke='grey' />
-        <XAxis dataKey='month' />
-        <YAxis />
-        <Tooltip content={data} />
-        <Legend />
-        <Bar type='monotone' dataKey='TV' fill='red' strokeWidth={2} />
-        <Bar type='monotone' dataKey='Computer' fill='blue' strokeWidth={2} />
         <Bar
           type='monotone'
-          dataKey='Microwave'
-          fill='purple'
+          dataKey='TotalCost'
+          stroke='green'
+          fill='green'
           strokeWidth={2}
         />
+        <CartesianGrid stroke='grey' strokeDasharray='10' />
+        <XAxis tick={{ fontSize: 8 }} dataKey='Name' />
+        <YAxis />
+        <Tooltip content={dataList} />
+        <Legend />
       </BarChart>
     </div>
   );

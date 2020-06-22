@@ -1,25 +1,22 @@
-import React, { useState, useEffect } from "react";
-
-import { Link, Route } from "react-router-dom";
-import axios from "axios";
-import { useForm } from "react-hook-form";
-import "../../styles/mobile/UserInput.scss";
-import computerPNG from "../../assets/ElectronicsFolder/005-computer.png";
-import dishPNG from "../../assets/ElectronicsFolder/006-dishwasher.png";
-import clothesWashPNG from "../../assets/ElectronicsFolder/048-washing machine.png";
-import tvPNG from "../../assets/ElectronicsFolder/042-television.png";
-import calendarPNG from "../../assets/ElectronicsFolder/calendar.png";
-import { DatePicker } from "./DatePicker";
-import { getByText } from "@testing-library/react";
-import { axiosWithAuth } from "../../utils/auth/axiosWithAuth";
-import { date } from "yup";
-import moment from "moment";
+import React, { useState } from 'react';
+import { Link, Route } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import '../../styles/mobile/UserInput.scss';
+import computerPNG from '../../assets/ElectronicsFolder/Computer Desktop.png';
+import dishPNG from '../../assets/ElectronicsFolder/Dishwasher.png';
+import washingMachinePNG from '../../assets/ElectronicsFolder/Washing Machine.png';
+import tvPNG from '../../assets/ElectronicsFolder/TV (55” LED).png';
+import clothesWashPNG from '../../assets/ElectronicsFolder/Clothes Dryer.png';
+import calendarPNG from '../../assets/ElectronicsFolder/calendar.png';
+import { DatePicker } from './DatePicker';
+import { axiosWithAuth } from '../../utils/auth/axiosWithAuth';
+import moment from 'moment';
 
 // import { useOktaAuth } from "@okta/okta-react";
 
 export const UserInput = () => {
   const { handleSubmit, register, errors } = useForm();
-  const userId = localStorage.getItem("USER_ID");
+  const userId = localStorage.getItem('USER_ID');
   const [date, setDate] = useState(new Date());
 
   const onSubmit = () => {
@@ -27,88 +24,88 @@ export const UserInput = () => {
 
     if (dishWasher.days && dishWasher.hours) {
       axiosWithAuth()
-        .post("/encon/appliances", dishWasher)
+        .post('/encon/appliances', dishWasher)
         .then((res) => {
           console.log(res);
         })
         .catch((err) => {
-          console.log("error", err);
+          console.log('error', err);
         });
-    } else console.log("hours and days not entered for dishwasher");
+    } else console.log('hours and days not entered for dishwasher');
 
     if (washingMachine.days && washingMachine.hours) {
       axiosWithAuth()
-        .post("/encon/appliances", washingMachine)
+        .post('/encon/appliances', washingMachine)
         .then((res) => {
           console.log(res);
         })
         .catch((err) => {
-          console.log("error", err);
+          console.log('error', err);
         });
-    } else console.log("hours and days not entered for dishwasher");
+    } else console.log('hours and days not entered for dishwasher');
 
     if (dryer.days && dryer.hours) {
       axiosWithAuth()
-        .post("/encon/appliances", dryer)
+        .post('/encon/appliances', dryer)
         .then((res) => {
           console.log(res);
         })
         .catch((err) => {
-          console.log("error", err);
+          console.log('error', err);
         });
-    } else console.log("hours and days not entered for dryer");
+    } else console.log('hours and days not entered for dryer');
 
     if (pc.days && pc.hours) {
       axiosWithAuth()
-        .post("/encon/appliances", pc)
+        .post('/encon/appliances', pc)
         .then((res) => {
           console.log(res);
         })
         .catch((err) => {
-          console.log("error", err);
+          console.log('error', err);
         });
-    } else console.log("hours and days not entered for pc");
+    } else console.log('hours and days not entered for pc');
 
     if (tv.days && tv.hours) {
       axiosWithAuth()
-        .post("/encon/appliances", tv)
+        .post('/encon/appliances', tv)
         .then((res) => {
           console.log(res);
         })
         .catch((err) => {
-          console.log("error", err);
+          console.log('error', err);
         });
-    } else console.log("hours and days not entered for tv");
+    } else console.log('hours and days not entered for tv');
   };
 
   const [dishWasher, setDishWasher] = useState({
-    device: "Dishwasher",
-    hours: "",
-    days: "",
+    device: 'Dishwasher',
+    hours: '',
+    days: '',
     user_id: userId,
   });
   const [washingMachine, setWashingMachine] = useState({
-    device: "Washing Machine",
-    hours: "",
-    days: "",
+    device: 'Washing Machine',
+    hours: '',
+    days: '',
     user_id: userId,
   });
   const [dryer, setDryer] = useState({
-    device: "Clothes Dryer",
-    hours: "",
-    days: "",
+    device: 'Clothes Dryer',
+    hours: '',
+    days: '',
     user_id: userId,
   });
   const [pc, setPC] = useState({
-    device: "Computer Desktop",
-    hours: "",
-    days: "",
+    device: 'Computer Desktop',
+    hours: '',
+    days: '',
     user_id: userId,
   });
   const [tv, setTv] = useState({
     device: `TV (55" LED)`,
-    hours: "",
-    days: "",
+    hours: '',
+    days: '',
     user_id: userId,
   });
   console.log(dishWasher);
@@ -154,220 +151,220 @@ export const UserInput = () => {
   };
 
   return (
-    <div className="user-input">
+    <div className='user-input'>
       <h1>Input Time Used</h1>
-      <div className="datepicker-link">
-        <Link to="/userInput/DatePicker">
+      <div className='datepicker-link'>
+        <Link to='/userInput/DatePicker'>
           <img
-            className="calPNG"
+            className='calPNG'
             src={calendarPNG}
-            alt="black line drawing of a calendar"
+            alt='black line drawing of a calendar'
           />
         </Link>
       </div>
-      <h2 className="todaysDate">{moment().format("LL")}</h2>
-      <div className="calDiv">
-        <Route path="/userInput/DatePicker" component={DatePicker} />
+      <h2 className='todaysDate'>{moment().format('LL')}</h2>
+      <div className='calDiv'>
+        <Route path='/userInput/DatePicker' component={DatePicker} />
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="device-container">
-          <section className="device-section">
-            <img src={dishPNG} alt="black line drawing of a dishwasher" />
-            <h3 className="dishH3">Dishwasher</h3>
-            <div className="device-fields">
-              <div className="device-use-duration">
+        <div className='device-container'>
+          <section className='device-section'>
+            <img src={dishPNG} alt='black line drawing of a dishwasher' />
+            <h3 className='dishH3'>Dishwasher</h3>
+            <div className='device-fields'>
+              <div className='device-use-duration'>
                 <input
-                  type="number"
-                  className="inputHrs"
-                  name="dishWasherHours"
-                  placeholder="hours"
+                  type='number'
+                  className='inputHrs'
+                  name='dishWasherHours'
+                  placeholder='hours'
                   ref={register({ min: 1, max: 24 })}
                   onChange={handleDishHoursChange}
                   value={dishWasher.hours}
                 ></input>
-                <label htmlFor="dishWasherHours"></label>
-                {errors.dishWasherHours && "hours 1-24"}
+                <label htmlFor='dishWasherHours'></label>
+                {errors.dishWasherHours && 'hours 1-24'}
               </div>
 
-              <div className="device-use-duration">
+              <div className='device-use-duration'>
                 <input
-                  type="number"
-                  className="inputDays"
+                  type='number'
+                  className='inputDays'
                   ref={register({ min: 1, max: 7 })}
-                  name="dishWasherDays"
-                  placeholder="days per week"
+                  name='dishWasherDays'
+                  placeholder='days per week'
                   onChange={handleDishDaysChange}
                   value={dishWasher.days}
                 ></input>
-                <label htmlFor="dishWasher days"></label>
+                <label htmlFor='dishWasher days'></label>
                 {errors.dishWasherDays && <p>enter message</p>}
               </div>
             </div>
           </section>
 
-          <section className="device-section">
+          <section className='device-section'>
             <img
-              src={clothesWashPNG}
-              alt="black line drawing of a washer/dryer for clothes"
+              src={washingMachinePNG}
+              alt='black line drawing of a washer/dryer for clothes'
             />
-            <h3 className="washH3">Washing Machine</h3>
-            <div className="device-fields">
-              <div className="device-use-duration">
+            <h3 className='washH3'>Washing Machine</h3>
+            <div className='device-fields'>
+              <div className='device-use-duration'>
                 <input
-                  type="number"
-                  className="inputHrs"
+                  type='number'
+                  className='inputHrs'
                   ref={register({ min: 1, max: 24 })}
-                  name="Washing Machine hours"
-                  placeholder="hours"
+                  name='Washing Machine hours'
+                  placeholder='hours'
                   onChange={handleWashingHoursChange}
                   value={washingMachine.hours}
                 ></input>
-                <label htmlFor="Washing Machine hours"></label>
+                <label htmlFor='Washing Machine hours'></label>
                 {errors.entername && <p>enter message</p>}
               </div>
 
-              <div className="device-use-duration">
+              <div className='device-use-duration'>
                 <input
-                  type="number"
-                  className="inputDays"
+                  type='number'
+                  className='inputDays'
                   ref={register({ min: 1, max: 7 })}
-                  name="Washing Machine days"
-                  placeholder="days per week"
+                  name='Washing Machine days'
+                  placeholder='days per week'
                   onChange={handleWashingDaysChange}
                   value={washingMachine.days}
                 ></input>
-                <label htmlFor="Washing Machine days"></label>
+                <label htmlFor='Washing Machine days'></label>
                 {errors.entername && <p>enter message</p>}
               </div>
             </div>
           </section>
 
-          <section className="device-section">
+          <section className='device-section'>
             <img
               src={clothesWashPNG}
-              alt="black line drawing of a washer/dryer for clothes"
+              alt='black line drawing of a washer/dryer for clothes'
             />
-            <h3 className="clothesH3">Clothes Dryer</h3>
-            <div className="device-fields">
-              <div className="device-use-duration">
+            <h3 className='clothesH3'>Clothes Dryer</h3>
+            <div className='device-fields'>
+              <div className='device-use-duration'>
                 <input
-                  type="number"
-                  className="inputHrs"
+                  type='number'
+                  className='inputHrs'
                   ref={register({ min: 1, max: 24 })}
-                  name="Dryer hours"
-                  placeholder="hours"
+                  name='Dryer hours'
+                  placeholder='hours'
                   onChange={handleDryerHoursChange}
                   value={dryer.hours}
                 ></input>
-                <label htmlFor="Dryer hours"></label>
+                <label htmlFor='Dryer hours'></label>
                 {errors.entername && <p>enter message</p>}
               </div>
 
-              <div className="device-use-duration">
+              <div className='device-use-duration'>
                 <input
-                  type="number"
-                  className="inputDays"
+                  type='number'
+                  className='inputDays'
                   ref={register({ min: 1, max: 7 })}
-                  name="Dryer days"
-                  placeholder="days per week"
+                  name='Dryer days'
+                  placeholder='days per week'
                   onChange={handleDryerDaysChange}
                   value={dryer.days}
                 ></input>
-                <label htmlFor="Dryer days"></label>
+                <label htmlFor='Dryer days'></label>
                 {errors.entername && <p>enter message</p>}
               </div>
             </div>
           </section>
 
-          <section className="device-section">
+          <section className='device-section'>
             <img
               src={computerPNG}
-              alt="black line drawing of a desktop computer"
+              alt='black line drawing of a desktop computer'
             />
-            <h3 className="pcH3">Desktop PC</h3>
-            <div className="device-fields">
-              <div className="device-use-duration">
+            <h3 className='pcH3'>Desktop PC</h3>
+            <div className='device-fields'>
+              <div className='device-use-duration'>
                 <input
-                  type="number"
-                  className="inputHrs"
+                  type='number'
+                  className='inputHrs'
                   ref={register({ min: 1, max: 24 })}
-                  name="pc hours"
-                  placeholder="hours"
+                  name='pc hours'
+                  placeholder='hours'
                   onChange={handlePCHoursChange}
                   value={pc.hours}
                 ></input>
-                <label htmlFor="pc hours"></label>
+                <label htmlFor='pc hours'></label>
                 {errors.entername && <p>enter message</p>}
               </div>
-              <div className="device-use-duration">
+              <div className='device-use-duration'>
                 <input
-                  type="number"
-                  className="inputDays"
+                  type='number'
+                  className='inputDays'
                   ref={register({ min: 1, max: 7 })}
-                  name="pc days"
-                  placeholder="days per week"
+                  name='pc days'
+                  placeholder='days per week'
                   onChange={handlePCDaysChange}
                   value={pc.days}
                 ></input>
-                <label htmlFor="pc days"></label>
+                <label htmlFor='pc days'></label>
                 {errors.entername && <p>enter message</p>}
               </div>
             </div>
           </section>
 
-          <section className="device-section">
-            <img src={tvPNG} alt="black line drawing of a television" />
-            <h3 className="tvH3">Television</h3>
-            <div className="device-fields">
-              <div className="device-use-duration">
+          <section className='device-section'>
+            <img src={tvPNG} alt='black line drawing of a television' />
+            <h3 className='tvH3'>Television</h3>
+            <div className='device-fields'>
+              <div className='device-use-duration'>
                 <input
-                  type="number"
-                  className="inputHrs"
+                  type='number'
+                  className='inputHrs'
                   ref={register({ min: 1, max: 24 })}
-                  name="tv hours"
-                  placeholder="hours"
+                  name='tv hours'
+                  placeholder='hours'
                   onChange={handleTVHoursChange}
                   value={tv.hours}
                 ></input>
-                <label htmlFor="tv hours"></label>
+                <label htmlFor='tv hours'></label>
                 {errors.entername && <p>enter message</p>}
               </div>
-              <div className="device-use-duration">
+              <div className='device-use-duration'>
                 <input
-                  type="number"
-                  className="inputDays"
+                  type='number'
+                  className='inputDays'
                   ref={register({ min: 1, max: 7 })}
-                  name="tv days"
-                  placeholder="days per week"
+                  name='tv days'
+                  placeholder='days per week'
                   onChange={handleTVDaysChange}
                   value={tv.days}
                 ></input>
-                <label htmlFor="tv days"></label>
+                <label htmlFor='tv days'></label>
                 {errors.entername && <p>enter message</p>}
               </div>
             </div>
           </section>
         </div>
-        <button className="app-buttons-input" type="submit">
+        <button className='app-buttons-input' type='submit'>
           {/* this button will submit post request */}
           Confirm
         </button>
       </form>
-      <div className=""></div>
-      <div className="input-button-container">
-        <Link to="/profile/appliances">
-          <button className="app-buttons-input-dashlink">
+      <div className=''></div>
+      <div className='input-button-container'>
+        <Link to='/profile/appliances'>
+          <button className='app-buttons-input-dashlink'>
             Go to Dashboard
           </button>
         </Link>
       </div>
-      Icons made by{" "}
-      <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+      Icons made by{' '}
+      <a href='https://www.flaticon.com/authors/freepik' title='Freepik'>
         Freepik
-      </a>{" "}
-      from{" "}
-      <a href="https://www.flaticon.com/" title="Flaticon">
-        {" "}
+      </a>{' '}
+      from{' '}
+      <a href='https://www.flaticon.com/' title='Flaticon'>
+        {' '}
         www.flaticon.com
       </a>
     </div>
