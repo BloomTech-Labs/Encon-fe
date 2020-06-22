@@ -13,26 +13,26 @@ import { axiosWithAuth } from "../../utils/auth/axiosWithAuth";
 import axios from "axios";
 
 export const Dashboard = (props) => {
-  // const [userName, setUserName] = useState("");
-  // const [location, setLocation] = useState("");
-  // const [userId, setUserId] = useState("");
+  const [userName, setUserName] = useState("");
+  const [location, setLocation] = useState("");
+  const [userId, setUserId] = useState("");
 
-  // useEffect(async () => {
-  //   axiosWithAuth()
-  //     .get("/encon/users")
-  //     .then((res) => {
-  //       setUserName(res.data.userName);
-  //       setLocation(res.data.location);
-  //       setUserId(res.data.id);
-  //       console.log(
-  //         res.data,
-  //         "res data from useEffect get on profile/dashboard redirect"
-  //       );
-  //     })
-  //     .catch((err) => {
-  //       console.log("waaaiiiitttt....what?", err);
-  //     });
-  // }, []);
+  useEffect(async () => {
+    axiosWithAuth()
+      .get("/encon/users")
+      .then((res) => {
+        setUserName(res.data.userName);
+        setLocation(res.data.location);
+        setUserId(res.data.id);
+        console.log(
+          res.data,
+          "res data from useEffect get on profile/dashboard redirect"
+        );
+      })
+      .catch((err) => {
+        console.log("waaaiiiitttt....what?", err);
+      });
+  }, []);
 
   return (
     <div className="dashboard">

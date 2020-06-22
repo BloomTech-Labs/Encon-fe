@@ -62,7 +62,7 @@ const AppWithRouterAccess = () => {
         <DesktopNav />
         <UserInput />
       </Route>
-      <Route path="/implicit/callback" component={LoginCallback} />
+      {/* <Route path="/implicit/callback" component={LoginCallback} /> */}
       <Route path="/profile">
         <DesktopNav />
         <Dashboard />
