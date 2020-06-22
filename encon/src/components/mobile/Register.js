@@ -42,16 +42,12 @@ export const Register = () => {
             localStorage.setItem('USER_NAME', res.data.Data.name);
             localStorage.setItem('USER_LOCATION', res.data.Data.state);
             history.push('/profile');
-            console.log(getValues(), 'this is the res from register');
           });
       })
       .catch((err) => {
         // setRegisterError("Registration Error: " + err.response.data.error.message);
       });
-    console.log(data);
   };
-
-  console.log(errors);
 
   const verifyPassword = (repeatPassword) =>
     repeatPassword === getValues().password || 'Passwords do not match';

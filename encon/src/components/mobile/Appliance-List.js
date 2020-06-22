@@ -23,7 +23,7 @@ export const ApplianceList = () => {
       console.log(appliance);
       axios
         .get(
-          `http://enconaq.eba-bqepxksk.us-east-1.elasticbeanstalk.com/${appliance.device}/${localStorage.USER_LOCATION}/${appliance.hours}/${appliance.days}`
+          `http://environment-2.eba-j6sk9zsp.us-east-1.elasticbeanstalk.com/${appliance.device}/${localStorage.USER_LOCATION}/${appliance.hours}/${appliance.days}`
         )
         .then((res) => {
           setTotal((total += res.data.cost_per_year).toFixed(2));

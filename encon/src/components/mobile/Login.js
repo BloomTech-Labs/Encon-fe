@@ -25,13 +25,11 @@ export const Login = () => {
         localStorage.setItem('USER_NAME', res.data.Data.name);
         localStorage.setItem('USER_LOCATION', res.data.Data.state);
         history.push('/profile');
-        console.log(res, 'res from login');
       })
       .catch((err) => {
         // setLoginError('Login Error: ' + err.response.data.error.message);
       });
   };
-  console.log(errors);
 
   return (
     <div className='login-container'>
