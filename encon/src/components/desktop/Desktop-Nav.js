@@ -4,7 +4,11 @@ import logo from '../../assets/EnCon-logo.png';
 import { DesktopHeader } from '../desktop/Desktop-Header.js';
 import { NavbarBrand, NavLink } from 'reactstrap';
 
-export const DesktopNav = () => {
+export const DesktopNav = ({ loggedIn }) => {
+	const logOut = () => {
+		localStorage.removeItem('AUTH_TOKEN');
+	};
+
 	return (
 		<div>
 			<div className='desktop-nav-container'>
@@ -21,6 +25,11 @@ export const DesktopNav = () => {
 					<NavLink className='desktop-nav-link' href='/'>
 						About
 					</NavLink>
+					<NavLink
+						className='desktop-nav-link'
+						href='/'
+						onClick={logOut}
+					></NavLink>
 				</div>
 			</div>
 			<div className='desktop-nav-header'>
