@@ -29,7 +29,7 @@ export const DesktopNav = ({ loggedIn }) => {
 						className='desktop-nav-link'
 						href='/'
 						onClick={logOut}
-					></NavLink>
+					>Log Out</NavLink>
 				</div>
 			</div>
 			<div className='desktop-nav-header'>
