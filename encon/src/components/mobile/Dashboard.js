@@ -11,6 +11,7 @@ import "../../styles/mobile/Appliance-Tracker.scss";
 // import { SecureRoute } from "@okta/okta-react";
 import { axiosWithAuth } from "../../utils/auth/axiosWithAuth";
 import axios from "axios";
+import { UserInput } from "./UserInput";
 
 export const Dashboard = (props) => {
   const [userName, setUserName] = useState("");
@@ -50,11 +51,12 @@ export const Dashboard = (props) => {
           </Link>
         </div>
       </div>
+      {/* <Route path="/userInput" component={UserInput} /> */}
       {/* <SecureRoute path="/profile/appliances"> */}
-        <ApplianceList />
+      <ApplianceList />
       {/* </SecureRoute> */}
       <MediaQuery minDeviceWidth={1025}>
-        <Route path="/profile/graphs" component={DesktopGraphs} />
+        {/* <Route path="/profile/graphs" component={DesktopGraphs} /> */}
       </MediaQuery>
       <MediaQuery maxDeviceWidth={1025}>
         <Route path="/profile/graphs" component={Graphs} />
