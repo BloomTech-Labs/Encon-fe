@@ -17,7 +17,7 @@ export const Register = () => {
     triggerValidation,
   } = useForm();
   // const [RegisterError, setRegisterError] = useState();
-  const baseUrl = 'https://encon-be.herokuapp.com/api';
+  const baseUrl = 'https://localhost:3300/api';
   const history = useHistory();
 
   const onRegisterSubmit = (data) => {
