@@ -5,7 +5,7 @@ import "../../styles/mobile/UserInput.scss";
 import computerPNG from "../../assets/ElectronicsFolder/Computer Desktop.png";
 import dishPNG from "../../assets/ElectronicsFolder/Dishwasher.png";
 import washingMachinePNG from "../../assets/ElectronicsFolder/Washing Machine.png";
-import tvPNG from "../../assets/ElectronicsFolder/TV (55” LED).png";
+import tvPNG from "../../assets/ElectronicsFolder/TV (55 in LED).png";
 import clothesWashPNG from "../../assets/ElectronicsFolder/Clothes Dryer.png";
 import calendarPNG from "../../assets/ElectronicsFolder/calendar.png";
 import { DatePicker } from "./DatePicker";
@@ -103,7 +103,7 @@ export const UserInput = () => {
     user_id: userId,
   });
   const [tv, setTv] = useState({
-    device: `TV (55" LED)`,
+    device: `TV (55 in LED)`,
     hours: "",
     days: "",
     user_id: userId,

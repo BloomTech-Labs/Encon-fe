@@ -50,8 +50,11 @@ const App = () => {
             <Register />
           </MediaQuery>
         </Route>
-        <PrivateRoute path="/userInput" component={UserInput} />
-        {/* <UserInput /> */}
+        <PrivateRoute path="/userInput">
+          <DesktopNav />
+          <UserInput />
+        </PrivateRoute>
+
         <PrivateRoute path="/profile" component={Dashboard} />
         {/* <Dashboard /> */}
       </UserContext.Provider>

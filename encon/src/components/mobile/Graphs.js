@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { axiosWithAuth } from '../../utils/auth/axiosWithAuth';
-import '../../styles/mobile/Graph.scss';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { axiosWithAuth } from "../../utils/auth/axiosWithAuth";
+import "../../styles/mobile/Graph.scss";
 import {
   LineChart,
   BarChart,
@@ -12,7 +12,7 @@ import {
   YAxis,
   Tooltip,
   Legend,
-} from 'recharts';
+} from "recharts";
 
 export const Graphs = () => {
   let [deviceList, setDeviceList] = useState([]);
@@ -22,7 +22,7 @@ export const Graphs = () => {
   let [totalUsage, setTotalUsage] = useState(0);
   useEffect(() => {
     axiosWithAuth()
-      .get('http://localhost:3300/api/encon/appliances')
+      .get("http://localhost:3300/api/encon/appliances")
       .then((response) => {
         setDeviceList(response.data);
         response.data.map((appliances) => {
@@ -35,14 +35,14 @@ export const Graphs = () => {
         });
       })
       .catch((err) => {
-        console.log('error getting appliance list', err);
+        console.log("error getting appliance list", err);
       });
   }, []);
   useEffect(() => {
     deviceList.map((appliance) => {
       axios
         .get(
-          `http://enconaq.eba-bqepxksk.us-east-1.elasticbeanstalk.com/${appliance.device}/${localStorage.USER_LOCATION}/${appliance.hours}/${appliance.days}`
+          `https://environment-2.eba-j6sk9zsp.us-east-1.elasticbeanstalk.com/${appliance.device}/${localStorage.USER_LOCATION}/${appliance.hours}/${appliance.days}`
         )
         .then((res) => {
           setTotal((total += res.data.cost_per_year));
@@ -58,49 +58,49 @@ export const Graphs = () => {
           setDataList(dataList);
         })
         .catch((err) => {
-          console.log('error getting appliance data', err);
+          console.log("error getting appliance data", err);
         });
     });
   }, [device]);
   return (
-    <div className='graphContainer' data-testid='EnergyChart'>
+    <div className="graphContainer" data-testid="EnergyChart">
       <h2>Average Energy Output Per Appliance Per Month</h2>
       <LineChart
-        className='energyGraph'
+        className="energyGraph"
         width={350}
         height={300}
         data={dataList}
         margin={{ top: 5, right: 20, bottom: 10, left: 0 }}
       >
         <Line
-          type='monotone'
-          dataKey='TotalUsage'
-          stroke='purple'
+          type="monotone"
+          dataKey="TotalUsage"
+          stroke="purple"
           strokeWidth={2}
         />
-        <CartesianGrid stroke='grey' strokeDasharray='10' />
-        <XAxis tick={{ fontSize: 8 }} dataKey='Name' />
+        <CartesianGrid stroke="grey" strokeDasharray="10" />
+        <XAxis tick={{ fontSize: 8 }} dataKey="Name" />
         <YAxis />
         <Tooltip content={dataList} />
         <Legend />
       </LineChart>
       <h2>Average Expenses</h2>
       <BarChart
-        className='energyGraph'
+        className="energyGraph"
         width={350}
         height={300}
         data={dataList}
         margin={{ top: 5, right: 20, bottom: 10, left: 0 }}
       >
         <Bar
-          type='monotone'
-          dataKey='TotalCost'
-          stroke='green'
-          fill='green'
+          type="monotone"
+          dataKey="TotalCost"
+          stroke="green"
+          fill="green"
           strokeWidth={2}
         />
-        <CartesianGrid stroke='grey' strokeDasharray='10' />
-        <XAxis tick={{ fontSize: 8 }} dataKey='Name' />
+        <CartesianGrid stroke="grey" strokeDasharray="10" />
+        <XAxis tick={{ fontSize: 8 }} dataKey="Name" />
         <YAxis />
         <Tooltip content={dataList} />
         <Legend />

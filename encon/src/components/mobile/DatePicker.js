@@ -13,10 +13,10 @@ export const DatePicker = (props) => {
     setDate(date);
   };
 
-  const liftDateState = () => {
-    const liftDate = date;
-    props.todaysDate(liftDate);
-  };
+  // const liftDateState = () => {
+  //   const liftDate = date;
+  //   props.todaysDate(liftDate);
+  // };
 
   return (
     <>
