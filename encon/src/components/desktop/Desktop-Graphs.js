@@ -46,7 +46,7 @@ export const DesktopGraphs = () => {
         )
         .then((res) => {
           setTotal((total += res.data.cost_per_year));
-          setTotalUsage((totalUsage = totalUsage + res.data.energy_used));
+          setTotalUsage((totalUsage += res.data.energy_used));
           dataList = [
             ...dataList,
             {

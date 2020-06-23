@@ -27,9 +27,7 @@ export const ApplianceList = () => {
         )
         .then((res) => {
           setTotal((total += res.data.cost_per_year).toFixed(2));
-          setTotalUsage(
-            (totalUsage = totalUsage + res.data.energy_used).toFixed(2)
-          );
+          setTotalUsage((totalUsage += res.data.energy_used).toFixed(2));
         })
         .catch((err) => {
           console.log('error getting appliance data', err);
