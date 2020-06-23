@@ -5,13 +5,10 @@ import { Link, Route } from "react-router-dom";
 import { ApplianceList } from "./Appliance-List";
 import { DesktopGraphs } from "../desktop/Desktop-Graphs";
 import { Graphs } from "./Graphs";
-// import { useOktaAuth } from '@okta/okta-react';
 import MediaQuery from "react-responsive";
 import "../../styles/mobile/Appliance-Tracker.scss";
-// import { SecureRoute } from "@okta/okta-react";
 import { axiosWithAuth } from "../../utils/auth/axiosWithAuth";
-import axios from "axios";
-import { UserInput } from "./UserInput";
+import { DesktopNav } from "../desktop/Desktop-Nav";
 
 export const Dashboard = (props) => {
   const [userName, setUserName] = useState("");
@@ -37,6 +34,7 @@ export const Dashboard = (props) => {
 
   return (
     <div className="dashboard">
+      <DesktopNav />
       <WelcomeHeader />
       <EnergyLocation />
       <div className="applianceTracker">
@@ -53,10 +51,13 @@ export const Dashboard = (props) => {
       </div>
       {/* <Route path="/userInput" component={UserInput} /> */}
       {/* <SecureRoute path="/profile/appliances"> */}
-      <ApplianceList />
+      <Route path="/profile/appliances">
+        <ApplianceList />
+      </Route>
+
       {/* </SecureRoute> */}
       <MediaQuery minDeviceWidth={1025}>
-        {/* <Route path="/profile/graphs" component={DesktopGraphs} /> */}
+        <Route path="/profile/graphs" component={DesktopGraphs} />
       </MediaQuery>
       <MediaQuery maxDeviceWidth={1025}>
         <Route path="/profile/graphs" component={Graphs} />

@@ -13,6 +13,7 @@ import { Login } from "./components/mobile/Login";
 import { DesktopNav } from "./components/desktop/Desktop-Nav.js";
 import { Dashboard } from "./components/mobile/Dashboard";
 import { UserInput } from "./components/mobile/UserInput";
+import { DesktopHeader } from "./components/desktop/Desktop-Header";
 
 const App = () => {
   const user = useState({
@@ -32,6 +33,7 @@ const App = () => {
         <Route exact path="/">
           <MediaQuery minDeviceWidth={1025}>
             <DesktopNav loggedIn={true} />
+            <DesktopHeader />
             <DesktopView />
           </MediaQuery>
           <MediaQuery maxDeviceWidth={1025}>
@@ -48,13 +50,8 @@ const App = () => {
             <Register />
           </MediaQuery>
         </Route>
-        <PrivateRoute path="/userInput">
-          <DesktopNav />
-          <UserInput />
-        </PrivateRoute>
-
+        <PrivateRoute path="/userInput" component={UserInput} />
         {/* <UserInput /> */}
-
         <PrivateRoute path="/profile" component={Dashboard} />
         {/* <Dashboard /> */}
       </UserContext.Provider>
