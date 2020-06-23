@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.scss';
 import { PrivateRoute } from './utils/auth/PrivateRoute.js';
-import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Navigation } from './components/mobile/Navigation.js';
 import { LandingPage } from './components/mobile/Landing-Page.js';
 import { LogoHeader } from './components/mobile/Logo-Header.js';
@@ -16,47 +16,55 @@ import { UserInput } from './components/mobile/UserInput';
 import { DesktopHeader } from './components/desktop/Desktop-Header';
 
 const App = () => {
-  const user = useState({
-    name: '',
-    email: '',
-    password: '',
-    state: '',
-  });
+	const user = useState({
+		name: '',
+		email: '',
+		password: '',
+		state: '',
+	});
 
-  return (
-    <div className='App'>
-      <UserContext.Provider value={{ user }}>
-        <MediaQuery maxDeviceWidth={1025}>
-          <Navigation loggedIn={true} />
-        </MediaQuery>
-        <LogoHeader />
-        <Route exact path='/'>
-          <MediaQuery minDeviceWidth={1025}>
-            <DesktopNav loggedIn={true} />
-            <DesktopHeader />
-            <DesktopView />
-          </MediaQuery>
-          <MediaQuery maxDeviceWidth={1025}>
-            <LandingPage />
-          </MediaQuery>
-        </Route>
-        <Route path='/login'>
-          <MediaQuery maxDeviceWidth={1025}>
-            <Login />
-          </MediaQuery>
-        </Route>
-        <Route path='/register'>
-          <MediaQuery maxDeviceWidth={1025}>
-            <Register />
-          </MediaQuery>
-        </Route>
-        <PrivateRoute path='/userInput' component={UserInput} />
-        {/* <UserInput /> */}
-        <PrivateRoute path='/profile' component={Dashboard} />
-        {/* <Dashboard /> */}
-      </UserContext.Provider>
-    </div>
-  );
+	return (
+		<Router>
+			<Switch>
+				<div className='App'>
+					<UserContext.Provider value={{ user }}>
+						<MediaQuery maxDeviceWidth={1025}>
+							<Navigation loggedIn={true} />
+						</MediaQuery>
+						<LogoHeader />
+						<Route exact path='/'>
+							<MediaQuery minDeviceWidth={1025}>
+								<DesktopNav loggedIn={true} />
+							</MediaQuery>
+							<MediaQuery minDeviceWidth={1025}>
+								<DesktopHeader />
+								<DesktopView />
+							</MediaQuery>
+							<MediaQuery maxDeviceWidth={1025}>
+								<LandingPage />
+							</MediaQuery>
+						</Route>
+						<Route path='/login'>
+							<MediaQuery maxDeviceWidth={1025}>
+								<Login />
+							</MediaQuery>
+						</Route>
+						<Route path='/register'>
+							<MediaQuery maxDeviceWidth={1025}>
+								<Register />
+							</MediaQuery>
+						</Route>
+						{localStorage.getItem('AUTH_TOKEN') !== null && (
+							<>
+								<PrivateRoute path='/userInput' component={UserInput} />
+								<PrivateRoute path='/profile' component={Dashboard} />
+							</>
+						)}
+					</UserContext.Provider>
+				</div>
+			</Switch>
+		</Router>
+	);
 };
 
 export default App;
