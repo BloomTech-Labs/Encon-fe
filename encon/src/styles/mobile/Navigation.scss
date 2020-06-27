@@ -21,7 +21,9 @@
 
 /* General sidebar styles */
 .bm-menu {
+	padding-top: 10rem;
 	background: transparentize($color: #044fbd, $amount: 0.025);
+	overflow: hidden !important;
 }
 
 /* Position and sizing of clickable cross button */
@@ -36,7 +38,7 @@
 
 /* Wrapper for item list */
 .bm-item-list {
-	margin-top: 6.75rem;
+	margin-top: 5rem;
 }
 
 /* Individual item */
@@ -44,7 +46,7 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	margin-top: 2.25rem;
+	margin-top: 2rem;
 	font-size: 2.5rem;
 	letter-spacing: 0.05rem;
 	text-decoration: none;

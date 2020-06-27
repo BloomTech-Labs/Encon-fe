@@ -3,14 +3,7 @@ import { Login } from '../../components/mobile/Login.js';
 import { Register } from '../../components/mobile/Register.js';
 import '../../styles/desktop/Desktop-Login-Register.scss';
 
-import {
-	TabContent,
-	TabPane,
-	NavLink,
-	Nav,
-	Card,
-	Col,
-} from 'reactstrap';
+import { TabContent, TabPane, NavLink, Nav, Card, Col } from 'reactstrap';
 import classnames from 'classnames';
 
 export const LoginRegister = () => {
@@ -43,7 +36,7 @@ export const LoginRegister = () => {
 			<TabContent activeTab={activeTab}>
 				<TabPane tabId='1'>
 					<Col xl='13'>
-						<Card className='desktop-register-card' style={{ height: '65rem' }}>
+						<Card className='desktop-register-card' style={{ border: 'none' }}>
 							<Register />
 						</Card>
 					</Col>
@@ -51,7 +44,7 @@ export const LoginRegister = () => {
 
 				<TabPane tabId='2'>
 					<Col xl='13'>
-						<Card className='desktop-login-card' style={{ height: '65rem' }}>
+						<Card className='desktop-login-card' style={{ border: 'none' }}>
 							<Login />
 						</Card>
 					</Col>

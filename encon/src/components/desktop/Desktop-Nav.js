@@ -3,17 +3,10 @@ import '../../styles/desktop/Desktop-Nav.scss';
 import logo from '../../assets/EnCon-logo.png';
 import { NavbarBrand, NavLink } from 'reactstrap';
 
-export const DesktopNav = ({loggedIn}) => {
-
-  
-  const logOut = () => {
+export const DesktopNav = ({ loggedIn }) => {
+	const logOut = () => {
 		localStorage.removeItem('AUTH_TOKEN');
-  };
-  
-
-
-
-
+	};
 
 	return (
 		<div>
@@ -28,14 +21,16 @@ export const DesktopNav = ({loggedIn}) => {
 					<NavLink className='desktop-nav-link' href='/'>
 						Help
 					</NavLink>
-					<NavLink className='desktop-nav-link' href='/'>
-						Profile
-					</NavLink>
-					{/* {loggedIn && localStorage.getItem('AUTH_TOKEN') !== null && ( */}
+					{loggedIn && localStorage.getItem('AUTH_TOKEN') !== null && (
+						<NavLink className='desktop-nav-link' href='/profile'>
+							Profile
+						</NavLink>
+					)}
+					{loggedIn && localStorage.getItem('AUTH_TOKEN') !== null && (
 						<NavLink className='desktop-nav-link' href='/' onClick={logOut}>
 							Logout
 						</NavLink>
-					{/* )}  */}
+					)}
 				</div>
 			</div>
 		</div>
