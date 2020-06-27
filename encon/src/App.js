@@ -16,47 +16,45 @@ import { UserInput } from './components/mobile/UserInput';
 import { DesktopHeader } from './components/desktop/Desktop-Header';
 
 const App = () => {
-  const user = useState({
-    name: '',
-    email: '',
-    password: '',
-    state: '',
-  });
+	const user = useState({
+		name: '',
+		email: '',
+		password: '',
+		state: '',
+	});
 
-  return (
-    <div className='App'>
-      <UserContext.Provider value={{ user }}>
-        <MediaQuery maxDeviceWidth={1025}>
-          <Navigation loggedIn={true} />
-        </MediaQuery>
-        <LogoHeader />
-        <Route exact path='/'>
-          <MediaQuery minDeviceWidth={1025}>
-            <DesktopNav loggedIn={true} />
-            <DesktopHeader />
-            <DesktopView />
-          </MediaQuery>
-          <MediaQuery maxDeviceWidth={1025}>
-            <LandingPage />
-          </MediaQuery>
-        </Route>
-        <Route path='/login'>
-          <MediaQuery maxDeviceWidth={1025}>
-            <Login />
-          </MediaQuery>
-        </Route>
-        <Route path='/register'>
-          <MediaQuery maxDeviceWidth={1025}>
-            <Register />
-          </MediaQuery>
-        </Route>
-        <PrivateRoute path='/userInput' component={UserInput} />
-        {/* <UserInput /> */}
-        <PrivateRoute path='/profile' component={Dashboard} />
-        {/* <Dashboard /> */}
-      </UserContext.Provider>
-    </div>
-  );
+	return (
+		<div className='App'>
+			<UserContext.Provider value={{ user }}>
+				<MediaQuery maxDeviceWidth={1025}>
+					<Navigation loggedIn={true} />
+				</MediaQuery>
+				<LogoHeader />
+				<Route exact path='/'>
+					<MediaQuery minDeviceWidth={1025}>
+						<DesktopNav loggedIn={true} />
+						<DesktopHeader />
+						<DesktopView />
+					</MediaQuery>
+					<MediaQuery maxDeviceWidth={1025}>
+						<LandingPage />
+					</MediaQuery>
+				</Route>
+				<Route path='/login'>
+					<MediaQuery maxDeviceWidth={1025}>
+						<Login />
+					</MediaQuery>
+				</Route>
+				<Route path='/register'>
+					<MediaQuery maxDeviceWidth={1025}>
+						<Register />
+					</MediaQuery>
+				</Route>
+				<PrivateRoute path='/userInput' component={UserInput} />
+				<PrivateRoute path='/profile' component={Dashboard} />
+			</UserContext.Provider>
+		</div>
+	);
 };
 
 export default App;

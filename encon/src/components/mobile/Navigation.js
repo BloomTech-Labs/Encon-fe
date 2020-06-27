@@ -2,7 +2,7 @@ import React from 'react';
 import '../../styles/mobile/Navigation.scss';
 import Menu from 'react-burger-menu/lib/menus/stack';
 
-export const Navigation = () => {
+export const Navigation = ({ loggedIn }) => {
 	const logOut = () => {
 		localStorage.removeItem('AUTH_TOKEN');
 	};
@@ -24,12 +24,16 @@ export const Navigation = () => {
 				<a className='bm-item' href='/register'>
 					Register
 				</a>
-				<a className='bm-item' href='/profile'>
-					Profile
-				</a>
-				<a className='bm-item' href='/' onClick={logOut}>
-					Log Out
-				</a>
+				{loggedIn && localStorage.getItem('AUTH_TOKEN') !== null && (
+					<a className='bm-item' href='/profile'>
+						Profile
+					</a>
+				)}
+				{loggedIn && localStorage.getItem('AUTH_TOKEN') !== null && (
+					<a className='bm-item' href='/' onClick={logOut}>
+						Logout
+					</a>
+				)}
 			</div>
 		</Menu>
 	);
