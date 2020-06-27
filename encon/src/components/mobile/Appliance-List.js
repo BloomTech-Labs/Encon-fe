@@ -23,13 +23,11 @@ export const ApplianceList = () => {
       console.log(appliance);
       axios
         .get(
-          `http://environment-2.eba-j6sk9zsp.us-east-1.elasticbeanstalk.com/${appliance.device}/${localStorage.USER_LOCATION}/${appliance.hours}/${appliance.days}`
+          `https://environment-2.eba-j6sk9zsp.us-east-1.elasticbeanstalk.com/${appliance.device}/${localStorage.USER_LOCATION}/${appliance.hours}/${appliance.days}`
         )
         .then((res) => {
           setTotal((total += res.data.cost_per_year).toFixed(2));
-          setTotalUsage(
-            (totalUsage = totalUsage + res.data.energy_used).toFixed(2)
-          );
+          setTotalUsage((totalUsage += res.data.energy_used).toFixed(2));
         })
         .catch((err) => {
           console.log('error getting appliance data', err);
