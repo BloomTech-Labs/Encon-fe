@@ -10,7 +10,7 @@
 		font-size: 1.35rem;
 		font-weight: 500;
 		margin-top: 1.75rem;
-		padding-bottom: 0.5rem;
+		padding-bottom: 0.75rem;
 	}
 
 	.select-state {
@@ -19,7 +19,6 @@
 		padding: 1.25rem 1.75rem;
 		border-radius: 1.25rem;
 		background: transparentize($color: #e5e5e5, $amount: 0);
-
 		border: 0.5px solid transparentize($color: #4f4f4f, $amount: 0.75);
 
 		option {
